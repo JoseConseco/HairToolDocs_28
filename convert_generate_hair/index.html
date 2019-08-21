@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Convert tools - Hair Tool 2 Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Convert tools";
+    var mkdocs_page_input_path = "convert_generate_hair.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Hair Tool 2 Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Hair Workflows</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../main_workflows/hair_drawing/">Drawing</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../main_workflows/hair_from_surface/">Generating from surface</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../main_workflows/interactive_groom/">Interactive grooming</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Convert tools</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#convert-generate-operations">Convert / Generate operations</a></li>
+    
+
+    <li class="toctree-l2"><a href="#ribbon-to-curves">Ribbon to Curves</a></li>
+    
+
+    <li class="toctree-l2"><a href="#particle-hairs-to-curve">Particle Hairs to Curve</a></li>
+    
+
+    <li class="toctree-l2"><a href="#particle-hairs-from-curve">Particle Hairs From Curve</a></li>
+    
+
+    <li class="toctree-l2"><a href="#ribbons-from-particle-hair-with-children">Ribbons from particle hair with children</a></li>
+    
+
+    <li class="toctree-l2"><a href="#particle-hair-from-grease-pencil">Particle Hair From Grease Pencil</a></li>
+    
+
+    <li class="toctree-l2"><a href="#generate-braid">Generate Braid</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../curve_tool/">Curve tools</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mesh_ribbons_ops/">Mesh tools</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../editing_profile/">Curve Profile</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../uv_hair/">Hair UV</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Hair Tool 2 Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Convert tools</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="convert-generate-operations">Convert / Generate operations<a class="headerlink" href="#convert-generate-operations" title="Permanent link">&para;</a></h3>
+<p>Convert Particle Hair to curve ribbons, curves to Particle hair. Or curve ribbons to mesh ribbons.</p>
+<p>generate braids or curly hair.</p>
+<h3 id="ribbon-to-curves">Ribbon to Curves<a class="headerlink" href="#ribbon-to-curves" title="Permanent link">&para;</a></h3>
+<p><img alt="Ribbon to Curves" src="../img/ribbon_curves.gif" /></p>
+<p><strong>Ribbon to Curves/ Curves to Ribbon</strong> - allow for switching between ribbon curve and ribbon mesh state. Usually you will want to do hair modeling in curve state, and then do UV in ribbon mesh state.</p>
+<h3 id="particle-hairs-to-curve">Particle Hairs to Curve<a class="headerlink" href="#particle-hairs-to-curve" title="Permanent link">&para;</a></h3>
+<p><img alt="Particle Hairs to Curve" src="../img/curvesfromparticles.gif" />
+<strong>Particle Hairs to Curve</strong> - generate curve ribbons from Particle hair.  Align their tilt to head with 'Align Tilt' checkbox, and embed hair roots deeper into the scull using 'Embed Roots' parameter.</p>
+<h3 id="particle-hairs-from-curve">Particle Hairs From Curve<a class="headerlink" href="#particle-hairs-from-curve" title="Permanent link">&para;</a></h3>
+<p><img alt="(Particle Hairs From Curve)" src="../img/particlehairfromcurve.gif" />
+<strong>Particle Hair from Curves</strong> (this can be used to convert zbrush fibermesh to blender Particle Hair system). Select curves and target mesh (that will receive Particle Hair) and use '<strong>Particle Hair from Curves</strong>' to convert curves object to blenders Hair system.</p>
+<h3 id="ribbons-from-particle-hair-with-children">Ribbons from particle hair with children<a class="headerlink" href="#ribbons-from-particle-hair-with-children" title="Permanent link">&para;</a></h3>
+<p><img alt="(Ribbons from particle hair with children)" src="../img/ribbonsfromph.gif" />
+'<strong>Ribbons from particle hair with children</strong>' - gives more evenly distributed result compared to build-in child particles . Great for short Hair.</p>
+<h3 id="particle-hair-from-grease-pencil">Particle Hair From Grease Pencil<a class="headerlink" href="#particle-hair-from-grease-pencil" title="Permanent link">&para;</a></h3>
+<p><img alt="Particle Hair From Grease Pencil" src="../img/gp_to_hair.gif" />
+'<strong>Particle Hair From Grease Pencil</strong>' strokes painted with grease pencil, can be converted to particle hair (with some options available under f6). Checkbox next to this button, describes if you want to use Scene GPencil data (when enabled), or Object GP data (when disabled).</p>
+<ul>
+<li>'Flip UV' option in preferences - if enabled random strands will have uv's flipped in X-axis.</li>
+</ul>
+<h3 id="generate-braid">Generate Braid<a class="headerlink" href="#generate-braid" title="Permanent link">&para;</a></h3>
+<p><img alt="Generate Braid" src="../img/generatebraid.gif" /></p>
+<p>Braids from curve - just select Source curve, and run 'Generate Braids' on it. As usual there are some options under the F6 button. After you are finish, original Source curve can influences the generated braid so you can twist it (ctrl +T), scale radius (alt+s) to change the sape of braid.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../curve_tool/" class="btn btn-neutral float-right" title="Curve tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../main_workflows/interactive_groom/" class="btn btn-neutral" title="Interactive grooming"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../main_workflows/interactive_groom/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../curve_tool/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

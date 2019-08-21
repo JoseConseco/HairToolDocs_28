@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Curve tools - Hair Tool 2 Docs</title>
+  <title>Curve Profile - Hair Tool 2 Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Curve tools";
-    var mkdocs_page_input_path = "curve_tool.md";
+    var mkdocs_page_name = "Curve Profile";
+    var mkdocs_page_input_path = "editing_profile.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -78,35 +78,9 @@
     <a class="" href="../convert_generate_hair/">Convert tools</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Curve tools</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#ribbon-operations">Ribbon operations:</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#curve-simplify">Curve Simplify</a></li>
-        
-            <li><a class="toctree-l3" href="#resample-curve">Resample Curve</a></li>
-        
-            <li><a class="toctree-l3" href="#smooth-curve">Smooth Curve</a></li>
-        
-            <li><a class="toctree-l3" href="#smooth-tilt">Smooth Tilt</a></li>
-        
-            <li><a class="toctree-l3" href="#taper-curve">Taper Curve</a></li>
-        
-            <li><a class="toctree-l3" href="#align-curve-tilt">Align Curve tilt</a></li>
-        
-            <li><a class="toctree-l3" href="#randomize-curve-tilt">Randomize Curve Tilt</a></li>
-        
-            <li><a class="toctree-l3" href="#select-tipsroots">Select Tips/Roots</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../curve_tool/">Curve tools</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -114,9 +88,21 @@
     <a class="" href="../mesh_ribbons_ops/">Mesh tools</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../editing_profile/">Curve Profile</a>
+    <a class="current" href="./">Curve Profile</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#addingadjusting-curve-profile">Adding/Adjusting curve profile</a></li>
+    
+
+    <li class="toctree-l2"><a href="#edit-curve-profile">Edit curve profile</a></li>
+    
+
+    <li class="toctree-l2"><a href="#un-instance-profile">Un-instance profile</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -146,7 +132,7 @@
     
       
     
-    <li>Curve tools</li>
+    <li>Curve Profile</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -156,31 +142,23 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="ribbon-operations">Ribbon operations:<a class="headerlink" href="#ribbon-operations" title="Permanent link">&para;</a></h2>
-<h3 id="curve-simplify">Curve Simplify<a class="headerlink" href="#curve-simplify" title="Permanent link">&para;</a></h3>
-<p><img alt="Curve Simplify" src="../img/curvesimplify.gif" />
-<strong>Curve Simplify-</strong> Allows to reduce point count. Good for reducing polycount on hairs .</p>
-<h3 id="resample-curve">Resample Curve<a class="headerlink" href="#resample-curve" title="Permanent link">&para;</a></h3>
-<p><img alt="Resample Curve" src="../img/resamplecurve.gif" />
-<strong>Resample Curve</strong>. Allows to increase/decrease number of points each curve is made of. It keeps the original strand radius and tilt.</p>
-<h3 id="smooth-curve">Smooth Curve<a class="headerlink" href="#smooth-curve" title="Permanent link">&para;</a></h3>
-<p><img alt="Smooth Curve" src="../img/smoothcurve.gif" /></p>
-<p><strong>Smooth Curve</strong> - smooth strand points (eg. to reduce noise)</p>
-<h3 id="smooth-tilt">Smooth Tilt<a class="headerlink" href="#smooth-tilt" title="Permanent link">&para;</a></h3>
-<p><img alt="Smooth Tilt" src="../img/smoothtilt1.gif" /></p>
-<p><strong>Smooth Tilt</strong></p>
-<h3 id="taper-curve">Taper Curve<a class="headerlink" href="#taper-curve" title="Permanent link">&para;</a></h3>
-<p><img alt="Taper Curve" src="../img/tapercurve.gif" /></p>
-<p><strong>Taper Curve -</strong> change strands radius over length</p>
-<h3 id="align-curve-tilt">Align Curve tilt<a class="headerlink" href="#align-curve-tilt" title="Permanent link">&para;</a></h3>
-<p><img alt="Align Curve tilt" src="../img/tiltalign.gif" /></p>
-<p><strong>Align Curve tilt</strong> - lets you align cure tilt to target object surface.</p>
-<h3 id="randomize-curve-tilt">Randomize Curve Tilt<a class="headerlink" href="#randomize-curve-tilt" title="Permanent link">&para;</a></h3>
-<p><img alt="Randomize Curve Tilt" src="../img/titlrandomize.gif" /></p>
-<p><strong>Randomize Curve Tilt</strong> - change curve tilt over its length</p>
-<h3 id="select-tipsroots">Select Tips/Roots<a class="headerlink" href="#select-tipsroots" title="Permanent link">&para;</a></h3>
-<p><img alt="Select Tips/Roots" src="../img/selecttipsroots.gif" /></p>
-<p><strong>Select Tips/Roots</strong> - lets you select first/last points on curves. There is randomize option under F6 properties.</p>
+                <h4 id="addingadjusting-curve-profile">Adding/Adjusting curve profile<a class="headerlink" href="#addingadjusting-curve-profile" title="Permanent link">&para;</a></h4>
+<p><video style="width:100%" controls>
+  <source src="../video/edit_profile.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video></p>
+<p><img alt="Edit profile pie" src="../img/pie_edit_profile.jpg" /></p>
+<p>To add or edit curve profile, press <strong>'Add (Adjust) Profile'</strong> button located in top pie menu (<strong>ctrl+shfit+H</strong> by default). There are some settings  under 'F9' hotkey like:</p>
+<ul>
+<li>changing strand width</li>
+<li>chaning resolution along curvs, and perpendicualar to curve direction</li>
+<li>offseting curve upp or down from center - 'Strand Uplift'</li>
+<li>making profile round or flat with 'Strand protrusion' parameter</li>
+</ul>
+<h3 id="edit-curve-profile">Edit curve profile<a class="headerlink" href="#edit-curve-profile" title="Permanent link">&para;</a></h3>
+<p>This option will let you edit curve profile directly, by linking curve bevel object to scene end going into edit mode.</p>
+<h3 id="un-instance-profile">Un-instance profile<a class="headerlink" href="#un-instance-profile" title="Permanent link">&para;</a></h3>
+<p>If multiple hair objects are using same bevel curve profile, this option will uninstance bevel profile object on selected object.</p>
               
             </div>
           </div>
@@ -188,10 +166,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../mesh_ribbons_ops/" class="btn btn-neutral float-right" title="Mesh tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../uv_hair/" class="btn btn-neutral float-right" title="Hair UV">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../convert_generate_hair/" class="btn btn-neutral" title="Convert tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mesh_ribbons_ops/" class="btn btn-neutral" title="Mesh tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -217,10 +195,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../convert_generate_hair/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../mesh_ribbons_ops/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../mesh_ribbons_ops/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../uv_hair/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -76,12 +76,6 @@
     <li class="toctree-l3"><a href="#generating-curves">Generating curves</a></li>
     
 
-    <li class="toctree-l3"><a href="#adding-bevel-profile-to-curve">Adding bevel profile to curve</a></li>
-    
-
-    <li class="toctree-l3"><a href="#uv">UV</a></li>
-    
-
     </ul>
                 </li>
                 <li class="">
@@ -93,7 +87,27 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../../convert_generate_hair/">Convert tools</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../../curve_tool/">Curve tools</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../mesh_ribbons_ops/">Mesh tools</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../editing_profile/">Curve Profile</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../uv_hair/">Hair UV</a>
 	    </li>
           
         </ul>
@@ -139,14 +153,9 @@
 <p><img alt="marksharpharp" src="../../img/marksharp.jpg" /></p>
 <p>First step is to generate base shape of hair. For that use grid mesh, created only of quads. Mark one border of this mesh with sharp edges - those will become roots of hair splines:</p>
 <h4 id="generating-curves">Generating curves<a class="headerlink" href="#generating-curves" title="Permanent link">&para;</a></h4>
-<p><img alt="curvesfromsurface" src="../../img/curvesfromsurface.gif" /></p>
-<p>Press '<strong>Curves from surface</strong>' button located in right UI Sidebar: <strong>"Hair Tool"</strong> tab, to generate curves from selected object. Generated curve settings can be modified using '<strong>F6</strong>' hotkey. You can adjust stuff like hair amount, length, add some noise etc. Or you can do some manual tweaking here going into curve 'Edit mode'.</p>
-<h4 id="adding-bevel-profile-to-curve">Adding bevel profile to curve<a class="headerlink" href="#adding-bevel-profile-to-curve" title="Permanent link">&para;</a></h4>
-<p><img alt="add ribbons" src="../../img/generatingribbons.gif" /></p>
-<p>To add ribbons profile to generated curves, press 'Generate Ribbons' button. There are some settings to play with under 'F6' hotkey. Use 'Align tilt' to align curves rotation to source mesh (head)</p>
-<h4 id="uv">UV<a class="headerlink" href="#uv" title="Permanent link">&para;</a></h4>
-<p><img alt="Hair UV" src="../../img/uvhair.gif" /></p>
-<p>You can now uv map curve ribbons by going into UV editor and search for ‘<strong>Hair UV</strong>’ operator under spacebar. Left click and draw rectangular shape, in uv Editor, to define the uv bounds for hair strands. If you assign material to curve ribbons, use '<strong>Curve Ribbons UV refresh</strong>' to update material uv mapping. You can convert curve hair to mesh ribbons by using '<strong>Curve ribbons to mesh ribbons</strong>' - now they can be exported to game engine. Any time you want, you can go back to curve ribbons by using '<strong>Mesh ribbons to Curve ribbons</strong>'.</p>
+<p><img alt="add ribbons" src="../../img/generated_curves_from_grid.jpg" /></p>
+<p>Press '<strong>Curves from surface</strong>' button located in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; Hair operators panel (or use ctrl+shif+h popup menu 'Curves from grid surface'), to generate curves from selected object. Generated curve settings can be modified using '<strong>F9</strong>' hotkey. You can adjust parameters like hair amount, length, add some noise etc. Or you can manually tweak hair going into curve 'Edit mode'.</p>
+<p>Generated hair will have material applied automatically, if you choose to 'generate ribbons' option ('generate ribbons' adds profile to hair curves)</p>
               
             </div>
           </div>
