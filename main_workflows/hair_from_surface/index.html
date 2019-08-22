@@ -60,17 +60,17 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../hair_drawing/">Drawing</a>
+    <a class="" href="../hair_drawing/">Drawing hair</a>
                 </li>
                 <li class=" current">
                     
     <a class="current" href="./">Generating from surface</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#demo">Demo:</a></li>
+    <li class="toctree-l3"><a href="#curve-from-grid-surface">Curve from grid surface</a></li>
     
 
-    <li class="toctree-l3"><a href="#base-mesh">Base mesh</a></li>
+    <li class="toctree-l3"><a href="#creating-proper-grid-mesh">Creating proper grid mesh</a></li>
     
 
     <li class="toctree-l3"><a href="#generating-curves">Generating curves</a></li>
@@ -146,12 +146,17 @@
           <div role="main">
             <div class="section">
               
-                <h4 id="demo">Demo:<a class="headerlink" href="#demo" title="Permanent link">&para;</a></h4>
+                <h4 id="curve-from-grid-surface">Curve from grid surface<a class="headerlink" href="#curve-from-grid-surface" title="Permanent link">&para;</a></h4>
+<p>You can use grid type of mesh (made all of quads), for guiding hair strands. Demo:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3laKuqE3wzs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<h4 id="base-mesh">Base mesh<a class="headerlink" href="#base-mesh" title="Permanent link">&para;</a></h4>
-<p><img alt="marksharpharp" src="../../img/marksharp.jpg" /></p>
-<p>First step is to generate base shape of hair. For that use grid mesh, created only of quads. Mark one border of this mesh with sharp edges - those will become roots of hair splines:</p>
+<h4 id="creating-proper-grid-mesh">Creating proper grid mesh<a class="headerlink" href="#creating-proper-grid-mesh" title="Permanent link">&para;</a></h4>
+<p>First step is to generate base shape of hair. For that use grid mesh, created only of quads. Mark one border of this mesh with sharp edges - this area will become roots of hair strands.<br />
+<img alt="mark sharp" src="../../img/marksharp.jpg" /></p>
+<p>Example of proper grid meshes:<br />
+<img alt="Grid Mesh" src="../../img/grid_meshes_examples.jpg" /></p>
+<p>If you add UV to them, they all would basically turn into flat 2D grid like this:<br />
+<img alt="Grid Mesh" src="../../img/flat_grid_example.jpg" /></p>
 <h4 id="generating-curves">Generating curves<a class="headerlink" href="#generating-curves" title="Permanent link">&para;</a></h4>
 <p><img alt="add ribbons" src="../../img/generated_curves_from_grid.jpg" /></p>
 <p>Press '<strong>Curves from surface</strong>' button located in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; Hair operators panel (or use ctrl+shif+h popup menu 'Curves from grid surface'), to generate curves from selected object. Generated curve settings can be modified using '<strong>F9</strong>' hotkey. You can adjust parameters like hair amount, length, add some noise etc. Or you can manually tweak hair going into curve 'Edit mode'.</p>
@@ -166,7 +171,7 @@
         <a href="../interactive_groom/" class="btn btn-neutral float-right" title="Interactive grooming">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../hair_drawing/" class="btn btn-neutral" title="Drawing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hair_drawing/" class="btn btn-neutral" title="Drawing hair"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
