@@ -69,6 +69,8 @@
         
             <li><a class="toctree-l4" href="#drawing-curve-ribbons">Drawing curve ribbons:</a></li>
         
+            <li><a class="toctree-l4" href="#parameters">Parameters:</a></li>
+        
             <li><a class="toctree-l4" href="#drawing-particle-hair">Drawing particle hair:</a></li>
         
         </ul>
@@ -148,17 +150,45 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="drawing-hair">Drawing Hair<a class="headerlink" href="#drawing-hair" title="Permanent link">&para;</a></h1>
-<p>In Hair Tool you can draw hair (curve ribbons, or particle hair) directly on selected mesh. Hair Drawing - panel is displayed in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; <strong>Draw Hair</strong> panel.</p>
-<h3 id="drawing-curve-ribbons">Drawing curve ribbons:<a class="headerlink" href="#drawing-curve-ribbons" title="Permanent link">&para;</a></h3>
+                <h2 id="drawing-hair">Drawing Hair<a class="headerlink" href="#drawing-hair" title="Permanent link">&para;</a></h2>
+<p><img alt="Drawing Hair Panel" src="../../img/ht_draw_hair_panel.jpg" />
+With Hair Tool you can draw hair (curve ribbons or particle hair) directly on selected mesh surface. It useful when you want finish your hair model, and place some hair cards by hand - to break the symmetry and add some imperfections.<br />
+If you have tablet, you can use pen pressure to influence curve radius. You can increase the <strong>Elevation distance</strong> parameter to lift up strands more out of mesh surface.
+Most of the settings are the same for both: drawing curve ribbons and particle hairs.<br />
+Panel is located in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; <strong>'Draw Hair'</strong>. Enable hair drawing with 'Draw hair' button. Now when you hold D-Key and draw in 3D viewport with LBM, new strands will be painted (with orange preview). </p>
+<h4 id="drawing-curve-ribbons">Drawing curve ribbons:<a class="headerlink" href="#drawing-curve-ribbons" title="Permanent link">&para;</a></h4>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/eD5E_UoimSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-<h3 id="drawing-particle-hair">Drawing particle hair:<a class="headerlink" href="#drawing-particle-hair" title="Permanent link">&para;</a></h3>
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/TvN3okLFkyc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-<p>Enabling 'Draw hair' checkbox will make blender draw curve ribbons (or particle hair) when you hold D-Key and draw in viewport with LBM. In that panel you will have option for smoothing, embedding, aligning tilt etc. for generated strands.</p>
 <blockquote>
-<p><strong>Note</strong>: If you have curve object selected, new strokes will be appended to this curve, if mesh is selected new curve hair will be created.</p>
+<p><strong>Note</strong>: If you have curve object selected, new strokes will be appended to this curve; if mesh is selected new curve hair will be created.  </p>
 </blockquote>
-<p><img alt="Drawing Hair Panel" src="../../img/ht_draw_hair_panel.jpg" /></p>
+<h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Strand width</strong> - curve ribbons width (only curve ribbons)</li>
+</ul>
+<p><img alt="Offset Tip" src="../../img/param_gifs/offset_tip.gif" />
+<em><strong>Offset to tip</strong> - Offset spline points more toward tip</em></p>
+<p><img alt="Offset Root" src="../../img/param_gifs/offset_root.gif" />
+<em> <strong>Offset to root</strong> - Offset spline points more toward root</em></p>
+<p><img alt="Points per strand" src="../../img/param_gifs/resample_count.gif" />
+<em> <strong>Points per strand</strong> - How many points generate for each spline</em></p>
+<ul>
+<li><strong>Max length</strong> - Maximum hair length (0 - disabled). Strand length will be clipped to this value.</li>
+</ul>
+<p><img alt="Elevation distance" src="../../img/param_gifs/elevation_distance.gif" />
+<em> <strong>Elevation distance</strong> - Elevation strands above surface by this distance</em></p>
+<p><img alt="elevation_fallof" src="../../img/param_gifs/elevation_fallof.gif" />
+<em> <strong>Elevation falloff</strong> - Elevation strength over strand length</em></p>
+<p><img alt="embed_root" src="../../img/param_gifs/embed_root.gif" />
+<em> <strong>Embed Roots Depth</strong> - Embed strands roots into mesh surface (only curve ribbons)</em></p>
+<ul>
+<li><strong>Use Pressure</strong> - Use pen pressure to change strand width</li>
+<li><strong>Align tilt</strong> - Align ribbons tilt to surface</li>
+</ul>
+<h4 id="drawing-particle-hair">Drawing particle hair:<a class="headerlink" href="#drawing-particle-hair" title="Permanent link">&para;</a></h4>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/TvN3okLFkyc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p>Dawing particle hair is basically the same as drawing curve ribbons, but the resulting strokes will be converted to particle hair.
+If object that you are painting has no particle systems, new one will be created.<br />
+If object that you are painting has particle systems, new strands will be appended to active hair particle system.</p>
               
             </div>
           </div>

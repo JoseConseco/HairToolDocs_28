@@ -74,6 +74,9 @@
     <li class="toctree-l3"><a href="#interactive-hair-grooming">Interactive hair Grooming:</a></li>
     
 
+    <li class="toctree-l3"><a href="#parameters">Parameters:</a></li>
+    
+
     </ul>
                 </li>
     </ul>
@@ -140,10 +143,47 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="interactive-hair-grooming">Interactive hair Grooming:<a class="headerlink" href="#interactive-hair-grooming" title="Permanent link">&para;</a></h3>
+                <h4 id="interactive-hair-grooming">Interactive hair Grooming:<a class="headerlink" href="#interactive-hair-grooming" title="Permanent link">&para;</a></h4>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/mZkj0NnRRj0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-<p>Interactive Hair Grooming - panel is displayed in right UI Sidebar: <strong>"Hair Tool"</strong> tab, when combing Blender particle hair. Enabling it will generate curve ribbons, that will be interactively updated as soon as you release your LBM. In that panel you will have option for smoothing, embedding, aligning tilt etc. of generated strands.</p>
-<p><img alt="ht_hair_grooming" src="../../img/ht_hair_grooming.jpg" /></p>
+<p>It is most useful for short and dense hair (for long hair I would use 'Curves from grid surface' function).
+To use interactive grooming, you need to have object with particle hair system and be in <strong>'Particle Edit'</strong> mode.</p>
+<p><img alt="ht_hair_grooming" src="../../img/ht_hair_grooming.jpg" />
+<em>Hair Grooming - panel is located in right UI Sidebar: <strong>"Hair Tool"</strong> tab (visible only in <strong>'Particle Edit'</strong> mode)</em></p>
+<p>In the right Sidebar(N), in 'Hair Tool' tab press 'Create Settings' button. It will create particle comb settings, for active particle system </p>
+<blockquote>
+<p><strong>Note</strong>: Each particle system has its own separate hair comb settings. This way you can comb multiple hair systems on one object, each slightly different. This gives you more control over hair look</p>
+</blockquote>
+<p>Press 'Interactive Grooming' button - it will generate curve ribbons, that will be interactively updated as soon as you release your Left Mouse Button. </p>
+<h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Strand width</strong> - curve ribbons width </li>
+</ul>
+<p><img alt="Points per strand" src="../../img/param_gifs/resample_count.gif" />
+<em> <strong>Points per strand</strong> - How many points generate for each spline</em></p>
+<p><img alt="Offset Tip" src="../../img/param_gifs/offset_tip.gif" />
+<em><strong>Offset to tip</strong> - Move spline points more toward tip</em></p>
+<p><img alt="Offset Root" src="../../img/param_gifs/offset_root.gif" />
+<em> <strong>Offset to root</strong> - Move spline points more toward root</em></p>
+<ul>
+<li><strong>Align tilt</strong> - Align ribbons tilt to surface (may be slow for dense hair)</li>
+<li><strong>Strand Smoothing</strong> - smooth generated strands (may be slow for dense hair)</li>
+</ul>
+<p><img alt="embed_root" src="../../img/param_gifs/embed_root.gif" />
+<em> <strong>Embed Roots Depth</strong> - Embed strands roots into mesh surface</em></p>
+<ul>
+<li><strong>Generate children</strong> - Generate child hair strands. They will be guided by parent strands (particle hair)</li>
+<li><strong>Include Parent Strands</strong> -  Include parent strands when generating hair with children</li>
+<li><strong>Parent strands overlay</strong> - Draw orange overlay on top of parent strands, for better visibility on dense hair</li>
+<li><strong>Draw Offset</strong> - Parent Strand Draw Offset - similar to draw in Front option in Blender</li>
+</ul>
+<p><img alt="child count " src="../../img/param_gifs/child_count_ph.gif" />
+<em> <strong>Child count</strong> - Amount of generated children strands</em></p>
+<p><img alt="placement jitter" src="../../img/param_gifs/placement_jitter.gif" />
+<em> <strong>Placement Jittering</strong> - Randomize child strands placement</em></p>
+<p><img alt="randomize length" src="../../img/param_gifs/random_length_ph.gif" />
+<em> <strong>Randomize length</strong> - Randomize strands length</em></p>
+<p><img alt="hair density mask" src="../../img/hair_comb_density.jpg" />
+<em>You can use particle system <strong>Density</strong> mask to control where child strands will be generated</em></p>
               
             </div>
           </div>
