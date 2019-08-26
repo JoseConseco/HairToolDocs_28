@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Convert tools - Hair Tool 2 Docs</title>
+  <title>Convert / Generate - Hair Tool 2 Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Convert tools";
+    var mkdocs_page_name = "Convert / Generate";
     var mkdocs_page_input_path = "convert_generate_hair.md";
     var mkdocs_page_url = null;
   </script>
@@ -75,7 +75,7 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Convert tools</a>
+    <a class="current" href="./">Convert / Generate</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#convert-generate-operations">Convert / Generate operations</a></li>
@@ -90,7 +90,10 @@
     <li class="toctree-l2"><a href="#particle-hairs-from-curve">Particle Hairs From Curve</a></li>
     
 
-    <li class="toctree-l2"><a href="#generate-braid">Generate Braid</a></li>
+    <li class="toctree-l2"><a href="#generate-braids">Generate Braids</a></li>
+    
+
+    <li class="toctree-l2"><a href="#generate-curly-hair">Generate Curly hair</a></li>
     
 
     </ul>
@@ -113,7 +116,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../uv_hair/">Hair UV</a>
+    <a class="" href="../uv_material/">Material and UV</a>
 	    </li>
           
         </ul>
@@ -138,7 +141,7 @@
     
       
     
-    <li>Convert tools</li>
+    <li>Convert / Generate</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -149,8 +152,8 @@
             <div class="section">
               
                 <h3 id="convert-generate-operations">Convert / Generate operations<a class="headerlink" href="#convert-generate-operations" title="Permanent link">&para;</a></h3>
-<p>Convert Particle Hair to curves, or curves to Particle hair. Curve ribbons to mesh ribbons or back.</p>
-<p>Generate braids or curly hair.</p>
+<p>Convert Particle Hair to curves, curves to Particle Hair, curve ribbons to mesh ribbons or back.<br />
+Generate <a href="./#generate-braids"><strong>Braids</strong></a> or <a href="./#generate-curly-hair"><strong>Curly hair</strong></a>.</p>
 <h3 id="curve-ribbons-to-mesh-ribbons">Curve ribbons to mesh ribbons<a class="headerlink" href="#curve-ribbons-to-mesh-ribbons" title="Permanent link">&para;</a></h3>
 <p><video style="width:100%" controls>
   <source src="../video/curves_to_mesh.mp4" type="video/mp4">
@@ -163,13 +166,43 @@ Your browser does not support the video tag.
 <h3 id="particle-hairs-from-curve">Particle Hairs From Curve<a class="headerlink" href="#particle-hairs-from-curve" title="Permanent link">&para;</a></h3>
 <p><img alt="(Particle Hairs From Curve)" src="../img/particlehairfromcurve.gif" />
 <strong>Particle Hair from Curves</strong> (this can be used to convert zbrush fibermesh to blender Particle Hair system). Select curves and target mesh (that will receive Particle Hair) and use '<strong>Particle Hair from Curves</strong>' to convert curves object to blenders Hair system.</p>
-<h3 id="generate-braid">Generate Braid<a class="headerlink" href="#generate-braid" title="Permanent link">&para;</a></h3>
+<h3 id="generate-braids">Generate Braids<a class="headerlink" href="#generate-braids" title="Permanent link">&para;</a></h3>
 <p><video style="width:100%" controls>
   <source src="../video/generate_braid.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video></p>
-<p>To generate Braid -  select one spline from curve object, and run 'Generate Braid'. You can access operator properties from <strong>F9</strong> hotkey.<br />
-After finishing operation, originally selected curve will deform the generated braid so you can twist it (ctrl +T), scale radius (alt+s) to change the taper of braid.</p>
+<p>To generate Braids -  select one or more splines from curve object, and run 'Generate Braid'. You can access operator properties from <strong>F9</strong> hotkey.<br />
+After finishing operation, originally selected splines will be separated - each into its own object, and they will deform the generated braid. This way you will be able to twist (ctrl +T), scale radius (alt+s) or move generated braids. </p>
+<blockquote>
+<p><strong>Note</strong>: If you want to adjust braid later on - just re-run braid operator, while having braid object selected.</p>
+</blockquote>
+<p><strong>Parameters: (F9 Key)</strong></p>
+<ul>
+<li>Points per interlace - Amount of points per braid interlace.</li>
+<li>Length - braid length multiplier (actual length is calculated from selected spline length)</li>
+<li>Frequency - Frequency describes how many times hair strand interlacing will occur</li>
+<li>Main Radius - Overall braid radius</li>
+<li>Strand Radius - Individual strands radius</li>
+<li>Radius falloff - Change braid size over strand length (tapers the braid on the tip)</li>
+<li>Equalize radii - Equalize radii for braids with different lengths (when generating multiple braids)</li>
+</ul>
+<h3 id="generate-curly-hair">Generate Curly hair<a class="headerlink" href="#generate-curly-hair" title="Permanent link">&para;</a></h3>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/aQG59lxkh_Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p>To generate Curls -  select one or more splines from curve object, and run 'Generate Curls'. You can access operator properties from <strong>F9</strong> hotkey.<br />
+After finishing operation, originally selected splines will be separated - each into its own object, and they will deform the generated braid.</p>
+<p><strong>Parameters: (F9 Key)</strong></p>
+<ul>
+<li>Points per cycle - Amount of points per curl cycle. Bigger values gives smoother curls</li>
+<li>Curl frequency - Will generate more curls but also higher point count</li>
+<li>Radius - Curls Radius</li>
+<li>Uniform spacing  - Distribute stand points uniformly along strand length</li>
+<li>Adjust Tilt  - Make curve profile face outwards direction. It is bit slow - usually it is best to enable it at last step</li>
+<li>Transition Contrast - Curls transition contrast along strand length</li>
+<li>Offset - Offset curls more toward the root or tip</li>
+<li>Gravity - Gravity weight pulls the curls down along the hair strand. 0 - disabled, 0.5 - natural gravity pull</li>
+<li>Random direction - Flip curls direction randomly from clockwise to counter-clockwise</li>
+<li>Randomize frequency - Randomize frequency</li>
+</ul>
               
             </div>
           </div>

@@ -84,7 +84,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../convert_generate_hair/">Convert tools</a>
+    <a class="" href="../../convert_generate_hair/">Convert / Generate</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -104,7 +104,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../uv_hair/">Hair UV</a>
+    <a class="" href="../../uv_material/">Material and UV</a>
 	    </li>
           
         </ul>
@@ -145,15 +145,19 @@
               
                 <h4 id="interactive-hair-grooming">Interactive hair Grooming:<a class="headerlink" href="#interactive-hair-grooming" title="Permanent link">&para;</a></h4>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/mZkj0NnRRj0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-<p>It is most useful for short and dense hair (for long hair I would use 'Curves from grid surface' function).
-To use interactive grooming, you need to have object with particle hair system and be in <strong>'Particle Edit'</strong> mode.</p>
+<p>It best used for short, dense hair that should cover big areas uniformly (for long hair I would use <a href="../hair_from_surface/"><strong>'Curves from grid surface'</strong></a> function - as it provides easier way guide hair IMO).<br />
+To use interactive grooming to work, you need to:</p>
+<ul>
+<li>have object with particle hair system</li>
+<li>be in <strong>'Particle Edit' mode</strong>.</li>
+</ul>
 <p><img alt="ht_hair_grooming" src="../../img/ht_hair_grooming.jpg" />
 <em>Hair Grooming - panel is located in right UI Sidebar: <strong>"Hair Tool"</strong> tab (visible only in <strong>'Particle Edit'</strong> mode)</em></p>
 <p>In the right Sidebar(N), in 'Hair Tool' tab press 'Create Settings' button. It will create particle comb settings, for active particle system </p>
 <blockquote>
 <p><strong>Note</strong>: Each particle system has its own separate hair comb settings. This way you can comb multiple hair systems on one object, each slightly different. This gives you more control over hair look</p>
 </blockquote>
-<p>Press 'Interactive Grooming' button - it will generate curve ribbons, that will be interactively updated as soon as you release your Left Mouse Button. </p>
+<p>Press 'Interactive Grooming' button - it will generate curve ribbons, that will be interactively updated as soon as you release your Left Mouse Button. Name of generated hair ribbons, will be the same as name of particle system. You can resume hair combing any time you want, and the generated curve ribbons will be update - as long as you will leave names the same.</p>
 <h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Strand width</strong> - curve ribbons width </li>
@@ -164,17 +168,15 @@ To use interactive grooming, you need to have object with particle hair system a
 <em><strong>Offset to tip</strong> - Move spline points more toward tip</em></p>
 <p><img alt="Offset Root" src="../../img/param_gifs/offset_root.gif" />
 <em> <strong>Offset to root</strong> - Move spline points more toward root</em></p>
-<ul>
-<li><strong>Align tilt</strong> - Align ribbons tilt to surface (may be slow for dense hair)</li>
-<li><strong>Strand Smoothing</strong> - smooth generated strands (may be slow for dense hair)</li>
-</ul>
+<p><img alt="align tilt" src="../../img/param_gifs/align_tilt.gif" />
+<em> <strong>Align tilt</strong> - Align ribbons tilt to surface</em></p>
 <p><img alt="embed_root" src="../../img/param_gifs/embed_root.gif" />
 <em> <strong>Embed Roots Depth</strong> - Embed strands roots into mesh surface</em></p>
 <ul>
+<li><strong>Strand Smoothing</strong> - smooth generated strands (may be slow for dense hair)</li>
 <li><strong>Generate children</strong> - Generate child hair strands. They will be guided by parent strands (particle hair)</li>
 <li><strong>Include Parent Strands</strong> -  Include parent strands when generating hair with children</li>
-<li><strong>Parent strands overlay</strong> - Draw orange overlay on top of parent strands, for better visibility on dense hair</li>
-<li><strong>Draw Offset</strong> - Parent Strand Draw Offset - similar to draw in Front option in Blender</li>
+<li><strong>Parent strands overlay</strong> - Draw orange overlay on top of parent strands, for better visibility on dense hair (Draw Offset controls bias of overlay toward camera)</li>
 </ul>
 <p><img alt="child count " src="../../img/param_gifs/child_count_ph.gif" />
 <em> <strong>Child count</strong> - Amount of generated children strands</em></p>
@@ -191,7 +193,7 @@ To use interactive grooming, you need to have object with particle hair system a
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../convert_generate_hair/" class="btn btn-neutral float-right" title="Convert tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../convert_generate_hair/" class="btn btn-neutral float-right" title="Convert / Generate">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../hair_from_surface/" class="btn btn-neutral" title="Generating from surface"><span class="icon icon-circle-arrow-left"></span> Previous</a>

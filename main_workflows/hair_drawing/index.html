@@ -91,7 +91,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../convert_generate_hair/">Convert tools</a>
+    <a class="" href="../../convert_generate_hair/">Convert / Generate</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -111,7 +111,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../uv_hair/">Hair UV</a>
+    <a class="" href="../../uv_material/">Material and UV</a>
 	    </li>
           
         </ul>
@@ -152,14 +152,21 @@
               
                 <h2 id="drawing-hair">Drawing Hair<a class="headerlink" href="#drawing-hair" title="Permanent link">&para;</a></h2>
 <p><img alt="Drawing Hair Panel" src="../../img/ht_draw_hair_panel.jpg" />
-With Hair Tool you can draw hair (curve ribbons or particle hair) directly on selected mesh surface. It useful when you want finish your hair model, and place some hair cards by hand - to break the symmetry and add some imperfections.<br />
-If you have tablet, you can use pen pressure to influence curve radius. You can increase the <strong>Elevation distance</strong> parameter to lift up strands more out of mesh surface.
-Most of the settings are the same for both: drawing curve ribbons and particle hairs.<br />
-Panel is located in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; <strong>'Draw Hair'</strong>. Enable hair drawing with 'Draw hair' button. Now when you hold D-Key and draw in 3D viewport with LBM, new strands will be painted (with orange preview). </p>
+You can draw hair (curve ribbons or particle hair) directly on selected mesh surface. It useful when you want finish your hair model, and place some hair cards by hand or when you want to manually control hair placement.</p>
+<p>To use hair drawing, you have to:</p>
+<ul>
+<li>have mesh object selected, on which surface you want to draw hair</li>
+<li>enable <strong>'Draw Hair'</strong> button located in: right UI Sidebar: "Hair Tool" tab -&gt; <strong>'Draw Hair'</strong> panel.</li>
+<li>now hold D-Key and draw in 3D viewport with LBM; new strands will be painted (with orange line preview). </li>
+<li>If you select existing <strong>curve ribbons</strong> new strands will be added to it. In this case drawing target mesh, that you will be painting on, should be defined:  </li>
+</ul>
+<p><img alt="Hair target" src="../../img/hair_target.jpg" />
+<em>Use <strong>Target</strong> property - to define object that will be used for drawing</em></p>
+<p>Most of the settings are the same for both: drawing curve ribbons and particle hairs.  </p>
 <h4 id="drawing-curve-ribbons">Drawing curve ribbons:<a class="headerlink" href="#drawing-curve-ribbons" title="Permanent link">&para;</a></h4>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/eD5E_UoimSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 <blockquote>
-<p><strong>Note</strong>: If you have curve object selected, new strokes will be appended to this curve; if mesh is selected new curve hair will be created.  </p>
+<p><strong>Note</strong>: If you have curve object selected, new strokes will be appended to this curve; if mesh is selected new curve ribbons will be created.  </p>
 </blockquote>
 <h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
@@ -171,24 +178,25 @@ Panel is located in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; <st
 <em> <strong>Offset to root</strong> - Offset spline points more toward root</em></p>
 <p><img alt="Points per strand" src="../../img/param_gifs/resample_count.gif" />
 <em> <strong>Points per strand</strong> - How many points generate for each spline</em></p>
-<ul>
-<li><strong>Max length</strong> - Maximum hair length (0 - disabled). Strand length will be clipped to this value.</li>
-</ul>
+<p><img alt="Max length" src="../../img/param_gifs/max_length.gif" />
+<em> <strong>Max length</strong> - Maximum hair length (0 - disabled)</em></p>
 <p><img alt="Elevation distance" src="../../img/param_gifs/elevation_distance.gif" />
 <em> <strong>Elevation distance</strong> - Elevation strands above surface by this distance</em></p>
 <p><img alt="elevation_fallof" src="../../img/param_gifs/elevation_fallof.gif" />
 <em> <strong>Elevation falloff</strong> - Elevation strength over strand length</em></p>
 <p><img alt="embed_root" src="../../img/param_gifs/embed_root.gif" />
-<em> <strong>Embed Roots Depth</strong> - Embed strands roots into mesh surface (only curve ribbons)</em></p>
-<ul>
-<li><strong>Use Pressure</strong> - Use pen pressure to change strand width</li>
-<li><strong>Align tilt</strong> - Align ribbons tilt to surface</li>
-</ul>
+<em> <strong>Embed Roots Depth</strong> - Move strands first point into mesh surface (only curve ribbons)</em></p>
+<p><img alt="align tilt" src="../../img/param_gifs/align_tilt.gif" />
+<em> <strong>Align tilt</strong> - Align ribbons tilt to surface</em></p>
+<p><img alt="use pressure" src="../../img/param_gifs/use_pressure.gif" />
+<em> <strong>Use Pressure</strong> - Use pen pressure to change strand width</em></p>
 <h4 id="drawing-particle-hair">Drawing particle hair:<a class="headerlink" href="#drawing-particle-hair" title="Permanent link">&para;</a></h4>
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/TvN3okLFkyc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-<p>Dawing particle hair is basically the same as drawing curve ribbons, but the resulting strokes will be converted to particle hair.
-If object that you are painting has no particle systems, new one will be created.<br />
-If object that you are painting has particle systems, new strands will be appended to active hair particle system.</p>
+<p>Dawing particle hair is basically the same as drawing curve ribbons, but the resulting strokes will be converted to particle hair.</p>
+<ul>
+<li>If object that you are painting has no particle systems, new one will be created.  </li>
+<li>If object that you are painting has particle systems, new strands will be appended to active particle hair system.</li>
+</ul>
               
             </div>
           </div>

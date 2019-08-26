@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Hair UV - Hair Tool 2 Docs</title>
+  <title>Material and UV - Hair Tool 2 Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Hair UV";
-    var mkdocs_page_input_path = "uv_hair.md";
+    var mkdocs_page_name = "Material and UV";
+    var mkdocs_page_input_path = "uv_material.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -75,7 +75,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../convert_generate_hair/">Convert tools</a>
+    <a class="" href="../convert_generate_hair/">Convert / Generate</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -95,7 +95,7 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Hair UV</a>
+    <a class="current" href="./">Material and UV</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#hair-uvs">Hair UV's</a></li>
@@ -105,6 +105,18 @@
     
 
     <li class="toctree-l2"><a href="#offset-uv">Offset UV</a></li>
+    
+
+    <li class="toctree-l2"><a href="#material-uv-refresh">Material / UV Refresh</a></li>
+    
+
+    <li class="toctree-l2"><a href="#override-material-uv">Override Material UV</a></li>
+    
+
+    <li class="toctree-l2"><a href="#default-hair-material">Default Hair Material</a></li>
+    
+
+    <li class="toctree-l2"><a href="#anisotropic-switch">Anisotropic switch</a></li>
     
 
     </ul>
@@ -132,7 +144,7 @@
     
       
     
-    <li>Hair UV</li>
+    <li>Material and UV</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -143,24 +155,52 @@
             <div class="section">
               
                 <h4 id="hair-uvs">Hair UV's<a class="headerlink" href="#hair-uvs" title="Permanent link">&para;</a></h4>
-<p>In Hair Tool <strong>UVs</strong> are stored in curve ribbons material.<br />
-What this mean is that, if you have two curve ribbons with <strong>same material</strong>, they will both have <strong>same UV</strong>. 
-If you wan to separate UV you have to separate (un-instance) material on both curves. But if you want two curves to have same UV - just link Material from one to the other.</p>
+<p>In Hair Tool <strong>UVs</strong> are stored in material. What this mean is that, if you have two curve ribbons with <strong>same material</strong>, they both will share <strong>same UV</strong>. 
+If you wan to have separate UVs, then you have to separate (un-instance) material on both curves. But if you want two curves to have same UV - just link Material from one to the other.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gtbhmYEKGZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p><em>Here is video explaining material creation. It is for Blender 2.79 but workflow is the same in blender 2.8 (TODO: make new one)</em></p>
 <h4 id="defining-uvs">Defining UV's<a class="headerlink" href="#defining-uvs" title="Permanent link">&para;</a></h4>
-<p><img alt="Hair UV" src="../img/uvhair.gif" /></p>
-<p>To UV map curve ribbons go into UV editor and search for: ‘<strong>Hair UV</strong>’ operator under spacebar search menu, and choose <strong>'Draw UV's for Hair'</strong></p>
-<p>Use <strong>Left click and drag</strong> rectangular shape, to define the UV bounds for texture. Or just drag corners of existing uv box and adjust its shape.</p>
-<p>To remove UV box just hover your mouse over one of uv boxes and press <strong>[Delete]</strong> key</p>
-<p>To reset UV press <strong>[shift + Delete]</strong></p>
+<p>In Hair Tool to create UVs we have to make material, which will hold UVs data. Material creation is done automatically by the addon, when you make uv.</p>
+<p><img alt="Hair UV" src="../img/uvhair.gif" />
+<em>UV creation process in Hair Tool</em></p>
+<p>To UV map curve ribbons:</p>
+<ul>
+<li>go into UV editor and search for: ‘<strong>Hair UV</strong>’ operator under spacebar search menu, and choose <strong>'Draw UV's for Hair'</strong>  </li>
+<li>Use <strong>Left click and drag</strong> rectangular shape, to define the UV bounds for texture. Or just drag corners of existing uv box and adjust its shape.  </li>
+<li>To remove UV box just hover your mouse over one of uv boxes and press <strong>[Delete]</strong> key  </li>
+<li>To reset UV press <strong>[shift + Delete]</strong></li>
+</ul>
+<p>Each UV box will create one material. It is workaround for Blender limitation (Blender can't create UV data for individual splines). Hopefully this can be simplified in future.</p>
+<blockquote>
+<p><strong>Note:</strong> In you enabled: <strong>'Random UV flip'</strong> in preferences you will alter the ribbons look by randomly mirroring UVs on splines, but this creates additional materials (one for each UV box)! </p>
+</blockquote>
+<p>When you are done doing UVs each curve spline will have one UVBox (material slot) assigned to it automatically. You can randomize UVs assignment with <a href="./#material-uv-refresh"><strong>Material / UV Refresh</strong></a>. Or you can manually assign materials for each strand with <a href="./#override-material-uv"><strong>Override Material UV</strong></a></p>
 <h4 id="offset-uv">Offset UV<a class="headerlink" href="#offset-uv" title="Permanent link">&para;</a></h4>
-<p>Offsetting UV, moves UV points more toward the root or tip on hair strand. See video below:</p>
+<p>It moves UV points more toward the root or tip on hair strand. As a result you can stretch UVs and change texture look. See video below:</p>
 <video style="width:100%" controls>
   <source src="../video/offset_uvs.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-<p>As a result you can adjust how the texture looks on both strands ends.<br />
-To use <strong>UV Offset</strong> just hover you mouse over UV box and scroll with MMB. </p>
+<p><em>To use <strong>UV Offset</strong> just hover you mouse over UV box and scroll with MMB.</em></p>
+<h4 id="material-uv-refresh">Material / UV Refresh<a class="headerlink" href="#material-uv-refresh" title="Permanent link">&para;</a></h4>
+<p>The best way to edit hair material is to edit first material slot. But then we would like to update other materials slots too, while preserving UVs. <strong>'Material / UV Refresh'</strong> button is doing just that - it is propagating material changes from first material slot to the following ones, while preserving UV Boxes.</p>
+<p><img alt="Override UV" src="../img/material_uv_refresh.gif" />
+<em><strong>Material / UV Refresh</strong> with random seed option. It changes random hair strands materials assignment</em></p>
+<h4 id="override-material-uv">Override Material UV<a class="headerlink" href="#override-material-uv" title="Permanent link">&para;</a></h4>
+<p>In short: Override random spline material / UV, with selected material index.<br />
+In Hair Tool material is connected to UV. If you have made 3 UV boxes then hair object will have 3 materials applied (times 2 if you enabled random mirroring), one for each uv box. Those materials are then randomly applied to each curve strand. You can override random assignment by using <strong>'Override spline UV'</strong>.</p>
+<blockquote>
+<p><strong>Note</strong>: assigning different material slot manually to each spline will work too, but as soon as you run 'Material / UV Refresh' your changes will be overridden.</p>
+</blockquote>
+<p><img alt="Override UV" src="../img/override_material_uv.gif" />
+<em>Select splines you want to edit, and run <strong>'Override spline UV'</strong>. Under <strong>F9</strong> properties change index of UV box / Material index that will be applied to selection.</em></p>
+<h4 id="default-hair-material">Default Hair Material<a class="headerlink" href="#default-hair-material" title="Permanent link">&para;</a></h4>
+<!-- TODO: do this -->
+
+<h4 id="anisotropic-switch">Anisotropic switch<a class="headerlink" href="#anisotropic-switch" title="Permanent link">&para;</a></h4>
+<!-- TODO:do this -->
               
             </div>
           </div>

@@ -76,7 +76,25 @@
     <li class="toctree-l3"><a href="#generating-curves">Generating curves</a></li>
     
 
-    <li class="toctree-l3"><a href="#parameters">Parameters</a></li>
+    <li class="toctree-l3"><a href="#parameters-f9-key">Parameters (F9 Key)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#strands-properties">Strands properties</a></li>
+        
+            <li><a class="toctree-l4" href="#basic-randomization">Basic randomization</a></li>
+        
+            <li><a class="toctree-l4" href="#main-noise">Main Noise</a></li>
+        
+            <li><a class="toctree-l4" href="#per-strand-noise">Per strand noise</a></li>
+        
+            <li><a class="toctree-l4" href="#snap-or-uplift">Snap or Uplift</a></li>
+        
+            <li><a class="toctree-l4" href="#ribbons">Ribbons</a></li>
+        
+            <li><a class="toctree-l4" href="#clumps">Clumps</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -90,7 +108,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../convert_generate_hair/">Convert tools</a>
+    <a class="" href="../../convert_generate_hair/">Convert / Generate</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -110,7 +128,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../../uv_hair/">Hair UV</a>
+    <a class="" href="../../uv_material/">Material and UV</a>
 	    </li>
           
         </ul>
@@ -150,10 +168,15 @@
             <div class="section">
               
                 <h4 id="curve-from-grid-surface">Curve from grid surface<a class="headerlink" href="#curve-from-grid-surface" title="Permanent link">&para;</a></h4>
-<p>It is mostly useful for long hair, eyelashes or layered kind of hair.
-It works by generating curves from grid type of mesh (made all of quads). Grid mesh topology is guiding hair strands flow. Demo:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3laKuqE3wzs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<p>It is mostly useful for long hair, eyelashes or layered type of hair.
+It works by generating curves from grid mesh (made all of quads). Grid mesh topology is guiding hair strands flow. </p>
+<p>To use <strong>'Curve from grid surface'</strong>, you need to:</p>
+<ul>
+<li>have mesh object selected, that is <a href="./#proper-grid-mesh">grid type</a> of mesh</li>
+<li>or you can use it on previously created curve ribbons, to update their shape. For that just select old curve ribbons and run 'Curves from grid surface'</li>
+</ul>
+<p>Demo:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3laKuqE3wzs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 <h4 id="proper-grid-mesh">Proper grid mesh<a class="headerlink" href="#proper-grid-mesh" title="Permanent link">&para;</a></h4>
 <p>First step is to generate base shape of hair. For that use grid mesh, created only of quads. Mark one border of this mesh with sharp edges - this area will become roots of hair strands.<br />
 <img alt="mark sharp" src="../../img/marksharp.jpg" /></p>
@@ -163,48 +186,78 @@ It works by generating curves from grid type of mesh (made all of quads). Grid m
 <img alt="Grid Mesh" src="../../img/flat_grid_example.jpg" /></p>
 <h4 id="generating-curves">Generating curves<a class="headerlink" href="#generating-curves" title="Permanent link">&para;</a></h4>
 <p><img alt="add ribbons" src="../../img/generated_curves_from_grid.jpg" /></p>
-<p>Press '<strong>Curves from surface</strong>' button located in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; Hair operators panel (or use ctrl+shif+h popup menu 'Curves from grid surface'), to generate curves from selected object. Generated curve settings can be modified using '<strong>F9</strong>' hotkey. You can adjust parameters like hair amount, length, add some noise etc. Or you can manually tweak hair going into curve 'Edit mode'.</p>
+<p>Press '<strong>Curves from grid surface</strong>' button located in right UI Sidebar: <strong>"Hair Tool"</strong> tab -&gt; Hair operators panel (or use ctrl+shif+h popup menu 'Curves from grid surface'), to generate curves from selected object. Generated curve settings can be modified using '<strong>F9</strong>' hotkey. You can adjust parameters like hair amount, length, add some noise etc. Or you can manually tweak hair going into curve 'Edit mode'.</p>
 <p>Generated hair will have material applied automatically, if you choose to 'generate ribbons' option ('generate ribbons' adds profile to hair curves)</p>
-<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<h4 id="parameters-f9-key">Parameters (F9 Key)<a class="headerlink" href="#parameters-f9-key" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Generation Method  - Edge Centers or Vertex position</li>
-<li>Hair Type - BEZIER, NURBS, POLY</li>
-<li></li>
-<li>Radius - Radius for bezier curve</li>
-<li>Strands count</li>
-<li>Uniform Distribution - "Uniform Distribution </li>
-<li>Points per strand - "How many points generate for each strand </li>
-<li>Uniform Distribution - "Uniform Distribution </li>
-<li></li>
-<li>Offset to tip - "Move spline points more toward tip defa</li>
-<li>Offset to root - "Move spline points more toward root</li>
-<li></li>
-<li>Randomize Spacing - "Randomize spacing between strands</li>
-<li>Shorten Segment - "Shorten strand length 1, </li>
-<li></li>
-<li>Noise Amplitude </li>
-<li>Base noise freq</li>
-<li>Transition Contrast - "Noise transition contrast 5</li>
-<li>Transition Offset - "Offset Noise more toward the root (or tip) of str</li>
-<li></li>
-<li>Per strand noise - "Blend additional noise for each strand to break uniform spacing"</li>
-<li>Mix additive - "add or mix extra strand noise </li>
-<li>Seed  , max=1000)</li>
-<li>Frequency - "Per strand noise frequency. Highter frequency produces smaller detail on hair strands"</li>
-<li>Offset Strands - "Offset strands above surface</li>
-<li>Snap Amount </li>
-<li>Constrain - "Constrain strand to grid surface </li>
-<li>Generate Ribbons - "Generate Ribbons on curve </li>
-<li>Segments U  , max=5, - "Additional subdivision along strand length")</li>
-<li>Segments V  , max=5, - "Subdivisions perpendicular to strand length ")</li>
-<li>Strand Width 5, </li>
-<li>Strand peak  - "Describes how much middle point of ribbon will be elevated")</li>
-<li>Strand uplift  - "Moves whole ribbon up or down")</li>
-<li>Align tilt - "Align tilt to Surface </li>
-<li>Clumps - "Make hair clumps</li>
-<li>clump strength - "Clumping strength </li>
-<li>clump falloff</li>
+<li>Hair Type - generate Bezier, Nurbs or Poly curves.</li>
+<li>Radius - curve radius (when not using ribbons)</li>
 </ul>
+<h6 id="strands-properties">Strands properties<a class="headerlink" href="#strands-properties" title="Permanent link">&para;</a></h6>
+<p>Control basic properties like generated curves amount, number of points per spline etc. You can use topology of grid surface to guide density of generated strands. In places where grid surface have denser loops you can generate more strands or give more points to each strand.
+<img alt="Points per strand" src="../../img/grid_surface/strands_count.gif" />
+<em> <strong>Strands count</strong> - number of strands to generate</em></p>
+<p><img alt="Uniform Strands" src="../../img/grid_surface/uniform_strands.gif" />
+<em> <strong>Uniform Strands</strong> - Distribute strands uniformly. If not, then more strands will be placed at denser grid surface areas (in this case - more on right)</em></p>
+<p><img alt="Points per strand" src="../../img/grid_surface/pts_per_strand.gif" />
+<em> <strong>Points per strand</strong> - How many points generate for each strand</em></p>
+<p><img alt="Uniform Points" src="../../img/grid_surface/uniform_points.gif" />
+<em> <strong>Uniform Points</strong> - Distribute points on strand uniformly. If not, then more points will be placed at denser grid surface areas (in this case - more on top)</em></p>
+<p><img alt="Offset to tip" src="../../img/grid_surface/offset_tip.gif" />
+<em> <strong>Offset to tip</strong> - Move spline points more toward tip</em></p>
+<p><img alt="Offset to root" src="../../img/grid_surface/offset_root.gif" />
+<em> <strong>Offset to root</strong> - Move spline points more toward root</em></p>
+<h6 id="basic-randomization">Basic randomization<a class="headerlink" href="#basic-randomization" title="Permanent link">&para;</a></h6>
+<p><img alt="Randomize Spacing" src="../../img/grid_surface/random_spacing.gif" />
+<em> <strong>Randomize Spacing</strong> - Randomize spacing between strands</em></p>
+<p><img alt="Randomize Length" src="../../img/grid_surface/random_len.gif" />
+<em> <strong>Randomize Length</strong> - Randomize strands length</em></p>
+<h6 id="main-noise">Main Noise<a class="headerlink" href="#main-noise" title="Permanent link">&para;</a></h6>
+<p>Gives hair the main flow direction.
+<img alt="Noise Amplitude" src="../../img/grid_surface/noise_ampl.gif" />
+<em> <strong>Noise Amplitude</strong> - Noise strength</em></p>
+<p><img alt="Seed" src="../../img/grid_surface/noise_seed.gif" />
+<em> <strong>Seed</strong> - noise seed gives different hair flow for each value</em></p>
+<p><img alt="Noise frequency" src="../../img/grid_surface/noise_freq.gif" />
+<em> <strong>Noise frequency</strong> - gives more detail to hair flow. Higher frequency produces smaller detail on hair strands</em></p>
+<p><img alt="Constrain" src="../../img/grid_surface/noise_constrain.gif" />
+<em> <strong>Constrain</strong> - Constrain noise movement to grid surface</em></p>
+<p><img alt="Transition Contrast" src="../../img/grid_surface/transition_contrast.gif" />
+<em> <strong>Transition Contrast</strong> - Contrast between areas with no noise to full noise influence, over strand length</em></p>
+<p><img alt="Transition Offset" src="../../img/grid_surface/transition_offset.gif" />
+<em> <strong>Transition Offset</strong> - Offset noise influence more toward the root (or tip) of strand</em></p>
+<h6 id="per-strand-noise">Per strand noise<a class="headerlink" href="#per-strand-noise" title="Permanent link">&para;</a></h6>
+<p>Helps to break uniform look of Main noise.<br />
+<img alt="Per strand noise" src="../../img/grid_surface/per_strand_noise.gif" />
+<em> <strong>Per strand noise</strong> - Blend additional noise for each strand to break uniform look</em></p>
+<ul>
+<li><strong>Mix / Add</strong> - add or mix extra strand noise on top of base noise</li>
+<li><strong>Seed</strong> - additional noise seed</li>
+<li><strong>Frequency</strong> - Per strand noise frequency. Higher frequency produces smaller detail on hair strands</li>
+</ul>
+<h6 id="snap-or-uplift">Snap or Uplift<a class="headerlink" href="#snap-or-uplift" title="Permanent link">&para;</a></h6>
+<p>Move strands toward or away the source grid surface
+<img alt="Offset Above" src="../../img/grid_surface/offset_above.gif" />
+<em> <strong>Offset Above</strong> - Offset strands above source grid surface</em></p>
+<p><img alt="Snap Amount" src="../../img/grid_surface/snap_amount.gif" />
+<em> <strong>Snap Amount</strong> Snap strands to source grid surface</em></p>
+<h6 id="ribbons">Ribbons<a class="headerlink" href="#ribbons" title="Permanent link">&para;</a></h6>
+<p>For generating hair texture you may skip this option (curves with bevel depth will be OK for making hair maps). But for making hair cards, you should enable option below.
+<em> <strong>Generate Ribbons</strong> - Add curve profile ot generated strands
+</em> <strong>Strand Width</strong> - width of generated curve ribbon</p>
+<p><img alt="Align tilt" src="../../img/grid_surface/align_tilt.gif" />
+<em> <strong>Align tilt</strong> - Align tilt to Surface</em></p>
+<h6 id="clumps">Clumps<a class="headerlink" href="#clumps" title="Permanent link">&para;</a></h6>
+<p>Gives nice effect especially when you use 'Curves from Grid surface' to generate eyelashes.
+<img alt="Clumps" src="../../img/grid_surface/clumps.gif" />
+<em> <strong>Clumps</strong> - Clump hair together. Higher values produce bigger clumps</em></p>
+<p><img alt="Clumps Seed" src="../../img/grid_surface/clump_seed.gif" />
+<em> <strong>Clumps Seed</strong> - Clump different hair strands for each seed value</em></p>
+<p><img alt="Clump falloff" src="../../img/grid_surface/clump_fallof.gif" />
+<em> <strong>Clump falloff</strong> - Clumping influence over strand length</em></p>
+<p><img alt="Clump influence" src="../../img/grid_surface/clump_influence.gif" />
+<em> <strong>Clump influence</strong> - Blend between no clumping (0) and max clumping effect</em></p>
               
             </div>
           </div>
