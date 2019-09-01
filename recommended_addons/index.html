@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Curve Profile - Hair Tool 2 Docs</title>
+  <title>Recommended addons - Hair Tool 2 Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Curve Profile";
-    var mkdocs_page_input_path = "editing_profile.md";
+    var mkdocs_page_name = "Recommended addons";
+    var mkdocs_page_input_path = "recommended_addons.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -88,21 +88,9 @@
     <a class="" href="../mesh_ribbons_ops/">Mesh tools</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Curve Profile</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#addingadjusting-curve-profile">Adding/Adjusting curve profile</a></li>
-    
-
-    <li class="toctree-l2"><a href="#edit-curve-profile">Edit curve profile</a></li>
-    
-
-    <li class="toctree-l2"><a href="#un-instance-profile">Un-instance profile</a></li>
-    
-
-    </ul>
+    <a class="" href="../editing_profile/">Curve Profile</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -110,9 +98,18 @@
     <a class="" href="../uv_material/">Material and UV</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../recommended_addons/">Recommended addons</a>
+    <a class="current" href="./">Recommended addons</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#vertex-color-master">Vertex Color Master</a></li>
+    
+
+    <li class="toctree-l2"><a href="#mira-tools">Mira Tools</a></li>
+    
+
+    </ul>
 	    </li>
           
         </ul>
@@ -137,7 +134,7 @@
     
       
     
-    <li>Curve Profile</li>
+    <li>Recommended addons</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -147,24 +144,11 @@
           <div role="main">
             <div class="section">
               
-                <h4 id="addingadjusting-curve-profile">Adding/Adjusting curve profile<a class="headerlink" href="#addingadjusting-curve-profile" title="Permanent link">&para;</a></h4>
-<p><video style="width:100%" controls>
-  <source src="../video/edit_profile.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video></p>
-<p><img alt="Edit profile pie" src="../img/pie_edit_profile.jpg" /></p>
-<p>To add or edit curve profile, press <strong>'Add (Adjust) Profile'</strong> button located in top pie menu (<strong>ctrl+shift+H</strong> by default). There are some settings  under 'F9' hotkey like:</p>
-<ul>
-<li>changing strand width</li>
-<li>changing curves resolution along length, and perpendicular to curve direction</li>
-<li>offsetting curve upp or down from center - 'Strand Uplift'</li>
-<li>making profile round or flat with 'Strand protrusion' parameter</li>
-</ul>
-<h3 id="edit-curve-profile">Edit curve profile<a class="headerlink" href="#edit-curve-profile" title="Permanent link">&para;</a></h3>
-<p><img alt="Bevel profile" src="../img/ht_profile_bevel.png" />
-This option will let you edit curve profile directly, by linking curve bevel object to scene and going into edit mode. This way you can manually edit bevel profile object vertices and get all kind of interesting results. Examples of custom bevel profiles:</p>
-<h3 id="un-instance-profile">Un-instance profile<a class="headerlink" href="#un-instance-profile" title="Permanent link">&para;</a></h3>
-<p>If multiple hair objects are using same bevel curve profile, this option will un-instance bevel profile on selected object.</p>
+                <h4 id="vertex-color-master">Vertex Color Master<a class="headerlink" href="#vertex-color-master" title="Permanent link">&para;</a></h4>
+<p>I recommend <a href="https://github.com/andyp123/blender_vertex_color_master">Vertex Color Master</a> addon for more detailed control over managing vertex colors on mesh (I added some features to VCMaster with Hair Tool in mind - more advanced color randomization per mesh island, drawing gradients)</p>
+<h4 id="mira-tools">Mira Tools<a class="headerlink" href="#mira-tools" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/mifth/mifthtools/wiki/Mira-Tools">Mira Tools</a> - It is great plugin especially the linear deformer. It will help you move multiple points and adust them: rotate, scale, offset, bend etc. I made the linear deformer work with curves.</p>
+<p><img alt="Linear deformer" src="../img/linear_deformer.gif" /></p>
               
             </div>
           </div>
@@ -172,10 +156,8 @@ This option will let you edit curve profile directly, by linking curve bevel obj
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../uv_material/" class="btn btn-neutral float-right" title="Material and UV">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../mesh_ribbons_ops/" class="btn btn-neutral" title="Mesh tools"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../uv_material/" class="btn btn-neutral" title="Material and UV"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -201,10 +183,8 @@ This option will let you edit curve profile directly, by linking curve bevel obj
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../mesh_ribbons_ops/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../uv_material/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../uv_material/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

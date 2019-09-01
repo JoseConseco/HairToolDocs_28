@@ -114,6 +114,11 @@
     <a class="" href="../../uv_material/">Material and UV</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../../recommended_addons/">Recommended addons</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -157,20 +162,23 @@ You can draw hair (curve ribbons or particle hair) directly on selected mesh sur
 <ul>
 <li>have mesh object selected, on which surface you want to draw hair</li>
 <li>enable <strong>'Draw Hair'</strong> button located in: right UI Sidebar: "Hair Tool" tab -&gt; <strong>'Draw Hair'</strong> panel.</li>
-<li>now hold D-Key and draw in 3D viewport with LBM; new strands will be painted (with orange line preview). </li>
-<li>If you select existing <strong>curve ribbons</strong> new strands will be added to it. In this case drawing target mesh, that you will be painting on, should be defined:  </li>
+<li>select 'Draw' method: curve, curve ribbon or particle hair</li>
+<li>now hold D-Key and draw in 3D viewport with LBM; new strands will be painted. </li>
 </ul>
-<p><img alt="Hair target" src="../../img/hair_target.jpg" />
-<em>Use <strong>Target</strong> property - to define object that will be used for drawing</em></p>
 <p>Most of the settings are the same for both: drawing curve ribbons and particle hairs.  </p>
-<h4 id="drawing-curve-ribbons">Drawing curve ribbons:<a class="headerlink" href="#drawing-curve-ribbons" title="Permanent link">&para;</a></h4>
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/eD5E_UoimSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 <blockquote>
-<p><strong>Note</strong>: If you have curve object selected, new strokes will be appended to this curve; if mesh is selected new curve ribbons will be created.  </p>
+<p><strong>Note</strong>:  When you modify object that is being drawn on, you may need to refresh the snapping cache by using 'Refresh' icon located next to 'Draw hair' button. Other wise the strokes will snap to old object position.</p>
 </blockquote>
+<h4 id="drawing-curve-ribbons">Drawing curve ribbons:<a class="headerlink" href="#drawing-curve-ribbons" title="Permanent link">&para;</a></h4>
+<p>If you have curve object selected, when drawing, new strokes will be added to it; if mesh is selected then new curve ribbons will be created. In first case target mesh, used for stroke snapping, is defined in bottom HTool Pie Menu (Ctrl+Shift+H):  </p>
+<p><img alt="Hair target" src="../../img/hair_target.jpg" />
+<em><strong>Target</strong> property is used to define object that will be used for snapping, tilt aligning etc.</em></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eD5E_UoimSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p><em>Example od drawing curve ribbons</em></p>
 <h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Strand width</strong> - curve ribbons width (only curve ribbons)</li>
+<li><strong>Strand width (Radius)</strong> - curve ribbons width (or curve radius)</li>
 </ul>
 <p><img alt="Offset Tip" src="../../img/param_gifs/offset_tip.gif" />
 <em><strong>Offset to tip</strong> - Offset spline points more toward tip</em></p>
@@ -191,8 +199,9 @@ You can draw hair (curve ribbons or particle hair) directly on selected mesh sur
 <p><img alt="use pressure" src="../../img/param_gifs/use_pressure.gif" />
 <em> <strong>Use Pressure</strong> - Use pen pressure to change strand width</em></p>
 <h4 id="drawing-particle-hair">Drawing particle hair:<a class="headerlink" href="#drawing-particle-hair" title="Permanent link">&para;</a></h4>
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/TvN3okLFkyc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
-<p>Dawing particle hair is basically the same as drawing curve ribbons, but the resulting strokes will be converted to particle hair.</p>
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/TvN3okLFkyc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<em>Example od drawing particle hair</em></p>
+<p>Drawing particle hair is basically the same as drawing curve ribbons, but the resulting strokes will be converted to particle hair.</p>
 <ul>
 <li>If object that you are painting has no particle systems, new one will be created.  </li>
 <li>If object that you are painting has particle systems, new strands will be appended to active particle hair system.</li>
