@@ -175,7 +175,7 @@ You can draw hair (curve ribbons or particle hair) directly on selected mesh sur
 <p><strong>Note</strong>:  When you modify object that is being drawn on, you may need to refresh the snapping cache by using 'Refresh' icon located next to 'Draw hair' button. Other wise the strokes will snap to old object position.</p>
 </blockquote>
 <h4 id="drawing-curve-ribbons">Drawing curve ribbons:<a class="headerlink" href="#drawing-curve-ribbons" title="Permanent link">&para;</a></h4>
-<p>If you have curve object selected, when drawing, new strokes will be added to it; if mesh is selected then new curve ribbons will be created. In first case target mesh, used for stroke snapping, is defined in bottom HTool Pie Menu (Ctrl+Shift+H):  </p>
+<p>When drawing, if you have curve object selected,  new strokes will be added to this selected curve; if mesh is selected then new curve ribbons will be created. In first case target mesh, used for stroke snapping, is defined in bottom HTool Pie Menu (Ctrl+Shift+H):  </p>
 <p><img alt="Hair target" src="../../img/hair_target.jpg" />
 <em><strong>Target</strong> property is used to define object that will be used for snapping, tilt aligning etc.</em></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eD5E_UoimSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -184,6 +184,12 @@ You can draw hair (curve ribbons or particle hair) directly on selected mesh sur
 <h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Strand width (Radius)</strong> - curve ribbons width (or curve radius)</li>
+</ul>
+<p><img alt="Offset Tip" src="../../img/param_gifs/projected_connected.gif" />
+<em> <strong>Draw Type</strong> - Projected vs Connected</em></p>
+<ul>
+<li><strong>Projected</strong> - snaps drawn stroke to mesh surface, then elevate strand above surface by 'Elevation distance'</li>
+<li><strong>Connected</strong> - only first point of stroke is snapped to drawn mesh surface.</li>
 </ul>
 <p><img alt="Offset Tip" src="../../img/param_gifs/offset_tip.gif" />
 <em><strong>Offset to tip</strong> - Offset spline points more toward tip</em></p>
