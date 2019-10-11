@@ -183,7 +183,8 @@ If you wan to have separate UVs, then you have to separate (un-instance) materia
 </ul>
 <p>Each UV box will create one material. It is workaround for Blender limitation (Blender can't create UV data for individual splines). Hopefully this can be simplified in future.</p>
 <blockquote>
-<p><strong>Note:</strong> In you enabled: <strong>'Random UV flip'</strong> in preferences you will alter the ribbons look by randomly mirroring UVs on splines, but this creates additional materials (one for each UV box)! </p>
+<p><strong>Note1:</strong> In you enabled: <strong>'Random UV flip'</strong> in addon preferences, texture will be mirrored in X axis on randomly picked curves. This creates additional materials (one for each mirrored UV box)! </p>
+<p><strong>Note2:</strong> If you want to flip strand texture in Y direction, just hover your mouse over UV box and press 'F'! </p>
 </blockquote>
 <p>When you are done doing UVs each curve spline will have one UVBox (material slot) assigned to it automatically. You can randomize UVs assignment with <a href="./#material-uv-refresh"><strong>Material / UV Refresh</strong></a>. Or you can manually assign materials for each strand with <a href="./#override-material-uv"><strong>Override Material UV</strong></a></p>
 <h4 id="offset-uv">Offset UV<a class="headerlink" href="#offset-uv" title="Permanent link">&para;</a></h4>
@@ -195,7 +196,8 @@ Your browser does not support the video tag.
 
 <p><em>To use <strong>UV Offset</strong> just hover you mouse over UV box and scroll with MMB.</em></p>
 <h4 id="material-uv-refresh">Material / UV Refresh<a class="headerlink" href="#material-uv-refresh" title="Permanent link">&para;</a></h4>
-<p>The best way to edit hair material is to edit first material slot. But then we would like to update other materials slots too, while preserving UVs. <strong>'Material / UV Refresh'</strong> button is doing just that - it is propagating material changes from first material slot to the following ones, while preserving UV Boxes.</p>
+<p>The best way to edit hair material is to adjust first material slot nodes. Next step would be updating other materials slots, while preserving UVs. </p>
+<p><strong>'Material / UV Refresh'</strong> button is doing just that - it is propagating material changes from first material slot to the following material slots, while preserving UVs (Boxes).</p>
 <p><img alt="Override UV" src="../img/material_uv_refresh.gif" />
 <em><strong>Material / UV Refresh</strong> with random seed option. It changes random hair strands materials assignment</em></p>
 <h4 id="override-material-uv">Override Material UV<a class="headerlink" href="#override-material-uv" title="Permanent link">&para;</a></h4>
@@ -209,7 +211,9 @@ In Hair Tool material is connected to UV. If you have made 3 UV boxes then hair 
 <h4 id="default-hair-material">Default Hair Material<a class="headerlink" href="#default-hair-material" title="Permanent link">&para;</a></h4>
 <p><img alt="Hair Colors" src="../img/hair_color.jpg" />
 Hair Tool has build in hair shader, great for realtime preview in EEVEE.
-To use it go to <strong>ctrl+shift+H</strong> Pie Menu, and run: <strong>'Import Default Hair material'</strong>. Material will be imported and assigned to selected curve ribbons.</p>
+To use it go to <strong>Ctrl+Shift+H</strong> Pie Menu, and run:</p>
+<p><strong>'Import Default Hair material'</strong></p>
+<p>Material will be imported and assigned to selected curve ribbons.</p>
 <video style="width:100%" controls>
   <source src="../video/hair_material.mp4" type="video/mp4">
 Your browser does not support the video tag.
