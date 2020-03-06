@@ -92,11 +92,15 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#add-ribbon-weights">Add Ribbon Weights</a></li>
+            <li><a class="toctree-l3" href="#add-weights">Add Weights</a></li>
         
-            <li><a class="toctree-l3" href="#add-vertex-colors-gradient">Add vertex colors gradient</a></li>
+            <li><a class="toctree-l3" href="#generate-gradient">Generate gradient</a></li>
         
-            <li><a class="toctree-l3" href="#add-random-vertex-colors">Add random vertex colors</a></li>
+            <li><a class="toctree-l3" href="#bake-ao">Bake AO</a></li>
+        
+            <li><a class="toctree-l3" href="#generate-random-vertex-colors">Generate random vertex colors</a></li>
+        
+            <li><a class="toctree-l3" href="#pick-uv-from-target">Pick UV from Target</a></li>
         
         </ul>
     
@@ -157,18 +161,26 @@
             <div class="section">
               
                 <h2 id="mesh-ribbon-operations">Mesh Ribbon operations:<a class="headerlink" href="#mesh-ribbon-operations" title="Permanent link">&para;</a></h2>
-<h3 id="add-ribbon-weights">Add Ribbon Weights<a class="headerlink" href="#add-ribbon-weights" title="Permanent link">&para;</a></h3>
+<h3 id="add-weights">Add Weights<a class="headerlink" href="#add-weights" title="Permanent link">&para;</a></h3>
 <p><img alt="Add Ribbon Weights" src="../img/addribbonweights.gif" />
 <em><strong>Add Ribbon Weights</strong> - create vertex weight gradient from strand root to tip</em></p>
-<h3 id="add-vertex-colors-gradient">Add vertex colors gradient<a class="headerlink" href="#add-vertex-colors-gradient" title="Permanent link">&para;</a></h3>
-<p><img alt="Add Ribbon Vertex color" src="../img/addribbonvertexcolor.gif" />
+<h3 id="generate-gradient">Generate gradient<a class="headerlink" href="#generate-gradient" title="Permanent link">&para;</a></h3>
+<p><img alt="Generate gradient" src="../img/addribbonvertexcolor.gif" />
 <em><strong>Add vertex colors gradient</strong> - create black and white color gradient from strand root to tip</em></p>
-<h3 id="add-random-vertex-colors">Add random vertex colors<a class="headerlink" href="#add-random-vertex-colors" title="Permanent link">&para;</a></h3>
-<p><img alt="Add Ribbon Vertex color" src="../img/random_vertex_color.gif" />
+<h3 id="bake-ao">Bake AO<a class="headerlink" href="#bake-ao" title="Permanent link">&para;</a></h3>
+<p><img alt="Bake AO" src="../img/ao_params.gif" />
+<em><strong>Bake AO to vertex color</strong> - you can set light transmission bounces, and select baking front/back faces or both</em></p>
+<p><img alt="Bake AO" src="../img/ao_blend.gif" />
+<em>If you select multiple objects they will occlude the last mesh (good for receiving shadows from head to hair -&gt; select head mesh then hair and bake)</em></p>
+<h3 id="generate-random-vertex-colors">Generate random vertex colors<a class="headerlink" href="#generate-random-vertex-colors" title="Permanent link">&para;</a></h3>
+<p><img alt="Generate random vertex colors" src="../img/random_vertex_color.gif" />
 <em><strong>Add random vertex colors</strong> - assign different color for each mesh ribbon strand.</em></p>
 <blockquote>
 <p><strong>Note</strong>: I recommend <a href="https://github.com/andyp123/blender_vertex_color_master">Vertex Color Master</a> addon for more detailed control over managing vertex colors on mesh (I added some features to VCMaster with Hair Tool in mind - more advanced color randomization per mesh island, drawing gradients)</p>
 </blockquote>
+<h3 id="pick-uv-from-target">Pick UV from Target<a class="headerlink" href="#pick-uv-from-target" title="Permanent link">&para;</a></h3>
+<p><img alt="Generate random vertex colors" src="../img/uv_pick_target.gif" />
+<em>Creates new uv channel. Picks UV from target object, based on contact point of each hair card root position thus allowing to color hair, by color of base mesh</em></p>
               
             </div>
           </div>

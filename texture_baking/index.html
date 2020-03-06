@@ -106,6 +106,12 @@
     <li class="toctree-l2"><a href="#baking-textures">Baking Textures</a></li>
     
 
+    <li class="toctree-l2"><a href="#texture-channel-mixing">Texture channel mixing</a></li>
+    
+
+    <li class="toctree-l2"><a href="#uv-to-shape-key">UV to shape key</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -168,8 +174,24 @@
 <li>Set output path for baked textures, resolution, bake name etc.</li>
 <li>Press <strong>'Bake Hair'</strong> button to bake selected passes</li>
 </ul>
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/0UAxl549pNA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- <em>Texture baking in Blender 2.79 - not much has changed in Blender 2.8, except bake panel is now located on right</em></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0UAxl549pNA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p><em>Texture baking in Blender 2.79 - not much has changed in Blender 2.8, except bake panel is now located on right</em></p>
+<h3 id="texture-channel-mixing">Texture channel mixing<a class="headerlink" href="#texture-channel-mixing" title="Permanent link">&para;</a></h3>
+<p><img alt="Texture channel mixing" src="../img/texture_channel_mixing.gif" />
+<em>Custom nodes similar to texture nodes - it will help you pack your bake results into new texture RGBA channels</em></p>
+<blockquote>
+<p><strong>Note</strong>:If you enable button '<strong>Composite channels</strong>', Hair Tool will automatically create node setup with input textures from baked images, after baking is finished.
+<img alt="Texture channel mixing" src="../img/composite_channels.jpg" /></p>
+</blockquote>
+<h3 id="uv-to-shape-key">UV to shape key<a class="headerlink" href="#uv-to-shape-key" title="Permanent link">&para;</a></h3>
+<p><img alt="UV to shape key" src="../img/uv_flatten.gif" />
+<em>Use objects UV to create planar Shape Key. Useful for baking short hair to uv. To un-flatten object run this operator again</em></p>
+<blockquote>
+<p><strong>Note1</strong>: This operator will scale particle hair length, hair roughness amplitude, kink amplitude etc. to maintain consistent hair look after base mesh being flattened! That is why to flatten or un-flatten the mesh use 'UV to shape key' button, or you hair may look wrong, if you manually use shape key slider instead.</p>
+<p><strong>Note2</strong>: Make sure to split geometry along edge seams or flattened result may look wrong.</p>
+<p><strong>Note3</strong>: For baking use Hair Tool baking scene.</p>
+</blockquote>
               
             </div>
           </div>
