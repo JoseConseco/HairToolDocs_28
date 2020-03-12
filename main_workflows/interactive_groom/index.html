@@ -77,6 +77,9 @@
     <li class="toctree-l3"><a href="#parameters">Parameters:</a></li>
     
 
+    <li class="toctree-l3"><a href="#fixing-intersections">Fixing intersections:</a></li>
+    
+
     </ul>
                 </li>
     </ul>
@@ -200,6 +203,16 @@ To use interactive grooming to work, you need to:</p>
 <em> <strong>Randomize Rotation</strong> - Randomize rotation of generated curve ribbons</em></p>
 <p><img alt="hair density mask" src="../../img/hair_comb_density.jpg" />
 <em>You can use particle system <strong>Density</strong> mask to control where child strands will be generated</em></p>
+<h4 id="fixing-intersections">Fixing intersections:<a class="headerlink" href="#fixing-intersections" title="Permanent link">&para;</a></h4>
+<p>Often when you want to make hairstyle with a parting you may encounter problem of child particles intersecting with body geometry like on image below.
+<img alt="hair density mask" src="../../img/intersecting_child_fix.jpg" /></p>
+<p>Best way to fix it is to split particle system into two parts - Left and Right:</p>
+<ul>
+<li>select particle hair object -&gt; Ctrl + Shift + H -&gt;  Particle hair to curves</li>
+<li>then split generated curves into two objects - <strong>Left</strong> and <strong>Right</strong></li>
+<li>attach <strong>Left</strong> and <strong>Right</strong> curve objects to head using - 'Particle hair from Curves', as two separate particle systems.</li>
+<li>create 2 density vertex groups for left and right particle hair system and you are done. You can comb left and right part independently with clean hair parting.</li>
+</ul>
               
             </div>
           </div>
