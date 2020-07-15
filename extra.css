@@ -22,3 +22,6 @@ iframe {
     margin-right: auto;
     display: block
 }
+table {
+    width: 100%;
+}
