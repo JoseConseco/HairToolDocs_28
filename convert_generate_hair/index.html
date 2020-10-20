@@ -68,6 +68,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#curve-ribbons-to-mesh-ribbons">Curve ribbons to mesh ribbons</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#finalize-hair">Finalize Hair</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-to-curve">Particle Hairs to Curve</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#particle-hairs-from-curve">Particle Hairs From Curve</a>
@@ -157,6 +159,12 @@
 Your browser does not support the video tag.
 </video></p>
 <p><strong>Ribbon to Curves/ Curves to Ribbon</strong> - allow for switching between  curve ribbons and  mesh ribbons. Usually you will want to do hair modeling in curve state, and then convert to mesh on export (or when you want to move individual vertices on hair).</p>
+<h3 id="finalize-hair">Finalize Hair<a class="headerlink" href="#finalize-hair" title="Permanent link">&para;</a></h3>
+<p>When you want to export your character with hair usually you would have to:
+ * Convert Curve hair to mesh hair
+ * Join mesh hair with character body (it is destructive operation, so usually you would create copies each object before joining the duplicates)
+ * finally export merged-duplicated object</p>
+<p>Finalize Hair is doing all of above (except exporting) in one step. Just select curve hair (or mesh hair), your character object an run 'Finalize hair' to get merged copy that is ready to export. You can remove exported duplicated object after that.</p>
 <h3 id="particle-hairs-to-curve">Particle Hairs to Curve<a class="headerlink" href="#particle-hairs-to-curve" title="Permanent link">&para;</a></h3>
 <p><img alt="Particle Hairs to Curve" src="../img/curvesfromparticles.gif" />
 <strong>Particle Hairs to Curve</strong> - generate curve ribbons from Particle hair.  Align their tilt to head with 'Align Tilt' checkbox, and embed hair roots deeper into the scull using 'Embed Roots' parameter.</p>

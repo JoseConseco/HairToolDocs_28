@@ -82,7 +82,9 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#generate-random-vertex-colors">Generate random vertex colors</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#pick-uv-from-target">Pick UV from Target</a>
+    <li class="toctree-l2"><a class="reference internal" href="#sample-uv-from-target">Sample UV from Target</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sample-weights-from-target">Sample Weights from Target</a>
     </li>
     </ul>
                     </li>
@@ -157,9 +159,11 @@
 <blockquote>
 <p><strong>Note</strong>: I recommend <a href="https://github.com/andyp123/blender_vertex_color_master">Vertex Color Master</a> addon for more detailed control over managing vertex colors on mesh (I added some features to VCMaster with Hair Tool in mind - more advanced color randomization per mesh island, drawing gradients)</p>
 </blockquote>
-<h3 id="pick-uv-from-target">Pick UV from Target<a class="headerlink" href="#pick-uv-from-target" title="Permanent link">&para;</a></h3>
+<h3 id="sample-uv-from-target">Sample UV from Target<a class="headerlink" href="#sample-uv-from-target" title="Permanent link">&para;</a></h3>
 <p><img alt="Generate random vertex colors" src="../img/uv_pick_target.gif" />
-<em>Creates new uv channel. Picks UV from target object, based on contact point of each hair card root position thus allowing to color hair, by color of base mesh</em></p>
+<em>Creates new uv channel. Samples UV from target object, based on contact point of each hair card root position thus allowing to color hair, by color of base mesh</em></p>
+<h3 id="sample-weights-from-target">Sample Weights from Target<a class="headerlink" href="#sample-weights-from-target" title="Permanent link">&para;</a></h3>
+<p>Same as Sample UV from target object, except it samples target object weights. This way, after parenting hair to body armature, hair can follow target object animation</p>
               
             </div>
           </div>
