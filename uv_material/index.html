@@ -90,7 +90,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#material-uv-refresh">Material / UV Refresh</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#override-material-uv">Override Material UV</a>
+    <li class="toctree-l2"><a class="reference internal" href="#set-uv-region">Set UV region</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#default-hair-material">Default Hair Material</a>
     </li>
@@ -166,7 +166,7 @@ If you wan to have separate UVs, then you have to separate (un-instance) materia
 <p><strong>Note1:</strong> In you enabled: <strong>'Random UV flip'</strong> in addon preferences, texture will be mirrored in X axis on randomly picked curves. This creates additional materials (one for each mirrored UV box)! </p>
 <p><strong>Note2:</strong> If you want to flip strand texture in Y direction, just hover your mouse over UV box and press 'F'! </p>
 </blockquote>
-<p>When you are done doing UVs each curve spline will have one UVBox (material slot) assigned to it automatically. You can randomize UVs assignment with <a href="./#material-uv-refresh"><strong>Material / UV Refresh</strong></a>. Or you can manually assign materials for each strand with <a href="./#override-material-uv"><strong>Override Material UV</strong></a></p>
+<p>When you are done doing UVs each curve spline will have one UVBox (material slot) assigned to it automatically. You can randomize UVs assignment with <a href="./#material-uv-refresh"><strong>Material / UV Refresh</strong></a>. Or you can manually assign materials for each strand with <a href="./#override-material-uv"><strong>Set UV boxes</strong></a></p>
 <h4 id="offset-uv">Offset UV<a class="headerlink" href="#offset-uv" title="Permanent link">&para;</a></h4>
 <p>It moves UV points more toward the root or tip on hair strand. As a result you can stretch UVs and change texture look. See video below:</p>
 <video style="width:100%" controls>
@@ -176,18 +176,22 @@ Your browser does not support the video tag.
 
 <p><em>To use </em><em>UV Offset</em><em> just hover you mouse over UV box and scroll with MMB.</em></p>
 <h4 id="material-uv-refresh">Material / UV Refresh<a class="headerlink" href="#material-uv-refresh" title="Permanent link">&para;</a></h4>
-<p>The best way to edit hair material is to adjust first material slot nodes. Next step would be updating other materials slots, while preserving UVs. </p>
-<p><strong>'Material / UV Refresh'</strong> button is doing just that - it is propagating material changes from first material slot to the following material slots, while preserving UVs (Boxes).</p>
-<p><img alt="Override UV" src="../img/material_uv_refresh.gif" />
+<p>The best way to edit hair material is to adjust first material slot nodes, then update other materials slots, while preserving UVs. </p>
+<p><strong>Material / UV Refresh</strong> button is doing just that - it is propagating material changes from first material slot to the following material slots, while preserving UVs (region).</p>
+<p><img alt="Material Refresh" src="../img/material_uv_refresh.gif" />
 <em><strong>Material / UV Refresh</strong> with random seed option. It changes random hair strands materials assignment</em></p>
-<h4 id="override-material-uv">Override Material UV<a class="headerlink" href="#override-material-uv" title="Permanent link">&para;</a></h4>
-<p>In short: Override random spline material / UV, with selected material index.<br />
-In Hair Tool material is connected to UV. If you have made 3 UV boxes then hair object will have 3 materials applied (times 2 if you enabled random mirroring), one for each uv box. Those materials are then randomly applied to each curve strand. You can override random assignment by using <strong>'Override spline UV'</strong>.</p>
+<h4 id="set-uv-region">Set UV region<a class="headerlink" href="#set-uv-region" title="Permanent link">&para;</a></h4>
+<p>Map selected strands UV region to specific uv box by its ID number<br />
+In Hair Tool material is connected to UV. If you made three UV boxes then hair object will have three materials applied, one for each uv box (double mat count if you enabled random mirroring in addons preferences). Those materials are then applied to each curve strand. You can override random assignment using this operator.</p>
 <blockquote>
-<p><strong>Note</strong>: assigning different material slot manually to each spline will work too, but as soon as you run 'Material / UV Refresh' your changes will be overridden.</p>
+<p><strong>Note</strong>: assigning material slots to hair strands manually will only temporally, but as soon as you run 'Material / UV Refresh' your changes will be reverted to default UV.</p>
 </blockquote>
-<p><img alt="Override UV" src="../img/override_material_uv.gif" />
-<em>Select splines you want to edit, and run </em><em>'Override spline UV'</em><em>. Under </em><em>F9</em><em> properties change index of UV box / Material that will be applied to selection.</em></p>
+<video style="width:100%" controls>
+  <source src="../video/set_uv_region.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p><em>Set selected strands UV to one of three, user defined, UV boxes by using theirs IDs. Shift select multiple IDs to assign UV regions randomly</em></p>
 <h4 id="default-hair-material">Default Hair Material<a class="headerlink" href="#default-hair-material" title="Permanent link">&para;</a></h4>
 <p><img alt="Hair Colors" src="../img/hair_color.jpg" />
 Hair Tool has build in hair shader, great for realtime preview in EEVEE.
@@ -201,7 +205,7 @@ Your browser does not support the video tag.
 
 <h4 id="anisotropic-switch">Anisotropic switch<a class="headerlink" href="#anisotropic-switch" title="Permanent link">&para;</a></h4>
 <p>This is helper function to fix anisotropic specular direction when converting curve ribbons to mesh ribbons. </p>
-<p><img alt="Override UV" src="../img/material_aniso_flip.gif" />
+<p><img alt="Anisotropic switch" src="../img/material_aniso_flip.gif" />
 <em>Switching from curve ribbons to mesh ribbons break specular direction. '</em><em>Anisotropic switch</em><em>' fixes that.</em></p>
               
             </div>
