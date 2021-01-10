@@ -154,15 +154,16 @@
 <li><a href="./#generate-curly-hair"><strong>Curly hair</strong></a>.</li>
 </ul>
 <h3 id="curve-ribbons-to-mesh-ribbons">Curve ribbons to mesh ribbons<a class="headerlink" href="#curve-ribbons-to-mesh-ribbons" title="Permanent link">&para;</a></h3>
-<p><video style="width:100%" controls>
+<video style="width:100%" controls>
   <source src="../video/curves_to_mesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
-</video></p>
-<p><strong>Ribbon to Curves/ Curves to Ribbon</strong> - allow for switching between  curve ribbons and  mesh ribbons. Usually you will want to do hair modeling in curve state, and then convert to mesh on export (or when you want to move individual vertices on hair).</p>
+</video>
+
+<p><strong>Ribbon to Curves/ Curves to Ribbon</strong> - allow for switching between  curve ribbons and  mesh ribbons. Usually you will do the hair modeling in curve mode, and then, on export, convert them to mesh. This operator ensures that curves UVs are properly converted to mesh UVs.</p>
 <h3 id="finalize-hair">Finalize Hair<a class="headerlink" href="#finalize-hair" title="Permanent link">&para;</a></h3>
 <p>When you want to export your character with hair usually you would have to:</p>
 <ul>
-<li>Convert Curve hair to mesh hair</li>
+<li>Convert curve hair to mesh hair</li>
 <li>Join mesh hair with character body (it is destructive operation, so usually you would create copies each object before joining the duplicates)</li>
 <li>finally export merged-duplicated object</li>
 </ul>
@@ -174,10 +175,11 @@ Your browser does not support the video tag.
 <p><img alt="(Particle Hairs From Curve)" src="../img/particlehairfromcurve.gif" />
 <strong>Particle Hair from Curves</strong> (this can be used to convert zbrush fibermesh to blender Particle Hair system). Select curves and target mesh (that will receive Particle Hair) and use '<strong>Particle Hair from Curves</strong>' to convert curves object to blenders Hair system.</p>
 <h3 id="generate-braids">Generate Braids<a class="headerlink" href="#generate-braids" title="Permanent link">&para;</a></h3>
-<p><video style="width:100%" controls>
+<video style="width:100%" controls>
   <source src="../video/generate_braid.mp4" type="video/mp4">
 Your browser does not support the video tag.
-</video></p>
+</video>
+
 <p>To generate Braids -  select one or more splines from curve object, and run 'Generate Braid'. You can access operator properties from <strong>F9</strong> hotkey.<br />
 After finishing operation, originally selected splines will be separated - each into its own object, and they will deform the generated braid. This way you will be able to twist (ctrl +T), scale radius (alt+s) or move generated braids. </p>
 <blockquote>
@@ -194,7 +196,8 @@ After finishing operation, originally selected splines will be separated - each 
 <li>Equalize radii - Equalize radii for braids with different lengths (when generating multiple braids)</li>
 </ul>
 <h3 id="generate-curly-hair">Generate Curly hair<a class="headerlink" href="#generate-curly-hair" title="Permanent link">&para;</a></h3>
-<p><iframe width="560" height="315" src="https://www.youtube.com/embed/aQG59lxkh_Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aQG59lxkh_Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <p>To generate Curls -  select one or more splines from curve object, and run 'Generate Curls'. You can access operator properties from <strong>F9</strong> hotkey.<br />
 After finishing operation, originally selected splines will be separated - each into its own object, and they will deform the generated braid.</p>
 <p><strong>Parameters: (F9 Key)</strong></p>

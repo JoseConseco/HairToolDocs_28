@@ -84,6 +84,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#hair-uvs">Hair UV's</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#optimal-uv-workflow">Optimal UV workflow</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#defining-uvs">Defining UV's</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#offset-uv">Offset UV</a>
@@ -145,35 +147,46 @@
               
                 <h3 id="hair-uv-and-material-setup">Hair UV and Material setup<a class="headerlink" href="#hair-uv-and-material-setup" title="Permanent link">&para;</a></h3>
 <h4 id="hair-uvs">Hair UV's<a class="headerlink" href="#hair-uvs" title="Permanent link">&para;</a></h4>
-<p>In Hair Tool <strong>UVs</strong> are stored in material. What this mean is that, if you have two curve ribbons with <strong>same material</strong>, they both will share <strong>same UV</strong>. 
-If you wan to have separate UVs, then you have to separate (un-instance) material on both curves. But if you want two curves to have same UV - just link Material from one to the other.</p>
+<p>In Hair Tool you are intended to work on hair in curve mode; curves UV data is stored in its materials. As a result if you have two curve hair objects sharing <strong>same material</strong>, they both will share <strong>same UV</strong> too.<br />
+If you wan to separate UVs, then you have to separate (un-instance) material on both curves. If you want two curves to have same UV - just link Material from one to the other.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/784GPONnO14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 <p><em>Here is video explaining material creation</em></p>
+<h4 id="optimal-uv-workflow">Optimal UV workflow<a class="headerlink" href="#optimal-uv-workflow" title="Permanent link">&para;</a></h4>
+<p>The optimal workflow for creation an assigning hair UVs (UVs are stored in hairs material):</p>
+<ol>
+<li>select curve hair object</li>
+<li>define UV regions like shown in <a href="./#defining-uvs"><strong>Defining UVs</strong></a>. This will create hair materials that holds UV data</li>
+<li>manually assign UVs boxes to selected strands with <a href="./#set-uv-region"><strong>Set UV region</strong></a></li>
+<li>link materials (that hold UVs) created in second step, to other hair object and repeat third step</li>
+</ol>
+<blockquote>
+<p><strong>Note1:</strong> Do not use Blender's buildin 'Convert-To-&gt;Mesh' operator on curve hair, or your output mesh UVs will be messed up. Instead use <a href="../convert_generate_hair/#curve-ribbons-to-mesh-ribbons"><strong>Curve ribbons to mesh ribbons</strong></a>. This way curve Material UVs will be properly, converted to mesh UVs.</p>
+</blockquote>
 <h4 id="defining-uvs">Defining UV's<a class="headerlink" href="#defining-uvs" title="Permanent link">&para;</a></h4>
-<p>In Hair Tool to create UVs we have to make material, which will hold UVs data. Material creation is done automatically by the addon, when you make uv.</p>
-<p><img alt="Hair UV" src="../img/uvhair.gif" />
-<em><strong>UV boxes creation</strong> process in Hair Tool. Left click and drag in UV image editor to define UV area for hair</em></p>
-<p>UV creation for curve hair:</p>
+<video style="width:100%" controls>
+  <source src="../video/define_uv.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<p><em><strong>Defining UV regions</strong> in Hair Tool from UV image editor</em></p>
+<p>How to create curve hair UVs:</p>
 <ul>
-<li>go into UV editor and search for: ‘<strong>Hair UV</strong>’ operator under spacebar search menu, and pick: <strong>Draw UV's for Hair</strong>  </li>
-<li>Use <strong>Left click and drag</strong> rectangular shape, to define the UV bounds for texture. Drag corners of existing UV box and adjust its shape.  </li>
+<li>open UV Image Editor and press ‘<strong>Hair UV</strong>’ button located in top header bar - on far right  </li>
+<li>next use Left Click and drag rectangular shape, to define the UV bounds for texture mapping. You can drag corners of existing UV box to adjust its shape.  </li>
 <li>To remove UV box, hover your mouse over one of uv boxes and press <strong>[Delete]</strong> key  </li>
 <li>To reset UV press <strong>Shift + Delete</strong></li>
 </ul>
-<p>Each UV box will create one material. It is workaround for Blender limitation (Blender can't create UV data for individual splines, hopefully this can be simplified in future).</p>
+<p>Each UV box will create one material. So if you made 5 UV boxes, then addon will create 5 materials (times two if you have enabled 'Random UV flip' in addon preferences).</p>
 <blockquote>
-<p><strong>Note1:</strong> In you enabled: <strong>'Random UV flip'</strong> in addon preferences, texture will be mirrored in X axis on randomly picked curves. This creates additional materials (one for each mirrored UV box)! </p>
+<p><strong>Note1:</strong> <strong>'Random UV flip'</strong> option in addon preferences, will create additional X-axis mirrored UVs, that can be randomly assigned to hair strands. This doubles material count </p>
 <p><strong>Note2:</strong> If you want to flip strand texture in Y direction, just hover your mouse over UV box and press 'F'! </p>
 </blockquote>
-<p>When you are done doing UVs each curve spline will have one UVBox (material slot) assigned to it automatically. You can randomize UVs assignment with <a href="./#material-uv-refresh"><strong>Material / UV Refresh</strong></a>. Or you can manually assign materials for each strand with <a href="./#override-material-uv"><strong>Set UV boxes</strong></a></p>
 <h4 id="offset-uv">Offset UV<a class="headerlink" href="#offset-uv" title="Permanent link">&para;</a></h4>
 <p>It moves UV points more toward the root or tip on hair strand. As a result you can stretch UVs and change texture look. See video below:</p>
 <video style="width:100%" controls>
   <source src="../video/offset_uvs.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-
 <p><em>To use </em><em>UV Offset</em><em> just hover you mouse over UV box and scroll with MMB.</em></p>
 <h4 id="material-uv-refresh">Material / UV Refresh<a class="headerlink" href="#material-uv-refresh" title="Permanent link">&para;</a></h4>
 <p>The best way to edit hair material is to adjust first material slot nodes, then update other materials slots, while preserving UVs. </p>
@@ -181,10 +194,13 @@ Your browser does not support the video tag.
 <p><img alt="Material Refresh" src="../img/material_uv_refresh.gif" />
 <em><strong>Material / UV Refresh</strong> with random seed option. It changes random hair strands materials assignment</em></p>
 <h4 id="set-uv-region">Set UV region<a class="headerlink" href="#set-uv-region" title="Permanent link">&para;</a></h4>
-<p>Map selected strands UV region to specific uv box by its ID number<br />
-In Hair Tool material is connected to UV. If you made three UV boxes then hair object will have three materials applied, one for each uv box (double mat count if you enabled random mirroring in addons preferences). Those materials are then applied to each curve strand. You can override random assignment using this operator.</p>
+<p>Map selected strands UV to specific uv box by its ID number</br></p>
 <blockquote>
-<p><strong>Note</strong>: assigning material slots to hair strands manually will only temporally, but as soon as you run 'Material / UV Refresh' your changes will be reverted to default UV.</p>
+<p><strong>Note</strong>: UV box ID numbers can be previewed using 'Hair UV' button see: <a href="./#defining-uvs"><strong>Defining UVs</strong></a></p>
+</blockquote>
+<p>In Hair Tool UV is stored in material data. This means if you made three UV boxes then addon will create/assign three materials to selected object (if you enabled 'Random UV flip' in addons preferences, then mat count is doubled). Those three materials (UV boxes), can be assigned to each curve strand using 'Set UV region'</p>
+<blockquote>
+<p><strong>Note</strong>: you can assigning material slots to hair strands manually using Blender's build-in 'Assign' button from Material Tab, but 'Set UV region' provides additional randomization option - where selected strands will randomly pick one of selected UV boxes IDs.</p>
 </blockquote>
 <video style="width:100%" controls>
   <source src="../video/set_uv_region.mp4" type="video/mp4">
