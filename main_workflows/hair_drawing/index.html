@@ -164,7 +164,7 @@ You can draw hair (curve ribbons or particle hair) directly on selected mesh sur
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eD5E_UoimSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p><em>Example od drawing curve ribbons</em></p>
 <h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
-<p><img alt="Projected vs Connected" src="../../img/param_gifs/extend_draw.gif" />
+<p><img alt="Extend Draw Strand" src="../../img/param_gifs/extend_draw.gif" />
 <em><strong>Extend Strand</strong> - Add new drawn points te existing selected strands</em></p>
 <ul>
 <li>
@@ -174,16 +174,21 @@ You can draw hair (curve ribbons or particle hair) directly on selected mesh sur
 <p><strong>Strand Radius</strong> - per strand radius</p>
 </li>
 <li>
-<p><strong>Draw Type</strong></p>
+<p><strong>Snapping</strong></p>
 <ul>
-<li><strong>Projected</strong> - snaps whole drawn stroke to mesh surface, then elevate strand above surface by 'Elevation distance'</li>
-<li><strong>Connected</strong> - only first point of stroke is snapped to drawn mesh surface. The following points are then placed orthogonally to view direction
-<img alt="Projected vs Connected" src="../../img/param_gifs/projected_connected.gif" /></li>
+<li><strong>With Snapping</strong> - snaps whole drawn stroke to mesh surface, then elevate strand above surface by 'Elevation distance'</li>
+<li><strong>Without Snapping</strong> - only first point of stroke is snapped to drawn mesh surface. The following points are then placed orthogonally to view direction</li>
 </ul>
 </li>
-<li>
-<p><strong>UV</strong> - Assign UV box to drawn curve ribbons: Automatically or pick of the UV boxes, by box number (see <a href="../../uv_material/#defining-uvs"><strong>Defining UV's</strong></a>)</p>
-</li>
+</ul>
+<video style="width:100%" controls>
+  <source src="../../video/with_out_snap_draw.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<!-- ![Drawing with and without snapping](../../img/param_gifs/projected_connected.gif) -->
+
+<ul>
+<li><strong>UV</strong> - Assign UV box to drawn curve ribbons: Automatically or pick of the UV boxes, by box number (see <a href="../../uv_material/#defining-uvs"><strong>Defining UV's</strong></a>)</li>
 </ul>
 <p><img alt="Offset Tip" src="../../img/param_gifs/offset_tip.gif" />
 <em><strong>Offset to tip</strong> - Offset spline points more toward tip</em></p>
