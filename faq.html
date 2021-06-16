@@ -153,17 +153,17 @@
               
                 <h2 id="mesh-ribbon-operations">Mesh Ribbon operations:<a class="headerlink" href="#mesh-ribbon-operations" title="Permanent link">&para;</a></h2>
 <h3 id="greyed-out-parameters-panel">Greyed out parameters panel<a class="headerlink" href="#greyed-out-parameters-panel" title="Permanent link">&para;</a></h3>
-<p><img alt="Hair UV" src="../img/faq/greyed_out_settings.jpg" />
+<p><img alt="Hair UV" src="img/faq/greyed_out_settings.jpg" />
 Go to Preferences -&gt; System -&gt; Enable 'Global Undo'. You may need to restart blender after saving settings. It looks like blender bug, and from time to time this option is disabled for no reason.</p>
 <h3 id="hair-uv-operator-cant-be-found-in-search-menu">Hair UV operator can't be found in search menu<a class="headerlink" href="#hair-uv-operator-cant-be-found-in-search-menu" title="Permanent link">&para;</a></h3>
 <p>Since 2.24 version I added 'Hair UV' button to UV Image Editor header:
-<img alt="Hair UV" src="../img/faq/hair_uv.jpg" />
+<img alt="Hair UV" src="img/faq/hair_uv.jpg" />
 Unfortunately I'm not sure why this operator is missing from search menu for some people...</p>
 <h3 id="how-do-i-export-hair">How do I export hair?<a class="headerlink" href="#how-do-i-export-hair" title="Permanent link">&para;</a></h3>
 <p>Hair generated in Hair Tool can be exported just like any other mesh (File -&gt; Export -&gt; FBX). Just make sure to convert <a href="convert_generate_hair.html#curve-ribbons-to-mesh-ribbons">Curves to Mesh</a> hair first.</p>
 <h3 id="how-do-i-export-hair-texture">How do I export hair texture?<a class="headerlink" href="#how-do-i-export-hair-texture" title="Permanent link">&para;</a></h3>
 <p>If you are using default Hair Tool hair material, then it is using just one texture - alpha mask. You can export it from UV Editor (or Image Editor) -&gt; Image menu -&gt; Save as:
-<img alt="Exporting Hair Texture" src="../img/faq/texture_export.jpg" /></p>
+<img alt="Exporting Hair Texture" src="img/faq/texture_export.jpg" /></p>
 <blockquote>
 <p><strong>Note</strong>: Build-in HTool hair shader has complicated shader nodes setup, that allows them to look nice in Eevee. It is impossible to copy it to another game engines.</p>
 </blockquote>
@@ -175,12 +175,12 @@ Unfortunately I'm not sure why this operator is missing from search menu for som
 <h3 id="error-when-using-curves-from-grid-surface">Error when using Curves from Grid surface<a class="headerlink" href="#error-when-using-curves-from-grid-surface" title="Permanent link">&para;</a></h3>
 <p>Make sure your source grid surface has proper topology.<br />
 Examples of <strong>bad topology</strong>:
-<img alt="Bad Grid Mesh" src="../img/faq/bad_grid_meshes.jpg" /></p>
+<img alt="Bad Grid Mesh" src="img/faq/bad_grid_meshes.jpg" /></p>
 <blockquote>
 <p><strong>Note</strong>: First mesh is bad, because it has no subdivision. The last torus does not have any border edge that could be used as marker for roots of hair.</p>
 </blockquote>
 <p>Examples of <strong>proper topology</strong>:
-<img alt="Bad Grid Mesh" src="../img/faq/good_grid_meshes.jpg" /></p>
+<img alt="Bad Grid Mesh" src="img/faq/good_grid_meshes.jpg" /></p>
 <blockquote>
 <p><strong>Note</strong>: Torus is ok, as long as you break one of loops, to create border edge.</p>
 </blockquote>
