@@ -93,12 +93,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#set-uv-region">Set UV region</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#hair-uv-curls">Hair UV Curls</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#default-hair-material">Default Hair Material</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#anisotropic-switch">Anisotropic switch</a>
-    </li>
     </ul>
                     </li>
                 </ul>
@@ -218,6 +212,13 @@ Your browser does not support the video tag.
 </video>
 
 <p><em>Set selected strands UV to one of three, user defined, UV boxes by using theirs IDs. Shift select multiple IDs to assign UV regions randomly</em></p>
+<h3 id="auto-uv">Auto UV<a class="headerlink" href="#auto-uv" title="Permanent link">&para;</a></h3>
+<p>Instead of manually assigning UV regions to hair strands with <a href="./uv_material.html#set-uv-region">Set UV Region</a> we can automate this task with Auto UV option. It will randomly assign selected UV Regions/materials to hair strands.</p>
+<video style="width:100%" controls>
+  <source src="./video/auto_uv.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Here we assign selected UV regions (1-red, 2-green, 3-blue) using Auto UV. We can also assign UV/Material based on strands length with 'Length masked Uvs'</em></p>
 <h4 id="hair-uv-curls">Hair UV Curls<a class="headerlink" href="#hair-uv-curls" title="Permanent link">&para;</a></h4>
 <p><img alt="UV Curls" src="img/material_uvs/uv_curls.jpg" />
 This option allow to create low-poly curly hair effect on hair objects that have <a href="editing_profile.html"><strong>round profile</strong></a> (resulting in pipe like curves). Curly UVs settings are stored in material, thus each material can have unique curls look. On the other hand if your hair have one material, then then all curls will look exactly the same on all splines.</p>
