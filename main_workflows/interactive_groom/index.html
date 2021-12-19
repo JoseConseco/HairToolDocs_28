@@ -59,7 +59,13 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Interactive grooming</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
+    <li class="toctree-l2"><a class="reference internal" href="#location-and-usage">Location and Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#child-comb-settings">Child Comb Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#curve-parameters">Curve Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#children-settings">Children Settings</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#vertex-groups">Vertex Groups:</a>
     </li>
@@ -150,57 +156,83 @@
                 <h2 id="interactive-hair-grooming">Interactive hair Grooming:<a class="headerlink" href="#interactive-hair-grooming" title="Permanent link">&para;</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mZkj0NnRRj0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>It best used for short, dense hair that should cover big areas uniformly (for long hair I would use <a href="../hair_from_surface/"><strong>'Curves from grid surface'</strong></a> function - as it provides easier way guide hair IMO).  </p>
-<p><img alt="ht_hair_grooming" src="../../img/inter_grooming/ht_hair_grooming.jpg" />
-<em>Hair Grooming - panel is located in right UI Sidebar: "Hair Tool" tab (visible only in 'Particle Edit' mode)</em></p>
-<p>To use interactive grooming, you have to be in <strong>'Particle Edit' mode</strong> (add 'Particle System' modifier first)</p>
-<p>To start grooming and generate curve ribbons:  </p>
+<p>Interactive Grooming is best for short, dense hair styles that cover mesh uniformly (for long hair I recommend <a href="../hair_from_surface/"><strong>'Curves from grid surface'</strong></a> - it provides easier way guide long hair).
+Haircards generated with this method will cover whole mesh, but you can mask the influecne region with Density vertex group.</p>
+<h4 id="location-and-usage">Location and Usage<a class="headerlink" href="#location-and-usage" title="Permanent link">&para;</a></h4>
+<p>To use interactive grooming, you have to be in <strong>Particle Edit mode</strong>, which in turn requires adding 'Particle Hair' system to selected object with type set to 'Hair'.</p>
+<p>To start grooming:</p>
 <ul>
-<li>open right sidebar(N) in 3D View -&gt; go to 'Hair Tool' Tab and press 'Create Interactive Comb Settings' button. </li>
-<li>You will see Grooming Panel with all the settings. Click 'Interactive Grooming' button to start the modeling session.
-<img alt="Create Comb Settings" src="../../img/inter_grooming/create_comb_settings.jpg" /><blockquote>
-<p><strong>Note</strong>: Each particle system has its own separate comb settings. This gives you more control over hair look. But if you want you can copy settings from one Groom settings to another using down arrow menu.</p>
-</blockquote>
-</li>
+<li>Open right sidebar in 3D View (N-key) -&gt; go to 'Hair Tool' Tab</li>
+<li>You will see 'Hair Grooming' Panel with list of Particle Hair systems assigned to active object.</li>
+<li>Click 'Interactive Grooming' button to start modeling hair.</li>
 </ul>
-<p>Curve hair will be interactively updated as soon as you release your Left Mouse Button. Generated curve ribbons, will use same name as source particle system. You can pause and resume hair grooming at any time. The generated curve ribbons will be updated - as long as you wont change the name of generated hair.</p>
-<h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<p><img alt="ht_hair_grooming" src="../../img/inter_grooming/ht_hair_grooming.jpg" /></p>
+<blockquote>
+<p><strong>Note</strong>: Each particle system has its own separate combing settings. This gives you more control over hair look. But if you want you can copy settings from one Groom settings to another using down arrow menu.</p>
+</blockquote>
+<p>Generated strands will be updated as soon as you release your Left Mouse Button. Name of generated ribbons will be the same as particle system name. You can resume work on previously generated hair strands objects, and it will be updated as long as you keep the Particle System name and generated strands object name the same.</p>
+<h4 id="child-comb-settings">Child Comb Settings<a class="headerlink" href="#child-comb-settings" title="Permanent link">&para;</a></h4>
+<p>Hair Tool supports two Child Comb Settings:</p>
 <ul>
-<li><strong>Strand width</strong> - curve ribbons width </li>
+<li>Blender Particle Hair Settings - which supports most of Blender build-in Particle System <a href="https://docs.blender.org/manual/en/latest/physics/particles/emitter/children.html">Children</a> settings</li>
+<li>Hair Tool own Groom Settings - <a href="#children-settings">simplified setup</a>, but gives better strand interpolation and more uniform distribution which is importan if you care about poly count</li>
+</ul>
+<p><img alt="ht_hair_grooming" src="../../img/inter_grooming/comb_settings.jpg" /></p>
+<h4 id="curve-parameters">Curve Parameters<a class="headerlink" href="#curve-parameters" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Strand width</strong> - curve ribbons width</li>
 </ul>
 <p><img alt="Points per strand" src="../../img/param_gifs/resample_count.gif" />
-* <strong>Points per strand</strong> - How many points generate for each spline*</p>
+<em><strong>Points per strand</strong> - How many points generate for each spline</em></p>
 <p><img alt="Offset Tip" src="../../img/param_gifs/offset_tip.gif" />
 <em><strong>Offset to tip</strong> - Move spline points more toward tip</em></p>
 <p><img alt="Offset Root" src="../../img/param_gifs/offset_root.gif" />
-* <strong>Offset to root</strong> - Move spline points more toward root*</p>
+<em><strong>Offset to root</strong> - Move spline points more toward root</em></p>
 <p><img alt="align tilt" src="../../img/param_gifs/align_tilt.gif" />
-* <strong>Align tilt</strong> - Align ribbons tilt to surface*</p>
+<em><strong>Align tilt</strong> - Align ribbons tilt to surface</em></p>
 <p><img alt="embed_root" src="../../img/param_gifs/embed_root.gif" />
-* <strong>Embed Roots Depth</strong> - Embed strands roots into mesh surface*</p>
+<em><strong>Embed Roots Depth</strong> - Embed strands roots into mesh surface</em></p>
 <ul>
 <li><strong>Strand Smoothing</strong> - smooth generated strands (may be slow for dense hair)</li>
-<li><strong>Generate children</strong> - Generate child hair strands. They will be guided by parent strands (particle hair)</li>
+</ul>
+<h4 id="children-settings">Children Settings<a class="headerlink" href="#children-settings" title="Permanent link">&para;</a></h4>
+<ul>
 <li><strong>Include Parent Strands</strong> -  Include parent strands when generating hair with children</li>
 <li><strong>Parent strands overlay</strong> - Draw orange overlay on top of parent strands, for better visibility on dense hair (Draw Offset controls bias of overlay toward camera)</li>
 </ul>
-<p><img alt="child count " src="../../img/param_gifs/child_count_ph.gif" />
-* <strong>Child count</strong> - Amount of generated children strands*</p>
-<p><img alt="placement jitter" src="../../img/param_gifs/placement_jitter.gif" />
-* <strong>Placement Jittering</strong> - Randomize child strands placement*</p>
-<p><img alt="randomize length" src="../../img/param_gifs/random_length_ph.gif" />
-* <strong>Randomize length</strong> - Randomize strands length*</p>
-<p><img alt="Scale length" src="../../img/param_gifs/scale_phair.gif" />
-* <strong>Scale Particle Hair</strong> - Change particle hair length (and generated curve ribbons length as an result too)*</p>
-<p><img alt="Randomize rotation" src="../../img/param_gifs/randomize_rot_phair.gif" />
-* <strong>Randomize Rotation</strong> - Randomize rotation of generated curve ribbons*</p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/inter_grooming/child_cnt.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Child count</strong> - Amount of generated children strands</em></p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/inter_grooming/clumping.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Clumping Amount</em></p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/inter_grooming/placement_jitter.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Placement Jittering</strong> - Randomize child strands placement</em></p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/inter_grooming/randomize_len.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><strong><em>Randomize length</em></strong></p>
+<p><img alt="Scale length" src="../../img/inter_grooming/scale_phair.gif" />
+<em><strong>Scale Particle Hair</strong> - Change particle hair length (and generated curve ribbons length as an result too)</em></p>
+<p><img alt="Randomize rotation" src="../../img/inter_grooming/randomize_rot_phair.gif" />
+<em><strong>Randomize Rotation</strong> - Randomize rotation of generated curve ribbons</em></p>
 <h4 id="vertex-groups">Vertex Groups:<a class="headerlink" href="#vertex-groups" title="Permanent link">&para;</a></h4>
 <p>With vertex groups you can control child strands:</p>
 <ul>
-<li>density</li>
-<li>length</li>
-<li>random rotation strength </li>
-<li>strand radius (ribbon width)</li>
+<li>Density</li>
+<li>Length</li>
+<li>Clumping</li>
+<li>Taper</li>
+<li>Rotation randomization</li>
+<li>Radius</li>
 </ul>
 <p><img alt="hair density mask" src="../../img/inter_grooming/hair_comb_density.jpg" />
 <em>You can use particle system Density mask to control where child strands will be generated</em></p>
