@@ -156,7 +156,7 @@
               
                 <h3 id="hair-uv-and-material-setup">Hair UV and Material setup<a class="headerlink" href="#hair-uv-and-material-setup" title="Permanent link">&para;</a></h3>
 <h4 id="hair-uvs">Hair UV's<a class="headerlink" href="#hair-uvs" title="Permanent link">&para;</a></h4>
-<p>In Hair Tool you are intended to work on hair in curve mode; curves UV data is stored in its materials. As a result if you have two curve hair objects sharing <strong>same material</strong>, they both will share <strong>same UV</strong> too.
+<p>In Hair Tool you are expected to work on hair in curve mode; Hair Tool stores curves UV data is in curve materials (it is workaround due to limitation of Blender curve UVs). As a result if you have two curve hair objects sharing <strong>same material</strong>, they both will share <strong>same UV</strong> too.
 If you wan to separate UVs, then you have to separate (un-instance) material on both curves. If you want two curves to have same UV - just link Material from one to the other.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/784GPONnO14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p><em>Here is video explaining material creation</em></p>
@@ -198,8 +198,8 @@ Your browser does not support the video tag.
 </video>
 <p><em>To use </em><em>UV Offset</em><em> just hover you mouse over UV box and scroll with MMB.</em></p>
 <h4 id="material-uv-refresh">Material / UV Refresh<a class="headerlink" href="#material-uv-refresh" title="Permanent link">&para;</a></h4>
-<p>Hair Tool is using bunch of materials duplicates as workaround for lack of UV adjustment in blender for curves. Now if you want to modify material - you would have to change all materials one by one.
-With 'Material / UV Refresh' button you can modify only first material slot, and 'Material / UV Refresh' will propagate material changes other material slots.</p>
+<p>Hair Tool is assigning multiple materials to hair object as workaround for lack of properly working UVs on curves. However if wanted to change material you would have to - first modify first material slot - then you would have to manually change all remaining material slots one by one.
+This is where 'Material / UV Refresh' comes to rescue. Modify/Update only first material slot, and then use 'Material / UV Refresh' to propagate your material change to remaining material slots.</p>
 <p><img alt="Material Refresh" src="../img/material_uv_refresh.gif" />
 <em><strong>Material / UV Refresh</strong> with random seed option. It changes random hair strands materials assignment</em></p>
 <h4 id="set-uv-region">Set UV region<a class="headerlink" href="#set-uv-region" title="Permanent link">&para;</a></h4>
