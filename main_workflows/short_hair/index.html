@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Hair Modeling - Hair Tool 2 Docs</title>
+  <title>Short Hair - Hair Tool 2 Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Hair Modeling";
-    var mkdocs_page_input_path = "main_workflows/hair_modeling.md";
+    var mkdocs_page_name = "Short Hair";
+    var mkdocs_page_input_path = "main_workflows/short_hair.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,23 +59,15 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../interactive_groom/">Interactive grooming</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../short_hair/">Short Hair</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair Modeling</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Short Hair</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#hotkeys">Hotkeys</a>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How To use</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#offset-selection">Offset selection</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#linear-deformer">Linear Deformer</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#extend">Extend</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duplicate-and-delete">Duplicate and Delete</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#knife">Knife</a>
+    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
     </li>
     </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Tools</span></p>
@@ -136,7 +128,7 @@
         
       
     
-    <li>Hair Modeling</li>
+    <li>Short Hair</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -148,135 +140,48 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="hair-modeling">Hair Modeling<a class="headerlink" href="#hair-modeling" title="Permanent link">&para;</a></h2>
-<p><strong>'Hair Modeling'</strong> button is located in 3d view -&gt; left toolbar.</p>
-<p><img alt="ht_hair_grooming" src="../../img/hair_modeling/hair_modeling_button.jpg" /></p>
-<p>You can model hair curves, in natural way, using 'Chain' mode in which you move hair endings, while preserving hair curve length. Or you can 'Normal' mode where you adjust selection with proportional editing.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Yt33I5A07V0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p>There are also some basic helper tools:</p>
-<ul>
-<li>duplicate splines</li>
-<li>delete/cut splines</li>
-<li>deform splines using Linear Deformer</li>
-<li>adjust tilt and taper</li>
-</ul>
-<video style="width:100%" controls>
-  <source src="../../video/hair_modeling.mp4" type="video/mp4">
+                <h2 id="short-hair-modeling-tool">Short Hair Modeling Tool<a class="headerlink" href="#short-hair-modeling-tool" title="Permanent link">&para;</a></h2>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/short_hair/short_hair_demo.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
-<p>On of the reasons for this tool being located in object mode, is to avoid default messy drawing of points, when modeling splines in edit mode:
-<img alt="ht_hair_grooming" src="../../img/hair_modeling/curve_editmode.jpg" /></p>
-<h4 id="hotkeys">Hotkeys<a class="headerlink" href="#hotkeys" title="Permanent link">&para;</a></h4>
+<p>In this modeling technique we are instancing haircards on mesh edges (haircard count will be the same as character mesh edges count). Usefull for creation of fur.</p>
 <blockquote>
-<p><strong>Note</strong>: Switching to Hair Modeling Tool will override some default blender 3d view shorcuts. To select other objects use Ctrl+RMB
-In round brackets I marked optional modifier keys eg. (Alt).</p>
+<p><strong>Note</strong> Short Hair modeling requires <strong>Blender 3.1</strong> or above.</p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">Hotkey</th>
-<th align="center">Function</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Ctrl+MWheel</td>
-<td align="center">Offset selection</td>
-</tr>
-<tr>
-<td align="center">(Shift)+RMB</td>
-<td align="center">Select Points</td>
-</tr>
-<tr>
-<td align="center">(Alt)+A</td>
-<td align="center">(de)Select All</td>
-</tr>
-<tr>
-<td align="center">(Alt)+B+LMB</td>
-<td align="center">Box (de)Select</td>
-</tr>
-<tr>
-<td align="center">(Alt)+C</td>
-<td align="center">Circle (de)Select</td>
-</tr>
-<tr>
-<td align="center">Ctrl+I</td>
-<td align="center">Invert Selection</td>
-</tr>
-<tr>
-<td align="center">G, R, S</td>
-<td align="center">Transform spline</td>
-</tr>
-<tr>
-<td align="center">Ctr+(Alt)+LMB</td>
-<td align="center">Lasso (de)Select</td>
-</tr>
-<tr>
-<td align="center">X, Del</td>
-<td align="center">Delete Selected</td>
-</tr>
-<tr>
-<td align="center">Ctrl+D</td>
-<td align="center">Linear Deformer</td>
-</tr>
-<tr>
-<td align="center">Shift+D</td>
-<td align="center">Duplicate strands</td>
-</tr>
-<tr>
-<td align="center">Alt+S</td>
-<td align="center">Adjust Radius</td>
-</tr>
-<tr>
-<td align="center">Alt+R</td>
-<td align="center">Reset Radius</td>
-</tr>
-<tr>
-<td align="center">Ctrl+T</td>
-<td align="center">Adjust Tilt</td>
-</tr>
-<tr>
-<td align="center">Alt+T</td>
-<td align="center">Reset Tilt</td>
-</tr>
-</tbody>
-</table>
-<h4 id="offset-selection">Offset selection<a class="headerlink" href="#offset-selection" title="Permanent link">&para;</a></h4>
-<p><strong>Ctrl + MMB scroll</strong> - changes which point along the strand length can be selected</p>
-<video style="width:100%" controls>
-  <source src="../../img/hair_modeling/hair_scroll.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<h4 id="linear-deformer">Linear Deformer<a class="headerlink" href="#linear-deformer" title="Permanent link">&para;</a></h4>
-<p><strong>Ctrl+D</strong> - rotate, bend, scale, move selected curves using on screen gizmo (special thanks to Mira Tools developer for letting me include modified version of his tool in HTool)</p>
-<video style="width:100%" controls>
-  <source src="../../img/hair_modeling/linear_deform.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<h4 id="extend">Extend<a class="headerlink" href="#extend" title="Permanent link">&para;</a></h4>
-<p><strong>E</strong> - adjust length of selected strands</p>
-<video style="width:100%" controls>
-  <source src="../../img/hair_modeling/extend_length.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<h4 id="duplicate-and-delete">Duplicate and Delete<a class="headerlink" href="#duplicate-and-delete" title="Permanent link">&para;</a></h4>
-<p><strong>Shift+D</strong> - duplicate; <strong>X</strong> or <strong>Del</strong> delete  selected strands</p>
-<video style="width:100%" controls>
-  <source src="../../img/hair_modeling/duplicate_delete.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<h4 id="knife">Knife<a class="headerlink" href="#knife" title="Permanent link">&para;</a></h4>
-<p><strong>K</strong> - cut selected strands. Define cut line using LMB (first to mark start point, then next LMB click to mark end point)</p>
-<video style="width:100%" controls>
-  <source src="../../img/hair_modeling/hair_knife.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<p>The main advantages:</p>
+<ul>
+<li>easy to setup - one click solution</li>
+<li>easy to tweak with blender sculpting tools (or with poly modeling)</li>
+<li>haircards distribution based on source character mesh topology - you will automatically get denser hair in more important areas: head, hands  (but this can be con - depending on situation)</li>
+</ul>
+<p>The main cons:</p>
+<ul>
+<li>no easy way to control density - since density is based on source character mesh topology (you cant drive it with eg. vertex group)</li>
+<li>hair source mesh has to have same topology as hair guide mesh. This mean you may have to start combing from scratch if change base mesh topology (but there is workarund I will show later)</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: You can tweak haircards density by changing base mesh topology - eg. by using remesh modifier or adaptive tesselation in blender sculpt mode.</p>
+</blockquote>
+<h4 id="how-to-use">How To use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h4>
+<p>To setup short hair:</p>
+<ul>
+<li>Select your character. Lets say it is named <strong>'body'</strong>
+<img alt="Short Hair Setup" src="../../img/short_hair/short_hair_setup.jpg" /></li>
+<li>Use Ctrl+Shift+H menu -&gt; 'Setup Short Hair'</li>
+<li>Two new objects will be added: <strong>'body_short_hair'</strong> (hair object) and <strong>'body_hair_guide'</strong> (drawn as bounding box)</li>
+<li>Select hair guide object (boudng box) and go into sculpt mode</li>
+<li>that is it, you can now sculpt hair by sculpting guide mesh (polyg modeling can be used too)</li>
+</ul>
+<h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<p><img alt="Offset Tip" src="../../img/short_hair/short_hair_setup.jpg" />
+<em><strong>Strands Length</strong> - Inital Haircards length, helps to visualise haircards when guide mesh is exactly the same as base mesh</em></p>
+<p><img alt="Offset Tip" src="../../img/short_hair/short_hair_setup.jpg" />
+<em><strong>Noise</strong> - Helps to break the even look of haircards</em></p>
+<p><em><strong>Noise Mode</strong> - Noise haircard twisting (0 - without, 1 - with)</em></p>
+<p><em><strong>Strand Resolution</strong> - Add additional subdivision along strands length</em></p>
+<p><em><strong>Vert Color</strong> - Set it up, if you want Short Hair shader to display vertex color</em></p>
               
             </div>
           </div>
@@ -284,10 +189,10 @@ Your browser does not support the video tag.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../convert_generate_hair/" class="btn btn-neutral float-right" title="Convert / Generate">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../hair_modeling/" class="btn btn-neutral float-right" title="Hair Modeling">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../short_hair/" class="btn btn-neutral" title="Short Hair"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../interactive_groom/" class="btn btn-neutral" title="Interactive grooming"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -313,10 +218,10 @@ Your browser does not support the video tag.
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../short_hair/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../interactive_groom/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../convert_generate_hair/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../hair_modeling/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
