@@ -63,6 +63,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How To use</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remeshing-modes">Remeshing Modes:</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a>
@@ -156,7 +158,7 @@
 Your browser does not support the video tag.
 </video>
 
-<p>In this modeling technique we are instancing haircards on mesh edges (haircard count will be the same as character mesh edges count). Usefull for creation of fur.</p>
+<p>In this modeling technique we are instancing haircards on mesh edges (haircard count will be the same as character mesh edges count). Useful for creation of fur.</p>
 <blockquote>
 <p><strong>Note</strong> Short Hair modeling requires <strong>Blender 3.1</strong> or above.</p>
 </blockquote>
@@ -168,11 +170,11 @@ Your browser does not support the video tag.
 </ul>
 <p>The main cons:</p>
 <ul>
-<li>no easy way to control density - since density is based on source character mesh topology (you cant drive it with eg. vertex group)</li>
-<li>hair source mesh has to have same topology as hair guide mesh. This mean you may have to start combing from scratch if change base mesh topology (but there is workarund I will show later)</li>
+<li>no easy way to control density - since density is based on source character mesh topology (you cant drive it with e.g. vertex group)</li>
+<li>hair source mesh has to have same topology as hair guide mesh. This mean you may have to start combing from scratch if change base mesh topology (but there is workaround I will show later)</li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: You can tweak haircards density by changing base mesh topology - eg. by using remesh modifier or adaptive tesselation in blender sculpt mode.</p>
+<p><strong>Note</strong>: You can tweak haircards density by changing base mesh topology - eg. by using remesh modifier or adaptive tessellation in blender sculpt mode.</p>
 </blockquote>
 <h4 id="how-to-use">How To use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h4>
 <ul>
@@ -180,11 +182,27 @@ Your browser does not support the video tag.
 <img alt="Short Hair Setup" src="../../img/short_hair/short_hair_setup.jpg" /></li>
 <li>Use Ctrl+Shift+H menu -&gt; 'Setup Short Hair'</li>
 <li>Two new objects will be added: <strong>Body_short_hair</strong> (hair object) and <strong>Body_hair_guide</strong> (drawn as bounding box)</li>
-<li>Select hair guide object (boudng box) and go into sculpt mode</li>
+<li>Select hair guide object (bounding box) and go into sculpt mode</li>
 <li>that is it, you can now sculpt hair by sculpting guide mesh (polygonal modeling can be used too)</li>
 </ul>
 <blockquote>
 <p><strong>Note</strong> To finalize Short hair use 'Convert Short Hair to Mesh' from Hair Tool Ctrl+Shift+H menu. This will correctly tranfser UVs from modifier to mesh data</p>
+</blockquote>
+<h4 id="remeshing-modes">Remeshing Modes:<a class="headerlink" href="#remeshing-modes" title="Permanent link">&para;</a></h4>
+<p>When you use 'Setup Short Hair' operator, you will have option to remesh base geometry (or leave it as it is). Since haircards are spawned on each mesh edge, then source mesh topology has big influence on Short Hair look</p>
+<p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_remeshing_modes.jpg" />
+<em>Three main modes of remeshing starting from left: Diamonds, Triangulated Diamonds, Triangulated Cells</em></p>
+<p>Base Suzanne is made from around 1000 edges. Meaning Short Hair will spawn 1000 haircards (planes or ribbons)</p>
+<ul>
+<li>Diamond Topology will create 2000 edges</li>
+<li>Diamond Triangulated will create 3000 edges</li>
+<li>Triangulated Cells will output 4600 edges!</li>
+</ul>
+<p>Cells remesing - gives highest poly-count but the resulting topology is organic and thanks to this haircards will also be distributed in natural way.
+Diamonds topology, on the other hand, has visible repeating pattern and it may show through on generated haircards. Triangulation of Diamonds helps slightly, but it is not as good as Cells Topology</p>
+<blockquote>
+<p><strong>Note 1</strong>: If you want denser haircards you can add subdivision modifier to your base mesh, but resulting edges count will quadruple</p>
+<p><strong>Note 2</strong>: I did not test it, but using Dynotopo topology from sculpt mode may actually be nice way to get organic and controllable mesh</p>
 </blockquote>
 <h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls autoplay loop>
@@ -192,13 +210,19 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p>You can change Short Hair parameters by going into modifiers tab.</p>
-<p><em><strong>Use Guide Object</strong> - You may want to use the modifier without Hair Guide object. This boolean paramter helps to turn off Guide object, without breaking modifier behavior</em>
+<p><em><strong>Use Guide Object</strong> - You may want to use the modifier without Hair Guide object. This boolean parameter helps to turn off Guide object, without breaking modifier behavior</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/deformer_mesh.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Guide Object</strong> - Haircards will follow Guide Object deformations. It does not matter if you modify Defomer object in sculpt mode or in Edit mode, but you <b>can't change Deformer object topology</b>. Defomer object topology has to be the same as base hair object, but shape can (and should) be different. In video above all modification performed on Deformer object are stored in Shape Key - this gives you more control on the shape of the mesh in non destructive way</em>
+<p><em><strong>Guide Object</strong> - Haircards will follow Guide Object deformations. It does not matter if you modify Deformer object in sculpt mode or in Edit mode, but you <b>can't change Deformer object topology</b>. Deformer object topology has to be the same as base hair object, but shape can (and should) be different. In video above all modification performed on Deformer object are stored in Shape Key - this gives you more control on the shape of the mesh in non destructive way</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/short_hair/short_hair_res.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Strand Resolution</strong> - Add additional subdivision along strands length</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/hair_mask.mp4" type="video/mp4">
@@ -213,22 +237,34 @@ Your browser does not support the video tag.
 <p><em><strong>Puff</strong> - Push hair outside of surface. Helps to draw haircards when guide mesh is exactly the same as base mesh, thus haircards would have zero length and they would be invisible</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
+  <source src="../../img/short_hair/straight_vs_bent.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<p><em><strong>Bend Factor</strong> - Make strands straight (0) or bent (1). Works only when segments count is bigger than 1</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+  <source src="../../img/short_hair/bent_shape.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<p><em><strong>Bend Shape</strong> - Bending is happening mostly on roots (0) or at tips (1) of hairstrands. Works only when segments count is bigger than 1, and Bend Factor is non zero</em>
+&nbsp;</p>
+<video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/length_multiplier.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Length Multiplier</strong> - Additional multiplier to hairstrands length. It affect longest strands the most. Use valu below 1 to shorten the hairstrands</em>
+<p><em><strong>Length Multiplier</strong> - Additional multiplier to hairstrands length. It affect longest strands the most. Use value below 1 to shorten the hairstrands</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/length_increase.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Length Increase</strong> - Add length to hairstrands in uniform way. It affect all strands the same</em>
+<p><em><strong>Length increase</strong> - Add length to hairstrands in uniform way. It affect all strands the same</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/length_unify.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Length Unify</strong> - Equalize strands lengths. Affect the shortest strands the most, meaning shorter strands will get longer untill they match longest strands length</em>
+<p><em><strong>Length Unify</strong> - Equalize strands lengths. Affect the shortest strands the most, meaning shorter strands will get longer until they match longest stands length</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/length_rand.mp4" type="video/mp4">
@@ -243,16 +279,10 @@ Your browser does not support the video tag.
 <p><em><strong>Noise</strong> - Helps to break the even look of haircards</em>
 &nbsp;</p>
 <video style="width:100%" controls autoplay loop>
-<source src="../../img/short_hair/short_hair_res.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em><strong>Strand Resolution</strong> - Add additional subdivision along strands length</em>
-&nbsp;</p>
-<video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/short_hair_vert_col.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Vert Color</strong> - 'Standard' Vertex Colors won't behave correctly on Short Hair modifier unless you setup 'Vert Color' paramter with vertec color. It will help to properly transfer vert color from hair base mesh to generated haircards geometry</em>
+<p><em><strong>Vert Color</strong> - 'Standard' Vertex Colors won't behave correctly on Short Hair modifier unless you setup 'Vert Color' parameter with vertex color. It will help to properly transfer vert color from hair base mesh to generated haircards geometry</em>
 &nbsp;</p>
 <h4 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h4>
 <h5 id="how-setup-uniform-hair-density">How setup uniform hair density?<a class="headerlink" href="#how-setup-uniform-hair-density" title="Permanent link">&para;</a></h5>
