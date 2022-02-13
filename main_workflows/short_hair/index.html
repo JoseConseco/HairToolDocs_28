@@ -65,6 +65,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#remeshing-modes">Remeshing Modes:</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#defining-uvs">Defining UVs</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a>
@@ -198,12 +200,27 @@ Your browser does not support the video tag.
 <li>Diamond Triangulated will create 3000 edges</li>
 <li>Triangulated Cells will output 4600 edges!</li>
 </ul>
-<p>Cells remesing - gives highest poly-count but the resulting topology is organic and thanks to this haircards will also be distributed in natural way.
+<p>Cells remeshing - gives highest poly-count but the resulting topology is organic and thanks to this haircards will also be distributed in natural way.
 Diamonds topology, on the other hand, has visible repeating pattern and it may show through on generated haircards. Triangulation of Diamonds helps slightly, but it is not as good as Cells Topology</p>
 <blockquote>
 <p><strong>Note 1</strong>: If you want denser haircards you can add subdivision modifier to your base mesh, but resulting edges count will quadruple</p>
 <p><strong>Note 2</strong>: I did not test it, but using Dynotopo topology from sculpt mode may actually be nice way to get organic and controllable mesh</p>
 </blockquote>
+<h4 id="defining-uvs">Defining UVs<a class="headerlink" href="#defining-uvs" title="Permanent link">&para;</a></h4>
+<p>UV workflow for Short Hair is same as defining UVs for curves.</p>
+<ul>
+<li>Select Short Hair object</li>
+<li>open UV Image Editor and press ‘Hair UV’ button located in top header bar - on far right</li>
+<li>then draw UV boxes like it is shown in <a href="../../uv_material/#defining-uvs"><strong>Defining UVs</strong></a>.</li>
+<li>The only difference, compared to curves, is that UV mirroring is automatically enabled.</li>
+</ul>
+<p>Next step is to assign UV regions by using <a href="../../uv_material/#set-uv-region">Set UV Region</a>:</p>
+<ul>
+<li>Select Short Hair object, and go into Edit Mode (using Tab key)</li>
+<li>Select edges for which you want to assign new UV regions</li>
+<li>Use Ctrl + Shift + H menu -&gt; <a href="../../uv_material/#set-uv-region">Set UV Region</a>, and pick UVs that you want to assign to selection.</li>
+<li>Short Haircards generated at these edges will receive new UVs.</li>
+</ul>
 <h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/short_hair_params.mp4" type="video/mp4">
