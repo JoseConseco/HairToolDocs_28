@@ -168,9 +168,12 @@
 </blockquote>
 <h3 id="sample-uv-from-target">Sample UV from Target<a class="headerlink" href="#sample-uv-from-target" title="Permanent link">&para;</a></h3>
 <p><img alt="Generate random vertex colors" src="../img/uv_pick_target.gif" />
-<em>Creates new uv channel. Samples UV from target object, based on contact point of each hair card root position thus allowing to color hair, by color of base mesh</em></p>
+<em>Samples UV from target object, and write it to new hair UV layer. Samples are placed at root of each haircard. With this new Uv you can sample color texture from character body</em></p>
+<p><img alt="Generate random vertex colors" src="../img/uv_pick_modes.jpg" />
+<em>Sampling Modes (starting from left): root center, root profile, projected</em></p>
 <h3 id="sample-weights-from-target">Sample Weights from Target<a class="headerlink" href="#sample-weights-from-target" title="Permanent link">&para;</a></h3>
 <p>Same as Sample UV from target object, except it samples target object weights. This way, after parenting hair to body armature, hair can follow target object animation</p>
+<p>It supports same sampling modes as UV Sampling operator above.</p>
               
             </div>
           </div>
