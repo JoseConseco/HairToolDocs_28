@@ -90,7 +90,11 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#jiggle-physics-setup">Jiggle Physics Setup</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simulation-mode">Simulation Mode</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#physics-presets">Physics presets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#baking-jiggle-animation">Baking Jiggle Animation</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#collisions">Collisions</a>
     </li>
@@ -168,6 +172,13 @@ Your browser does not support the video tag.
 <li>add collision to selected bones (other bones will bounce from collision bone)</li>
 <li>create jiggle physics presets (with various mass, stiffness, damping, gravity parameters) and assign these presets to selected bones</li>
 </ul>
+<h4 id="simulation-mode">Simulation Mode<a class="headerlink" href="#simulation-mode" title="Permanent link">&para;</a></h4>
+<p>Jiggle Physics can be run in two Modes:</p>
+<ul>
+<li><strong>Interactive</strong> - good for mouse interaction with jiggle bones, but it won't work when rendering animation</li>
+<li><strong>Animated</strong> - only works when animation playback is enabled. Useful when rendering animation.</li>
+</ul>
+<p>There is also option to bake jiggle sim into animation using <a href=".#baking-jiggle-animation">those steps</a></p>
 <h4 id="physics-presets">Physics presets<a class="headerlink" href="#physics-presets" title="Permanent link">&para;</a></h4>
 <p>You can create multiple physics presets in Hair Tool using [+] icon.</p>
 <video style="width:100%" controls>
@@ -184,6 +195,19 @@ Your browser does not support the video tag.
 <blockquote>
 <p><strong>Note</strong>: If you have any bones selected when creating new physics preset, then those bones will be automatically assigned to new physics preset.</p>
 </blockquote>
+<h4 id="baking-jiggle-animation">Baking Jiggle Animation<a class="headerlink" href="#baking-jiggle-animation" title="Permanent link">&para;</a></h4>
+<p>Jiggle physics can be baked to animation using following steps:</p>
+<ol>
+<li>select jiggle bones</li>
+<li>object mode &gt; animation &gt; bake action, with these settings:<ul>
+<li>only selected bones</li>
+<li>visual keying</li>
+<li>overwrite current action</li>
+</ul>
+</li>
+<li>bake bones (not object)</li>
+</ol>
+<p>Don't forget to turn simulation off after baking BEFORE rendering, or you will get unexpected results.</p>
 <h4 id="collisions">Collisions<a class="headerlink" href="#collisions" title="Permanent link">&para;</a></h4>
 <p>Only bone to bone collisions are supported.
 You can add collision to selected bone using 'Add Collision' button. Other jiggle bones will bounce from it.</p>
