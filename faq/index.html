@@ -90,6 +90,8 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">FAQ</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#i-get-error-when-enabling-add-on">I get error when enabling add-on</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#greyed-out-parameters-panel">Greyed out parameters panel</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#hair-uv-operator-cant-be-found-in-search-menu">Hair UV operator can't be found in search menu</a>
@@ -135,7 +137,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="mesh-ribbon-operations">Mesh Ribbon operations:<a class="headerlink" href="#mesh-ribbon-operations" title="Permanent link">&para;</a></h2>
+                <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<h3 id="i-get-error-when-enabling-add-on">I get error when enabling add-on<a class="headerlink" href="#i-get-error-when-enabling-add-on" title="Permanent link">&para;</a></h3>
+<p>There are different causes for this, but usually one of below solutions fixes the issue:</p>
+<ul>
+<li>
+<p>Try Restarting Blender</p>
+<ul>
+<li>sometimes it is all it takes</li>
+</ul>
+</li>
+<li>
+<p>Make sure you are up-to-date</p>
+<ul>
+<li>update Blender to the latest version</li>
+<li>Update Hair Tool - "auto-updater" won't work, if you can't enable add-on, thus you should download update <a href="..#installation">manually</a></li>
+</ul>
+</li>
+<li>
+<p>I need to use old Blender</p>
+<ul>
+<li>For <strong>Blender 2.92</strong> and below you should use Hair Tool <strong>2.27</strong> (I forgot which is the lowest supported Blender version :/ )</li>
+<li>For <strong>Blender 2.93</strong>, <strong>3.x</strong> and above use Hair Tool with the biggest version number (currently hair_tool_2.38 - 25 June 2022)</li>
+</ul>
+</li>
+<li>
+<p>Remove Old <strong>hair_tool</strong> folder</p>
+<ul>
+<li>sometimes old files from previous Hair Tool version may give trouble after update, if they are not removed (auto-updater deals with this automatically)</li>
+<li>Hair Tool folder is placed in your <a href="https://docs.blender.org/manual/en/latest/advanced/blender_directory_layout.html">addons directory</a></li>
+<li>remove <strong>hair_tool</strong> folder from your ./addons/ directory</li>
+<li>restart Blender</li>
+<li>install Hair Tool it normally - <a href="..#installation">from zip file</a> - this fixes 90% is installation problems</li>
+</ul>
+</li>
+<li>
+<p>Conflict with another addons</p>
+<ul>
+<li>it is not often, but there may be conflict with another addon, or your blender setup may be corrupted.</li>
+<li>Try this: Restart Blender -&gt; then use File menu -&gt; Defaults -&gt; Load Factory Settings -&gt; enable Hair Tool now. If Hair Tool works now, then it means, that your old config was corrupted, or there was conflict with another addon</li>
+<li>If above helped, then you may need to set up your blender config from scratch.</li>
+</ul>
+</li>
+</ul>
 <h3 id="greyed-out-parameters-panel">Greyed out parameters panel<a class="headerlink" href="#greyed-out-parameters-panel" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair UV" src="../img/faq/greyed_out_settings.jpg" />
 Go to Preferences -&gt; System -&gt; Enable 'Global Undo'. You may need to restart blender after saving settings. It looks like blender bug, and from time to time this option is disabled for no reason.</p>
