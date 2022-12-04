@@ -139,6 +139,10 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#updating">Updating</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -507,9 +511,9 @@ Your browser does not support the video tag.
 <p><img alt="Profile Mesh Sliced" src="../../img/geo_nodes_hair/profile_mesh_sliced.jpg" />
 <em><strong>Slice Mesh Profile</strong> button will cut object using custom 'slicing' modifier. This way it will conform better to hair splines - only. Button is displayed next to Profile dropdown menu '✓'</em></p>
 <blockquote>
-<p><strong>Note</strong>: Slice Mesh Profile is using boolean operation in background. It may fail on more complicated objects - e. g. when mesh has self intersections.</p>
+<p><strong>Note</strong>: Slice Mesh Profile is using boolean operation in background. It may fail on more complicated objects - e.g. when mesh has self intersections.</p>
 </blockquote>
-<p>UVs of mesh profile objects will be preserved when instanced on top of hair. Using multiple copies of same objects with different UVs is a good way to add some randomization to hair look.</p>
+<p>UV's of mesh profile objects will be preserved when instanced on top of hair. Using multiple copies of same objects with different UVs is a good way to add some randomization to hair look.</p>
 <h5 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/simpilfy_strands.webm" type="video/mp4">
@@ -517,6 +521,20 @@ Your browser does not support the video tag.
 </video>
 <p><em>Simplify Strands optimizes polycount of generated hair geometry, by assigning less points to shorter strands. This can easily cut polycount in half!</em></p>
 <hr />
+<h3 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h3>
+<p>After updating Hair Tool, there may be changes in Hair System nodes, that you may wish to transfer to your old blend file (for example update added new feature in Clump node, but your project file is using old Clump)</p>
+<p><img alt="Updating Hair System Nodes" src="../../img/geo_nodes_hair/updating_hsys.jpg" />
+<em>You may update deformer, profile nodes and helper nodes separately using menu above.</em></p>
+<blockquote>
+<p><strong>Note</strong>: If bigger changes were deployed in new HT release, your last chance would be using 'Update Whole Hair System' - this will update all nodes, in all Hair Systems for all objects on scene. This may break the Hair System, since addon will try to recreate whole node tree structure from scratch</p>
+</blockquote>
+<hr />
+<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Only One UV box can be assigned to profile - you can use <a href="./#mesh-profile"><strong>Mesh Profile</strong></a> with multiple meshes as a workaround for randomizing UVs</li>
+<li>Hair Modeling Tools do not work (except selection)</li>
+<li>You can't convert Hair System to mesh if it was assigned to new Hair Curve. Use <a href="./#transfer-hair-system"><strong>Transfer Hair System</strong></a> as workaround</li>
+</ul>
               
             </div>
           </div><footer>
