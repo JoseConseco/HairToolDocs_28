@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Hair System - Hair Tool 2 Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Hair System";
+        var mkdocs_page_input_path = "main_workflows/hair_system.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Hair Tool 2 Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Hair Workflows</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_drawing/">Drawing hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_from_surface/">Generating from surface</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../interactive_groom/">Interactive grooming</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../short_hair/">Short Hair</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hair_modeling/">Hair Modeling</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Hair System</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hair-setup">Hair Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-hair-systems">Creating Hair Systems</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transfer-hair-system">Transfer Hair System</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set-as-child">Set As Child</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hair-interpolation">Hair Interpolation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tags">Tags</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#tags-panel">Tags Panel</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hair-deformers">Hair Deformers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#strands-generator-filter">Strands Generator / Filter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#noise-deformer">Noise Deformer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#curlswaves">Curls/Waves</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trim">Trim</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#clumps">Clumps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#twist">Twist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#assign-tag">Assign Tag</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-tilt">Add Tilt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#align-tilt">Align Tilt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#push-out">Push Out</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scale">Scale</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#snap">Snap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#slide-points">Slide Points</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set-radius">Set Radius</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#input-masks">Input Masks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#vertex-grouptexture">Vertex Group/Texture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#offsetgain">Offset/Gain</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#invert">Invert</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#randomize">Randomize</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#length-mask">Length Mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#procedural-mask">Procedural Mask</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#influence-range">Influence Range</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hair-profiles">Hair Profiles</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#braid-profile">Braid Profile</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mesh-profile">Mesh Profile</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplify-strands">Simplify Strands</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../convert_generate_hair/">Convert / Generate</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../curve_tool/">Curve tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mesh_ribbons_ops/">Mesh tools</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../editing_profile/">Curve Profile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../uv_material/">Material and UV</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Texture creation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../geometry_hair/">Generating Hair Geometry</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../texture_baking/">Baking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Other</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hair_library/">Hair Library</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hair_animation/">Animation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../character_creator_workflow/">Character Creator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../recommended_addons/">Recommended addons</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Hair Tool 2 Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Hair Workflows &raquo;</li>
+      <li>Hair System</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="hair-system">Hair System<a class="headerlink" href="#hair-system" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Note</strong>: Available since Blender 3.0, requires Blender 3.3 or above</p>
+</blockquote>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<p>Hair System is procedural tool for hair strands generation and adjustment in non-destructive way. I made it similar to blender Particle System, but based on Geometry Nodes, and more flexible (hopefully easier to use too).<br>
+It works as stack of Systems, each of them build from its own sub-stack of strands generators and modifiers (<a href="./#hair-deformers"><strong>Deformers</strong></a>), that you can put on top of each other and slowly build up complexity over time.<br>
+All systems can be linked together with usage of <a href="./#tags"><strong>Tags</strong></a></p>
+<p><img alt="Hair System UI" src="../../img/geo_nodes_hair/hair_system_nodal.jpg" />
+<em>Hair System is located in Right Sidebar → Hair Tool Tab → Hair System Panel. Click [+] to add Hair System to selected mesh/curve</em></p>
+<p>Last but not least it can output many kinds of <a href="./#hair-profiles"><strong>hair profiles</strong></a>, which makes it good for game hair creation.</p>
+<hr />
+<h3 id="hair-setup">Hair Setup<a class="headerlink" href="#hair-setup" title="Permanent link">&para;</a></h3>
+<h5 id="creating-hair-systems">Creating Hair Systems<a class="headerlink" href="#creating-hair-systems" title="Permanent link">&para;</a></h5>
+<p>Hair System can be assigned to mesh or curve object (one is required, but you need both to get full functionality).</p>
+<ul>
+<li>Adding Hair system to mesh is possible, but you will have to manually pick guide object (if necessary). This setup is used in Hair Tool Baking scene.</li>
+<li>When Curve is selected, Hair Tool will check if surface mesh is assigned to it, and will use both. This is what you will usually want to use. If no surface mesh was detected you will be able to use limited functionality of Hair System (no child strands spawning)</li>
+</ul>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/add_hair_system.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>To create Hair System select curve or mesh, and click [+] icon in Hair System Panel</em></p>
+<blockquote>
+<p><strong>Note</strong>: 'Old' curves cannot have any bevel depth or use profile object, or they won't work correctly as guide (Hair System will see them as mesh, not as curve)</p>
+<p><strong>Note</strong>: If you assigned Hair System to curve, then you won't be able to convert it to mesh. In that case use <a href="./#transfer-hair-system"><strong>Transfer Hair System</strong></a> option.</p>
+</blockquote>
+<h5 id="transfer-hair-system">Transfer Hair System<a class="headerlink" href="#transfer-hair-system" title="Permanent link">&para;</a></h5>
+<p>Transfers Hair System from Curve to Mesh or vice versa. Visually there will be/should not be any difference.
+Useful when you want to convert new Blender Hair Curves to mesh, to export, but you assigned Hair System to Curve (they do not support converting to mesh).</p>
+<p><img alt="Transfer hair" src="../../img/geo_nodes_hair/hair_transfer.jpg" />
+<em>Above Hair System was assigned to Curve ('HairCurves' obj). Transfer Hair System operator will create 'source surface' copy ('basic_scalp') and move Hair System to that copy. 'Convert To Mesh' will work now</em></p>
+<h5 id="set-as-child">Set As Child<a class="headerlink" href="#set-as-child" title="Permanent link">&para;</a></h5>
+<p>Settings System as Child will allow you to use additional hair effects: clumping, interpolation, curls and twist.</p>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/parent_setup.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above we want set second Hair System as child of first one. Tag first system as <code>A</code>, then, in second system, we set parent tag as: <code>A</code>. Finally enable parent by clicking on link icon. Interpolation, clumping and other effects can be used now</em></p>
+<h5 id="hair-interpolation">Hair Interpolation<a class="headerlink" href="#hair-interpolation" title="Permanent link">&para;</a></h5>
+<p>To enable hair interpolation, current Hair System has to have parent - see <a href="./#set-as-child"><strong>above</strong></a>.</p>
+<p>After that Toggle Interpolation button will be accessible in first deformer - <a href="./#strands-generator-filter"><strong>Strands Generator</strong></a> - properties</p>
+<hr />
+<h3 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
+<p>You can think of Tags as labels assigned to Hair System strands. Thanks to Tags you can set <strong>child-parent relations</strong> or <strong>affect only tagged</strong> strands with deformers. Why don't we just use system name - rather than introducing new feature? The difference is you can assign multiple tags to same strand e.g.:</p>
+<ul>
+<li>System A: <code>LONG</code> and <code>CURLY</code>.</li>
+<li>System B: <code>LONG</code></li>
+</ul>
+<p>Now you can modify <code>LONG</code> tag without having to repeat same operations on system A and B twice.</p>
+<p>In addition, Tags can be assigned to subset of strands from within Hair System: you can use vertex group to select right half of hair strands and tag them as <code>CURLY</code>. Later you can modify only this tag or use it as parent.</p>
+<p><img alt="Hair System Tags" src="../../img/geo_nodes_hair/hair_system_Tags.jpg" />
+<em>Tags Used for Parenting (unlocks hair clumping, interpolation and twisting). Now 'First' Hair System can now follow <code>GUIDE</code> tag - assigned to separate HairCurves object</em></p>
+<p>You can assign Tag in two ways:</p>
+<ul>
+<li>by typing it in next to system name see <code>A</code> tag in image above. If not tag was assigned then <code>[TAG]</code> label is shown</li>
+<li>by using Assign <a href="./#hair-profiles"><strong>Tag Deformer</strong></a></li>
+<li>you can also assign tags to Hair System <strong>guide objects</strong> (new Curve Hair) from <a href="./#set-as-child"><strong>Tags Panel</strong></a></li>
+</ul>
+<p>Parent Tag can be entered, next to the chain icon - on the very right. <a href="./#set-as-child"><strong>Enable chain</strong></a> icon, to set current system as child of Tagged one.</p>
+<h4 id="tags-panel">Tags Panel<a class="headerlink" href="#tags-panel" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/tag_panel.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above we create Tag <code>A</code>, then assign selected curves to tag <code>A</code> using Assign button</em></p>
+<blockquote>
+<p><strong>Note</strong>: Assigning Tags only works on new Hair Curves. To be able to select individual curves, like in video above, you have to use <a href="../hair_modeling/"><strong>Hair Modeling mode</strong></a>. For now only selection works from all the available Modeling Tools</p>
+</blockquote>
+<hr />
+<h3 id="hair-deformers">Hair Deformers<a class="headerlink" href="#hair-deformers" title="Permanent link">&para;</a></h3>
+<p>They allow to procedurally change chair look in non-destructive and in linear way (meaning can be stacked one after another in similar way than Blender modifiers can). Each hair deformer can be reordered and some can be influenced by previous Hair Systems if <a href="geometry_hair.md#child-system">Set as Child</a> (eg. Clump or Twist deformer)</p>
+<h5 id="strands-generator-filter">Strands Generator / Filter<a class="headerlink" href="#strands-generator-filter" title="Permanent link">&para;</a></h5>
+<p>First slot in deformer stack, cannot be removed. Acts in binary way:</p>
+<ul>
+<li>Generator - (comb icon) will generate strands that are later affected by all subsequent deformers in stack</li>
+</ul>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/strands_gen.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Strands Generator - The defalul mode. Can be <a href="./#set-as-child"><strong>Set as child</strong></a></em></p>
+<ul>
+<li>Filter - won't generate strands. Instead, it will take in strand from all preceding Hair Systems (you can use 'Affect Tag' button to filter only subset of strands). Those filtered strands are then affected by all subsequent deformers in current stack.</li>
+</ul>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/strands_filter.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Clicking on Comb icon, will switch current Strands Generator to Strands Filter. After that current deformer stack will influence only preceding Hair Systems</em></p>
+<p>The idea behind Strands Filter mode is - rather than modify multiple Hair System one by one e.g. adding <a href="./#set-radius">Set Radius</a> or <a href="./#align-tilt">Align Tilt</a> to each of them, one by one, you should rather tag those systems, then create new Hair System at the end of stack, set it to 'Filter' -&gt; Affect Tag -&gt; input Tag name that you want to influence.
+This way you can modify all of those strands in one place.</p>
+<blockquote>
+<p><strong>Note</strong>: If you want to affect only part of visible hair you can enable '<strong>Affect Tag</strong>' option - and type int Tag of hairstrands that you want to modify.</p>
+</blockquote>
+<h5 id="noise-deformer">Noise Deformer<a class="headerlink" href="#noise-deformer" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/noise.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Add noise distortion to strands</em></p>
+<h5 id="curlswaves">Curls/Waves<a class="headerlink" href="#curlswaves" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/curls.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Adds curls/wavy effect to hair strands</em></p>
+<h5 id="trim">Trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/trim.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>It will shorten strands roots and/or tips. Best to use with <a href="./#randomize"><strong>randomization mask</strong></a></em></p>
+<h5 id="clumps">Clumps<a class="headerlink" href="#clumps" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/clump.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Clumps hair toward parent strands. Effect requires to set Hair System to be <a href="geometry_hair.md#child-system">set as child</a></em></p>
+<h5 id="twist">Twist<a class="headerlink" href="#twist" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/twist.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Twist effect requires to set Hair System to be <a href="geometry_hair.md#child-system">set as child</a>. For best effect is is good idea to place it after Clump deformer</em></p>
+<h5 id="assign-tag">Assign Tag<a class="headerlink" href="#assign-tag" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/affect_tag.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Here we assign <code>R</code> tag to right side of head (using vertex group). Then in following 'Scale' Hair System we can reffer to this tag using <a href="./#strands-generator-filter"><strong>Strands Filter</strong></a> -&gt; Affect Tag. This way only right side is affected (Scaled)</em></p>
+<blockquote>
+<p><strong>Note</strong>: Assigning any tag e.g. X will create negative tag 'X, for example if we create tag <code>RIGHT</code> with some strands, then tag <code>'RIGHT</code> will contain opposite set of strands.</p>
+</blockquote>
+<h5 id="add-tilt">Add Tilt<a class="headerlink" href="#add-tilt" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/add_tilt.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Add tilt to hair strands. If 'Flip Probability' is 0.5 - then half strands will be rotated clockwise and half counter clockwise</em></p>
+<h5 id="align-tilt">Align Tilt<a class="headerlink" href="#align-tilt" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/align_tilt.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Aligns tilt to target surface (hair normal will point outside of surface)</em></p>
+<h5 id="push-out">Push Out<a class="headerlink" href="#push-out" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/push_out.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Push hair outside/inside surface. Useful for embedding hair roots into mesh surface (use inverted 'Influence Range')</em></p>
+<h5 id="scale">Scale<a class="headerlink" href="#scale" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/scale.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Scale hair up or down. With trim deformer we can reduce length of hair, but Scale deformer helps to make them longer.</em></p>
+<h5 id="snap">Snap<a class="headerlink" href="#snap" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/snap.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Snap hair to source surface (could be used for wet hair effect)</em></p>
+<h5 id="slide-points">Slide Points<a class="headerlink" href="#slide-points" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/slide_points.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Give more resolution to hair root or tips (depending on 'Influence Range'), by 'sliding' points along the curves</em></p>
+<h5 id="set-radius">Set Radius<a class="headerlink" href="#set-radius" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+  <source src="../../img/geo_nodes_hair/set_radius.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Set Radius - for hair tapering, strand width randomization, etc</em></p>
+<hr />
+<h3 id="input-masks">Input Masks<a class="headerlink" href="#input-masks" title="Permanent link">&para;</a></h3>
+<p>You can mask most of the hair deformers inputs with various kind of effects. Multiple masks can be added.</p>
+<blockquote>
+<p><strong>Note</strong>:
+The order matters: first top mask is evaluated then next to the bottom</p>
+</blockquote>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/input_masks.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>To add mask click drop down menu icon on right and pick mask type</em></p>
+<h5 id="vertex-grouptexture">Vertex Group/Texture<a class="headerlink" href="#vertex-grouptexture" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_vg.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Vertex Group/Texture</strong>: Use vertex group or texture for input masking*</p>
+</blockquote>
+<h5 id="offsetgain">Offset/Gain<a class="headerlink" href="#offsetgain" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_offset_gain.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Mask Offset Gain</strong>: Not useful by itself, but placed after another mask, it can increase the mask contrast (gain) or brightness (offset)*</p>
+</blockquote>
+<h5 id="invert">Invert<a class="headerlink" href="#invert" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_invert.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Invert</strong>: Not useful by itself, but placed after another mask, it will invert the previous mask effect*</p>
+</blockquote>
+<h5 id="randomize">Randomize<a class="headerlink" href="#randomize" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_randomize.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Randomize</strong>: Gives random value in 0 to 'Rand Range' rage to each strand, thus masking them</p>
+</blockquote>
+<ul>
+<li><strong>Rand Range</strong> - 0 - no randomization; 1 - maximum randomization</li>
+<li><strong>Variance</strong> &lt; 0.5 outputs mostly smaller values from given range,</li>
+<li><strong>Variance</strong> == 0.5 all random values are drawn uniformly,</li>
+<li><strong>Variance</strong> &lt; 0.5 will output values closer to the upper range</li>
+<li><strong>Use Parent IDs</strong> - if enabled each child strand will inherit random value from its closest parent.</li>
+</ul>
+<h5 id="length-mask">Length Mask<a class="headerlink" href="#length-mask" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_length.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<ul>
+<li>Assigns <strong>Min</strong> value to the shortest strands,</li>
+<li>Assigns <strong>Max</strong> value to the longest strands.</li>
+<li>Swapping Min and Max values will invert the effect</li>
+</ul>
+<h5 id="procedural-mask">Procedural Mask<a class="headerlink" href="#procedural-mask" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mask_procedural.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<blockquote>
+<p><strong>Procedural Mask</strong>: Use procedural noise texture to randomize hair look. No need for UVs</p>
+</blockquote>
+<ul>
+<li>Min, Max - bring these values closer together to get sharper noise transition,</li>
+<li>Scale - the bigger scale the more detailed the texture will be,</li>
+<li>Distort - distorts the noise,</li>
+<li>Offset - offset the noise sampling position</li>
+</ul>
+<h5 id="influence-range">Influence Range<a class="headerlink" href="#influence-range" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/influence_range.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Special mask that allows to modulate influence of deformer over strand length (e.g. taper only tip of strand). 0 - no effect, 1 - maximum effect</em></p>
+<p>Types of Influence range masks:</p>
+<ul>
+<li>Constant - the effect is uniform along the whole strand length</li>
+<li>Simple - gradually changes the influence from 0 to 100%. Influence can be flipped using invert button</li>
+<li>Quadratic - gives more detailed control: modulate effect independently at strand beginning, center and end</li>
+<li>Profile Curve - most detailed control using profile curve<br></li>
+</ul>
+<hr />
+<h3 id="hair-profiles">Hair Profiles<a class="headerlink" href="#hair-profiles" title="Permanent link">&para;</a></h3>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/hair_profiles_list.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Presentation of hair profiles available for Hair System</em></p>
+<ul>
+<li>No Profile - useful for new Curve Hair rendering (controlled in 'Curves' Panel in Cycles/Eevee Render Settings)</li>
+<li>Round Profile - used in Hair Tool baking setup</li>
+<li>Mesh Profile - replace hair strands with mesh (or collection of meshes) - e.g. you can instance feathers on hair</li>
+<li>Curve Profile - (with UV's) - any curve object can be used as custom hair profile</li>
+<li>Flat Profile - (with UV's) - AKA haircards,</li>
+<li>Circle Profile - (with UV's) - same as above, but it will generate cylinders</li>
+<li>Braid Profile - (with UV's) - generate procedural braids on each haircard</li>
+</ul>
+<h5 id="braid-profile">Braid Profile<a class="headerlink" href="#braid-profile" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/braid_profile.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In demo above you can see both curve taper and tilt is affecting the generated braids shape</em></p>
+<ul>
+<li><strong>Frequency</strong> - how dense braid interlacing is</li>
+<li><strong>Main Radius</strong> - overall braid size</li>
+<li><strong>Profile Radius</strong> - individual strands size (relative to Main Radius)</li>
+<li><strong>Braid Resolution Factor</strong> - how many points should be generated for each period on braid (higher == smoother look)</li>
+<li><strong>Radius Slide</strong> - The smaller the radius of guide curve, the more dense the braid becomes. Helps to give uniform look, when guide hair tapers</li>
+</ul>
+<h5 id="mesh-profile">Mesh Profile<a class="headerlink" href="#mesh-profile" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/mesh_profile.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In this case I used Collection with 3 objects, to instance them along hair strands</em></p>
+<p>Mesh profile objects should point up, and theirs origin be at the bottom. Otherwise, they may not align correctly to hair strands. Their length is not normalized, meaning taller objects will be longer after placing on hair strands (you may need to match profile objects height by hand, to give them same length).</p>
+<ul>
+<li><strong>Width</strong> - changes cross-section size of mesh when its is placed on top of curve</li>
+</ul>
+<p><img alt="Profile Mesh Sliced" src="../../img/geo_nodes_hair/profile_mesh_sliced.jpg" />
+<em><strong>Slice Mesh Profile</strong> button will cut object using custom 'slicing' modifier. This way it will conform better to hair splines - only. Button is displayed next to Profile dropdown menu '✓'</em></p>
+<blockquote>
+<p><strong>Note</strong>: Slice Mesh Profile is using boolean operation in background. It may fail on more complicated objects - e. g. when mesh has self intersections.</p>
+</blockquote>
+<p>UVs of mesh profile objects will be preserved when instanced on top of hair. Using multiple copies of same objects with different UVs is a good way to add some randomization to hair look.</p>
+<h5 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/simpilfy_strands.webm" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Simplify Strands optimizes polycount of generated hair geometry, by assigning less points to shorter strands. This can easily cut polycount in half!</em></p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../hair_modeling/" class="btn btn-neutral float-left" title="Hair Modeling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../convert_generate_hair/" class="btn btn-neutral float-right" title="Convert / Generate">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../hair_modeling/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../convert_generate_hair/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
