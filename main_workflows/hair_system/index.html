@@ -414,7 +414,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <blockquote>
-<p><strong>Invert</strong>: Not useful by itself, but placed after another mask, it will invert the previous mask effect*</p>
+<p><strong>Invert</strong>: Not useful by itself, but placed after another mask, it will invert the previous mask effect</p>
 </blockquote>
 <h5 id="randomize">Randomize<a class="headerlink" href="#randomize" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
@@ -422,13 +422,15 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <blockquote>
-<p><strong>Randomize</strong>: Gives random value in 0 to 'Rand Range' rage to each strand, thus masking them</p>
+<p><strong>Randomize</strong>: Outputs random value for each strand.</p>
 </blockquote>
+<p>Random value will be picked from within <strong>[x-RandRange; x+RandRange]</strong> bounds, where x - is any input value - e.g. from vertex group mask<br>
+You can disable lower/upper bound using <code>&lt;</code>/<code>&gt;</code> buttons, thus limiting Random value range.</p>
 <ul>
 <li><strong>Rand Range</strong> - 0 - no randomization; 1 - maximum randomization</li>
-<li><strong>Variance</strong> &lt; 0.5 outputs mostly smaller values from given range,</li>
-<li><strong>Variance</strong> == 0.5 all random values are drawn uniformly,</li>
-<li><strong>Variance</strong> &lt; 0.5 will output values closer to the upper range</li>
+<li><strong>Variance</strong> &lt; 0.5 outputs mostly smaller values, from within given range,</li>
+<li><strong>Variance</strong> == 0.5 all random values are drawn uniformly, from within given range,</li>
+<li><strong>Variance</strong> &lt; 0.5 outputs mostly bigger values, from within given range,</li>
 <li><strong>Use Parent IDs</strong> - if enabled each child strand will inherit random value from its closest parent.</li>
 </ul>
 <h5 id="length-mask">Length Mask<a class="headerlink" href="#length-mask" title="Permanent link">&para;</a></h5>
