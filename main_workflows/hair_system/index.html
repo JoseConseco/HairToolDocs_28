@@ -71,6 +71,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#hair-interpolation">Hair Interpolation</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hair-system-copypaste">Hair System Copy/Paste</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#tags">Tags</a>
@@ -246,6 +248,13 @@ Your browser does not support the video tag.
 <h5 id="hair-interpolation">Hair Interpolation<a class="headerlink" href="#hair-interpolation" title="Permanent link">&para;</a></h5>
 <p>To enable hair interpolation, current Hair System has to have parent - see <a href="./#set-as-child"><strong>above</strong></a>.</p>
 <p>After that Toggle Interpolation button will be accessible in first deformer - <a href="./#strands-generator-filter"><strong>Strands Generator</strong></a> - properties</p>
+<h5 id="hair-system-copypaste">Hair System Copy/Paste<a class="headerlink" href="#hair-system-copypaste" title="Permanent link">&para;</a></h5>
+<p><img alt="Hair System UI" src="../../img/geo_nodes_hair/copy_paste_hsys_settings.jpg" />
+<em>You can copy settings from any hair system, and paste to target using entries above.</em></p>
+<p>Pasting Hair System settings (or instancing object that uses Hair System), will create linked copy. This means that any change on new copy, will affect original Hair System too. Number of Hair System users is displayed next to Hair Tag (green box above).<br></p>
+<blockquote>
+<p><strong>Note:</strong> You can unlink Hair System, by clicking on 'users number' (see green box above)</p>
+</blockquote>
 <hr />
 <h3 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
 <p>You can think of Tags as labels assigned to Hair System strands. Thanks to Tags you can set <strong>child-parent relations</strong> or <strong>affect only tagged</strong> strands with deformers. Why don't we just use system name - rather than introducing new feature? The difference is you can assign multiple tags to same strand e.g.:</p>
@@ -535,6 +544,7 @@ Your browser does not support the video tag.
 <ul>
 <li>Only One UV box can be assigned to profile - you can use <a href="./#mesh-profile"><strong>Mesh Profile</strong></a> with multiple meshes as a workaround for randomizing UVs</li>
 <li>Hair Modeling Tools do not work (except selection)</li>
+<li>Hair interpolation is using booleans under the hood. Because of this, interpolation may fail if boolean fails. And Interpolation may be slow on heavy base meshes (I recommend using lowpoly hair surface meshes). Hopefully I will find better way in the future, to create interpolations.</li>
 <li>You can't convert Hair System to mesh if it was assigned to new Hair Curve. Use <a href="./#transfer-hair-system"><strong>Transfer Hair System</strong></a> as workaround</li>
 </ul>
               
