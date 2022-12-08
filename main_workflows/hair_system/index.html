@@ -533,11 +533,14 @@ Your browser does not support the video tag.
 <p><em>Simplify Strands optimizes polycount of generated hair geometry, by assigning less points to shorter strands. This can easily cut polycount in half!</em></p>
 <hr />
 <h3 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h3>
-<p>After updating Hair Tool, there may be changes in Hair System nodes, that you may wish to transfer to your old blend file (for example update added new feature in Clump node, but your project file is using old Clump)</p>
+<p>After updating Hair Tool add-on, there may be changes in Hair System nodes, that you wish to transfer to your old blend file:</p>
+<ul>
+<li>for example HTool update for Blender 3.4 added better tilt support in <a href="./#mesh-profile"><strong>Mesh Profile</strong></a>, but your project is using old 'Mesh Profile'</li>
+</ul>
 <p><img alt="Updating Hair System Nodes" src="../../img/geo_nodes_hair/updating_hsys.jpg" />
-<em>You may update deformer, profile nodes and helper nodes separately using menu above.</em></p>
+<em>You may update deformer, profile, mask etc. nodes using menu above</em></p>
 <blockquote>
-<p><strong>Note</strong>: If bigger changes were deployed in new HT release, your last chance would be using 'Update Whole Hair System' - this will update all nodes, in all Hair Systems for all objects on scene. This may break the Hair System, since addon will try to recreate whole node tree structure from scratch</p>
+<p><strong>Note</strong>: If bigger changes were deployed in new HTool release, or your Hair System is not working correctly your last chance for fix is: <strong>Update Whole Hair System</strong> - this will update all nodes, in all Hair Systems for all objects on scene. Be warned though: add-on will try to recreate whole node tree structure from scratch, so this may now always work. <strong>Using individual node packs update (only Deformers, or only Masks etc.) method is usually safer</strong>.</p>
 </blockquote>
 <hr />
 <h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
