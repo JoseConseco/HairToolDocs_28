@@ -77,26 +77,6 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Generating Hair Geometry</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#hair-deformers">Hair Deformers</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#noise-deformer">Noise Deformer</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#curlswaves-deformer">Curls/Waves Deformer</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#trim">Trim</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#clumps">Clumps</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#twist">Twist</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#child-system">Child System</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#using-global-attributes">Using Global Attributes</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#curve-guide-setup">Curve Guide Setup</a>
-    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../texture_baking/">Baking</a>
@@ -140,81 +120,10 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="hair-systems">Hair Systems<a class="headerlink" href="#hair-systems" title="Permanent link">&para;</a></h2>
+<p><img alt="Hair System UI" src="../img/geo_nodes_hair/hair_system_nodal.jpg" /></p>
+<p>For Hair Generation use <a href="../main_workflows/hair_system/"><strong>Hair System</strong></a>, with <a href="../main_workflows/hair_system/#hair-profiles"><strong>Round Profile</strong></a> (no UV's)</p>
 <blockquote>
-<p><strong>Note</strong>: Only available for Blender 3.0*</p>
-</blockquote>
-<p><strong>Hair System</strong> tool can generate hair geometry in procedural and non destructive way. System is based on Blender Geometry Nodes, and it works by creating stack of hair deformers - similarly to Blender modifiers. Generated hair can be used for baking in Hair Tool baking scene. List of hair deformes:</p>
-<ul>
-<li><strong>Noise Deform</strong> - adds noise distortion to strands</li>
-<li><strong>Curls\Wavy</strong> - adds curls or wavy effect to hair strands</li>
-<li><strong>Clump</strong> - allow clumping hair strands around guide strands (only for child Hair System)</li>
-<li><strong>Twist</strong> - allow twisting strands around guide strands (only for child Hair System)</li>
-<li><strong>Trim</strong> - it will shorten strands roots and/or tips by random amount</li>
-</ul>
-<p><img alt="Texture baking panel" src="../img/geo_nodes_hair/hair_system_nodal.jpg" />
-<em>Various effects that can be achieved with procedural Hair Systems</em></p>
-<h3 id="hair-deformers">Hair Deformers<a class="headerlink" href="#hair-deformers" title="Permanent link">&para;</a></h3>
-<p>They allow to procedurally change chair look in non-destructive and in linear way (meaning can be stacked one after another in similar way than Blender modifiers can). Each hair deformer can be reordered and some can be influenced by previous Hair Systems if <a href="./#child-system">Set as Child</a> (eg. Clump or Twist deformer)</p>
-<h5 id="noise-deformer">Noise Deformer<a class="headerlink" href="#noise-deformer" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-  <source src="../img/geo_nodes_hair/noise_deformer.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>It will add random distortion to hair strands</em></p>
-<h5 id="curlswaves-deformer">Curls/Waves Deformer<a class="headerlink" href="#curlswaves-deformer" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-  <source src="../img/geo_nodes_hair/curls_deformer.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>You can get curly hair and wavy hair effect from this deformer</em></p>
-<h5 id="trim">Trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-  <source src="../img/geo_nodes_hair/trim_deformer.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Allows to randomize length of hair strands</em></p>
-<h5 id="clumps">Clumps<a class="headerlink" href="#clumps" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-  <source src="../img/geo_nodes_hair/clumps.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Clumps effect requires to set Hair System to be <a href="./#child-system">set as child</a></em></p>
-<h5 id="twist">Twist<a class="headerlink" href="#twist" title="Permanent link">&para;</a></h5>
-<video style="width:100%" controls>
-  <source src="../img/geo_nodes_hair/twist.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Twist effect requires to set Hair System to be <a href="./#child-system">set as child</a>. For best effect is is good idea to place it after Clump deformer</em></p>
-<h3 id="child-system">Child System<a class="headerlink" href="#child-system" title="Permanent link">&para;</a></h3>
-<p>Settings System as Child will allow you to use additional hair deformers effects: clumping or twist</p>
-<video style="width:100%" controls>
-  <source src="../img/geo_nodes_hair/set_as_child.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-<blockquote>
-<p><strong>Note</strong>: After using 'Set as Child' on current Hair System, it will be set as child of first sytem that is above in the stack.*</p>
-</blockquote>
-<h3 id="using-global-attributes">Using Global Attributes<a class="headerlink" href="#using-global-attributes" title="Permanent link">&para;</a></h3>
-<p>Some properties can use global value after clicking Lock icon. This will allow you to modify these values, for all Hair System at same time.</p>
-<video style="width:100%" controls>
-  <source src="../img/geo_nodes_hair/using_global_attributes.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>Locking Length attribute allow us to tweak straight and curly hair all at once</em></p>
-<blockquote>
-<p><strong>Note</strong>:This is especially important for 'Steps' attribute if using <a href="./#setting-child-system">set as child</a>. Without using same Steps value for both parent and child hair system, you will get unexpected results.</p>
-</blockquote>
-<h3 id="curve-guide-setup">Curve Guide Setup<a class="headerlink" href="#curve-guide-setup" title="Permanent link">&para;</a></h3>
-<p>Guide Curve can be used to deform the first Hair System, which will behave as its child. It allows to add some manual artistinc touch, to otherwise fully procedural Hair workflow.
-Any Curve object can be set as guide curve, that includes Curve objects generated by <a href="../main_workflows/hair_drawing">hair drawing</a> and <a href="../main_workflows/interactive_groom">interactive combing</a>.</p>
-<video style="width:100%" controls>
-  <source src="../img/geo_nodes_hair/guide_setup.webm" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<p><em>First we draw few hair strands on Plane object. Then we use drawn strands, as guide for first Hair System, which has Clump deformer</em></p>
-<blockquote>
-<p><strong>Note</strong>: Guide curve cannot have any bevel depth or profile object attached. 'Bind Guide Curve' button takes care of it automatically. Don't be suprised when your guide curve object looses its 'look'</p>
+<p><strong>Note</strong>: Available since Blender 3.0, new version in Hair Tool 2.4 requires blender 3.3 or above</p>
 </blockquote>
               
             </div>
