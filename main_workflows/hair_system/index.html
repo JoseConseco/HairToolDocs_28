@@ -137,6 +137,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#mesh-profile">Mesh Profile</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generate-attributes">Generate Attributes</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#simplify-strands">Simplify Strands</a>
     </li>
         </ul>
@@ -525,6 +527,16 @@ Your browser does not support the video tag.
 <p><strong>Note</strong>: Slice Mesh Profile is using boolean operation in background. It may fail on more complicated objects - e.g. when mesh has self intersections.</p>
 </blockquote>
 <p>UV's of mesh profile objects will be preserved when instanced on top of hair. Using multiple copies of same objects with different UVs is a good way to add some randomization to hair look.</p>
+<h5 id="generate-attributes">Generate Attributes<a class="headerlink" href="#generate-attributes" title="Permanent link">&para;</a></h5>
+<p>Generate extra attributes like:</p>
+<ul>
+<li><strong>Tangent</strong> - required for proper specular highlights (only if you use Hair Tool hair material)</li>
+<li><strong>Factor</strong> - black and white gradient along each strand length</li>
+<li><strong>Random</strong> - each haircard will get random grayscale color</li>
+<li><strong>Sample UV</strong> - plug in UV name that you want transfer from Source Surface mesh to strands (new in 2.41)</li>
+<li><strong>Sample Color</strong> - plug in vertex Color name that you want transfer from Source Surface mesh to strands (new in 2.41)</li>
+</ul>
+<p><img alt="Generate Attributes" src="../../img/geo_nodes_hair/generate_attributes.jpg" /></p>
 <h5 id="simplify-strands">Simplify Strands<a class="headerlink" href="#simplify-strands" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/simpilfy_strands.webm" type="video/mp4">
