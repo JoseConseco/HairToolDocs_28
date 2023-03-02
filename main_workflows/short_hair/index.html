@@ -60,6 +60,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#remeshing-modes">Remeshing Modes:</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#defining-uvs">Defining UVs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#manual-uv-assignment">Manual UV assignment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set-uvs-using-vertex-groups">Set UVs using Vertex Groups</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
     </li>
@@ -190,20 +196,31 @@ Diamonds topology, on the other hand, has visible repeating pattern and it may s
 <p><strong>Note 2</strong>: I did not test it, but using Dynotopo topology from sculpt mode may actually be nice way to get organic and controllable mesh</p>
 </blockquote>
 <h4 id="defining-uvs">Defining UVs<a class="headerlink" href="#defining-uvs" title="Permanent link">&para;</a></h4>
-<p>UV workflow for Short Hair is same as defining UVs for curves.</p>
+<p>UV workflow for Short Hair is similar to Curve UVs.</p>
 <ul>
 <li>Select Short Hair object</li>
 <li>open UV Image Editor and press ‘Hair UV’ button located in top header bar - on far right</li>
 <li>then draw UV boxes like it is shown in <a href="../../uv_material/#defining-uvs"><strong>Defining UVs</strong></a>.</li>
 <li>The only difference, compared to curves, is that UV mirroring is automatically enabled.</li>
 </ul>
-<p>Next step is to assign UV regions by using <a href="../../uv_material/#set-uv-region">Set UV Region</a>:</p>
+<p>Uv Region defined above can be distributed/assigned to hair-cards in two ways - using Vertex Groups as UV mask, or manually.</p>
+<h5 id="manual-uv-assignment">Manual UV assignment<a class="headerlink" href="#manual-uv-assignment" title="Permanent link">&para;</a></h5>
+<p>You can manually select mesh parts and assign uv regions to it <a href="../../uv_material/#set-uv-region">Set UV Region</a>:</p>
 <ul>
 <li>Select Short Hair object, and go into Edit Mode (using Tab key)</li>
 <li>Select edges for which you want to assign new UV regions</li>
 <li>Use Ctrl + Shift + H menu -&gt; <a href="../../uv_material/#set-uv-region">Set UV Region</a>, and pick UVs that you want to assign to selection.</li>
 <li>Short Hair Cards generated at these edges will receive new UVs.</li>
 </ul>
+<h5 id="set-uvs-using-vertex-groups">Set UVs using Vertex Groups<a class="headerlink" href="#set-uvs-using-vertex-groups" title="Permanent link">&para;</a></h5>
+<p>Semi-automatic way of assigning UVs using Vertex groups (access from right Sidebar -&gt; Hair Tool Tab -&gt; Short Hair panel)</p>
+<p><img alt="Short Hair Vert Group Setup" src="../../img/short_hair/short_hair_vg_mask.jpeg" />
+<em>We have [L]eft and [R]ight vertex groups. We can use these to assign different UV regions</em></p>
+<p><img alt="Short Hair Vert Group Setup" src="../../img/short_hair/short_hair_vg_mask_example.jpeg" />
+<em>With above setup, UV_1 region will be assigned to hair-cards on [L]eft, and UV_2 region on [R]ight</em></p>
+<blockquote>
+<p><strong>Note</strong>: First entry (Base UV) in vert Group layers is always used as 'Background' layer - meaning UV regions assigned to it, will be distributed on whole character body. Following vertex groups will cover this base layer, with theirs own UV regions.</p>
+</blockquote>
 <h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/short_hair/short_hair_params.mp4" type="video/mp4">
