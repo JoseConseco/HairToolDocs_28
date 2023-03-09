@@ -69,6 +69,14 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#coloring-strands">Coloring Strands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-sampled-vert-color">Using Sampled Vert Color</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-sampled-uvs">Using Sampled UV's</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#how-setup-uniform-hair-density">How setup uniform hair density?</a>
@@ -159,6 +167,7 @@ Your browser does not support the video tag.
 <li>easy to tweak with blender sculpting tools (or with poly modeling)</li>
 <li>haircards distribution based on source character mesh topology - you will automatically get denser hair in more important areas: head, hands  (but this can be con - depending on situation)</li>
 </ul>
+<p><img alt="Short Hair Setup" src="../../img/short_hair/short_hair_side_panel.jpeg" /></p>
 <p>The main cons:</p>
 <ul>
 <li>no easy way to control density - since density is based on source character mesh topology (you cant drive it with e.g. vertex group)</li>
@@ -169,9 +178,10 @@ Your browser does not support the video tag.
 </blockquote>
 <h4 id="how-to-use">How To use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Select your character. Lets assume it is named: <strong>Body</strong>
+<li>Select your character. Let's assume it is named: <strong>Body</strong>
 <img alt="Short Hair Setup" src="../../img/short_hair/short_hair_setup.jpg" /></li>
 <li>Use Ctrl+Shift+H menu -&gt; 'Setup Short Hair'</li>
+<li>Alternatively you can use: right sidebar (N key) -&gt; Hair Tool Tab -&gt; Short Hair panel -&gt; 'Setup Short Hair'</li>
 <li>Two new objects will be added: <strong>Body_short_hair</strong> (hair object) and <strong>Body_hair_guide</strong> (drawn as bounding box)</li>
 <li>Select hair guide object (bounding box) and go into sculpt mode</li>
 <li>that is it, you can now sculpt hair by sculpting guide mesh (polygonal modeling can be used too)</li>
@@ -295,12 +305,26 @@ Your browser does not support the video tag.
 </video>
 <p><em><strong>Noise</strong> - Helps to break the even look of haircards</em>
 &nbsp;</p>
-<video style="width:100%" controls autoplay loop>
+<h4 id="coloring-strands">Coloring Strands<a class="headerlink" href="#coloring-strands" title="Permanent link">&para;</a></h4>
+<p>Short Hair cards can be colored using vertex color or texture from character body. Both method require setting 'Sampled Object' input - from which we will pick color or/and uv data.</p>
+<h5 id="using-sampled-vert-color">Using Sampled Vert Color<a class="headerlink" href="#using-sampled-vert-color" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
 <source src="../../img/short_hair/short_hair_vert_col.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Vert Color</strong> - 'Standard' Vertex Colors won't behave correctly on Short Hair modifier unless you setup 'Vert Color' parameter with vertex color. It will help to properly transfer vert color from hair base mesh to generated haircards geometry</em>
-&nbsp;</p>
+<ul>
+<li><strong>Sampled Color</strong> - Enter vert color name from sampled base mesh (usually character object) to generate Vert Color layer named <strong>SampledCol</strong>  - it can be used to tint the hair color*
+&nbsp;</li>
+</ul>
+<h5 id="using-sampled-uvs">Using Sampled UV's<a class="headerlink" href="#using-sampled-uvs" title="Permanent link">&para;</a></h5>
+<video style="width:100%" controls>
+<source src="../../img/short_hair/short_hair_sampled_uv.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<ul>
+<li><strong>Sampled Color</strong> - Enter UV name from sampled base mesh (usually character object) to generate uv layer named <strong>SampledUV</strong>  - it can be used to tint the hair color*
+&nbsp;</li>
+</ul>
 <h4 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h4>
 <h5 id="how-setup-uniform-hair-density">How setup uniform hair density?<a class="headerlink" href="#how-setup-uniform-hair-density" title="Permanent link">&para;</a></h5>
 <p>You can use <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/remesh.html">remesh modifier</a> to make the base topology even. Generating Short Hair from that should give uniform look</p>
