@@ -59,7 +59,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How To use</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters:</a>
+    <li class="toctree-l2"><a class="reference internal" href="#shell-geometry-parameters">Shell Geometry Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shell-shader-parameters">Shell Shader Parameters</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#baking-shell-texture">Baking Shell Texture</a>
     </li>
@@ -170,7 +172,8 @@ Pros compared to <a href="../short_hair/">Short Hair</a> Modeling:
 <blockquote>
 <p><strong>Note</strong> To finalize Shell hair use <strong>Convert Shell Hair to Mesh</strong> from Hair Tool Ctrl+Shift+H menu. This will correctly tranfser UVs from modifier to mesh data</p>
 </blockquote>
-<h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<h4 id="shell-geometry-parameters">Shell Geometry Parameters<a class="headerlink" href="#shell-geometry-parameters" title="Permanent link">&para;</a></h4>
+<p>These parameters affect how Shell Geometry and Vertex color is Generated. In next section I show the shader parameters.</p>
 <video style="width:100%" controls autoplay loop>
 <source src="../../img/shell_hair/shell_count.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -199,16 +202,23 @@ Your browser does not support the video tag.
 <source src="../../img/shell_hair/use_fade.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Use Fade</strong> - make transition to masked shells softer</em>
+<p><em><strong>Use Placement Fade</strong> - make transition of placement mask softer</em>
 &nbsp;</p>
+<video style="width:100%" controls autoplay loop>
+<source src="../../img/shell_hair/mesh_border_fade.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em><strong>Mesh Border Fade</strong> - make transition to mesh border softer</em>
+&nbsp;</p>
+<h4 id="shell-shader-parameters">Shell Shader Parameters<a class="headerlink" href="#shell-shader-parameters" title="Permanent link">&para;</a></h4>
+<p>These parameters are affecting <strong>ShellHairMaterial</strong> material and do not affect generated shells geometry (or shell Vertex colors).
+You can edit these properties directly by editing <strong>ShellHairMaterial</strong> material in Blender 'Shader Editor'.</p>
+<p>It is up to user to <a href="./#how-to-export-shell-shader-to-game-engine">recreate these</a> in Game engine of choice (maybe I will create UE shader if there is demand for it).</p>
 <video style="width:100%" controls>
 <source src="../../img/shell_hair/shell_mat.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em><strong>Shell Material Section</strong> - you can tweak shell material parameters in here (or open Blenders 'Shader Editor') like: AO effect strength, strands width, density</em></p>
-<blockquote>
-<p><strong>Note 1</strong> These parameters are shader properties and do not affect generated shells geometry</p>
-</blockquote>
+<p><em><strong>Shell Material Section</strong> - here you can edit most common properties like: AO strength, strands width, density etc.</em></p>
 <p>&nbsp;</p>
 <h4 id="baking-shell-texture">Baking Shell Texture<a class="headerlink" href="#baking-shell-texture" title="Permanent link">&para;</a></h4>
 <p>If you do not like the default shell hair texture, you can create your own using HTool Shell Baking Scene. To open it:</p>
@@ -224,7 +234,7 @@ Your browser does not support the video tag.
 <p><em><strong>Shell Material Section</strong> - you can tweak shell material parameters in here (or open Blenders 'Shader Editor') like: AO effect strength, strands width, density</em></p>
 <h4 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h4>
 <h5 id="how-add-diffuse-color">How add diffuse color?<a class="headerlink" href="#how-add-diffuse-color" title="Permanent link">&para;</a></h5>
-<p>Open shell Hair material, and input diffuse texture to 'Overlay Color' input or to 'Base Color' input
+<p>Open <strong>ShellHairMaterial</strong> material, and input diffuse texture to 'Overlay Color' input or to 'Base Color' input
 <img alt="Shell Hair Material" src="../../img/shell_hair/shell_hair_change_color.jpeg" /></p>
 <h5 id="how-to-export-shell-shader-to-game-engine">How to export Shell Shader to game engine?<a class="headerlink" href="#how-to-export-shell-shader-to-game-engine" title="Permanent link">&para;</a></h5>
 <p>Right now there is no shader for Unreal or Unity, but it is not hard to recreate it using shell texture and shell mesh <strong>Gradient</strong> Vertex Color
