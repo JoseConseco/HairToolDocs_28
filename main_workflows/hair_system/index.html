@@ -380,8 +380,8 @@ User cases when you want to use Transfer Hair System:</p>
 <h3 id="general-operations">General Operations<a class="headerlink" href="#general-operations" title="Permanent link">&para;</a></h3>
 <p><img alt="General Operations" src="../../img/geo_nodes_hair/hsys_operations.jpeg" /></p>
 <ul>
-<li><strong>Remove Hair System</strong> - removes Hair System, Setup and Profile modifiers from object</li>
-<li><strong>Update All Hair System nodes</strong> - will update whole Hair System (including Profile and Setup modifiers) - useful updating Hair Tool</li>
+<li><strong>Remove whole Hair System</strong> - removes all Hair Systems, Setup and Profile modifiers from object</li>
+<li><strong>Update All Hair System nodes</strong> - will replace all Hair Systems (including Profile and Setup modifiers), with the newest version - useful after updating Hair Tool</li>
 <li><strong>Update Setup Node</strong> - will update Setup modifier only</li>
 <li><strong>Bake To Curves</strong> - will bake Hair System to curves (if possible)</li>
 <li><strong>Mesh from UV Holder</strong> - will bake Hair System uv regions/boxes to mesh(es). Can be used as <a href="./#mesh-profile">Mesh Profile</a></li>
@@ -391,7 +391,7 @@ User cases when you want to use Transfer Hair System:</p>
 <h3 id="strands-generator-and-filter">Strands Generator and Filter<a class="headerlink" href="#strands-generator-and-filter" title="Permanent link">&para;</a></h3>
 <p>After adding Hair System you will notice first slot in deformers stack is added automatically. It acts in binary way:</p>
 <h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
-<p>Generator - will generate strands at given resolution, density, length etc. with interpolation option (Parent Tag must be set). These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
+<p>Generator - will generate strands from Base Surface at given resolution, density, length etc. with interpolation option (Parent/Guide Tag must be set). These strands are affected by all subsequent deformers in <strong>current</strong> system stack</p>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/strands_gen.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -417,7 +417,7 @@ Your browser does not support the video tag.
   <source src="../../img/geo_nodes_hair/parent_setup.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
-<p><em>In video above we want set second Hair System as child of first one, using 'P_Tag'. Interpolation, clumping and other effects can be used now</em></p>
+<p><em>In video above tag first Hair system with <code>P_TAG</code>, and set it as parent of 'Child' Hair System. Interpolation, clumping and other child deformers can be used now</em></p>
 <h3 id="hair-interpolation">Hair Interpolation<a class="headerlink" href="#hair-interpolation" title="Permanent link">&para;</a></h3>
 <p>To enable hair interpolation, current Hair System has to have parent - see <a href="./#child-parent-setup"><strong>above</strong></a>.</p>
 <p>After that Toggle Interpolation button will be accessible in first deformer - <a href="./#strands-generator"><strong>Strands Generator</strong></a> - properties</p>
@@ -430,7 +430,7 @@ Your browser does not support the video tag.
 </blockquote>
 <hr />
 <h3 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
-<p>You can think of Tags as labels assigned to Hair System strands. With Tags you can set <strong>child-parent relations</strong> or modify <strong>filtered strands</strong> strands with deformers. Why don't we just use system name - rather than introducing new feature? The difference is you can assign multiple tags to same strand e.g.:</p>
+<p>You can think of Tags as labels assigned to Hair System strands. With Tags you can set <a href="./#child-parent-setup"><strong>child-parent relations</strong></a> or modify <a href="./#strands-filter"><strong>filtered strands</strong></a> with deformers. Why don't we just use system name - rather than introducing new feature? The difference is you can assign multiple tags to same strand e.g.:</p>
 <ul>
 <li>System A: <code>LONG</code> and <code>CURLY</code>.</li>
 <li>System B: <code>LONG</code></li>
@@ -438,12 +438,12 @@ Your browser does not support the video tag.
 <p>Now you can modify <code>LONG</code> tag without having to repeat same operations on system A and B twice.</p>
 <p>In addition, Tags can be assigned to subset of strands from within Hair System: you can use vertex group to select right half of hair strands and tag them as <code>CURLY</code>. Later you can modify only this tag or use it as parent.</p>
 <p><img alt="Hair System Tags" src="../../img/geo_nodes_hair/hair_system_Tags.jpg" />
-<em>Tags Used for Parenting (unlocks hair clumping, interpolation and twisting). Now 'First' Hair System can now follow <code>GUIDE</code> tag - assigned to separate HairCurves object</em></p>
+<em>In image above we assigned <code>A</code> tag to 'First' Hair System. Guide curves have <code>GUIDE</code> tag - assigned automatically</em></p>
 <p>You can assign Tag in two ways:</p>
 <ul>
 <li>by typing it in next to system name see <code>A</code> tag in image above. If not tag was assigned then <code>[TAG]</code> label is shown</li>
-<li>by using Assign <a href="./#hair-profiles"><strong>Tag Deformer</strong></a></li>
-<li>you can also assign tags to Hair System <strong>guide objects</strong> (new Curve Hair) from <a href="./#child-parent-setup"><strong>Tags Panel</strong></a></li>
+<li>by using <a href="./#assign-tag"><strong>Assign Tag</strong></a> deformer</li>
+<li>you can also assign tags to Hair System <strong>guide object</strong> (new Curve Hair) using <a href="./#child-parent-setup"><strong>Tags Panel</strong></a>. See Below</li>
 </ul>
 <h4 id="tags-panel">Tags Panel<a class="headerlink" href="#tags-panel" title="Permanent link">&para;</a></h4>
 <video style="width:100%" controls>
@@ -776,14 +776,16 @@ Your browser does not support the video tag.
 <p><em>Simplify Strands optimizes polycount of generated hair geometry, by assigning less points to shorter strands. This can easily cut polycount in half!</em></p>
 <hr />
 <h3 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h3>
-<p>After updating Hair Tool add-on, there may be changes in Hair System nodes, that you wish to transfer to your old blend file:</p>
+<p>After updating Hair Tool add-on, you may need to update your Hair Setup:</p>
 <ul>
-<li>for example HTool update for Blender 3.4 added better tilt support in <a href="./#mesh-profile"><strong>Mesh Profile</strong></a>, but your project is using old 'Mesh Profile'</li>
+<li>There is option to update Individual Hair System elements (Deformers, Masks, Profiles etc.) - located in Deformers dropdown menu</li>
+<li>Setup and Profile node (green and blue box on image below)</li>
+<li><strong>Update Whole Hair System</strong> located in <a href="./#general-operations">General Menu</a> - this will update all nodes, in all Hair Systems for all objects on scene. Be warned though: add-on will try to recreate whole node tree structure from scratch, so this may now always work.</li>
 </ul>
-<p><img alt="Updating Hair System Nodes" src="../../img/geo_nodes_hair/updating_hsys.jpg" />
+<p><img alt="Updating Hair System Nodes" src="../../img/geo_nodes_hair/update_nodes_hsys.jpeg" />
 <em>You may update deformer, profile, mask etc. nodes using menu above</em></p>
 <blockquote>
-<p><strong>Note</strong>: If bigger changes were deployed in new HTool release, or your Hair System is not working correctly your last chance for fix is: <strong>Update Whole Hair System</strong> - this will update all nodes, in all Hair Systems for all objects on scene. Be warned though: add-on will try to recreate whole node tree structure from scratch, so this may now always work. <strong>Using individual node packs update (only Deformers, or only Masks etc.) method is usually safer</strong>.</p>
+<p><strong>Note</strong>:: Using individual node packs update (only Deformers, or only Masks etc.) method is usually safer.</p>
 </blockquote>
 <hr />
 <h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
@@ -795,10 +797,9 @@ Your browser does not support the video tag.
 <hr />
 <h3 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h3>
 <h4 id="i-get-errors-in-console">I get Errors in console<a class="headerlink" href="#i-get-errors-in-console" title="Permanent link">&para;</a></h4>
-<p>If you open old blend file with old Hair Tool setup, after you updated Hair Tool, you may get some errors, and UI wont be drawn correctly. Use <strong>Update All Hair System Nodes</strong> to update whole Hair System Setup.
-<img alt="Update hair System" src="../../img/geo_nodes_hair/update_hsystem.jpeg" /></p>
+<p>If you open old blend file with old Hair Tool setup, after you updated Hair Tool, you may get some errors, and UI wont be drawn correctly. Use <strong>Update Whole Hair System</strong> located in <a href="./#general-operations">General Menu</a> - this will update all nodes, in all Hair Systems for all objects on scene</p>
 <blockquote>
-<p><strong>Warning</strong> this is potentially destructive operation, since whole node tree will be recreated from scratch. And updated nodes may behave slightly different compared to your old setup, so the resulting hair look may change</p>
+<p><strong>Warning</strong> this is potentially destructive operation, since whole node tree will be recreated from scratch. Updated nodes behavior may change, resulting in slightly different hair look</p>
 </blockquote>
 <h4 id="cannot-convert-hair-system">Cannot convert Hair System<a class="headerlink" href="#cannot-convert-hair-system" title="Permanent link">&para;</a></h4>
 <p>If you can't convert Hair System to mesh, then it may be that you assigned it to Hair Curve. Use <a href="./#transfer-hair-system"><strong>Transfer Hair System</strong></a> to move Hair System from Curve to Mesh. Then conversion to mesh Hair Cards will work</p>
