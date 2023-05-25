@@ -69,6 +69,16 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#general-operations">General Operations</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#strands-selection">Strands Selection</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#selection-groups">Selection Groups</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#selection-by-island">Selection By Island</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#helpers-unhide">Helpers (un)Hide</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#strands-generator-and-filter">Strands Generator and Filter</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#strands-generator">Strands Generator</a>
@@ -134,6 +144,14 @@
     <li class="toctree-l4"><a class="reference internal" href="#align-tilt-to-parent">Align Tilt to Parent</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#align-tilt-to-target">Align Tilt to Target</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#track-to">Track To:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#track-to-mesh">Track to Mesh</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#track-to-curve">Track to Curve</a>
     </li>
         </ul>
     </li>
@@ -388,6 +406,43 @@ User cases when you want to use Transfer Hair System:</p>
 <li><strong>UVs Menu</strong> - copy and paste UVs from/to Hair System</li>
 </ul>
 <hr />
+<h3 id="strands-selection">Strands Selection<a class="headerlink" href="#strands-selection" title="Permanent link">&para;</a></h3>
+<h4 id="selection-groups">Selection Groups<a class="headerlink" href="#selection-groups" title="Permanent link">&para;</a></h4>
+<p>With Selection Groups you can <strong>manage strands selection</strong> - assign selected strands to new (or existing) groups, and then re-select them later. This is useful when making hairstyle with split, as you can select and work on each sided of head independently.</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/selection_groups.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Selection Groups  - can be created using 'Assign New ID'. To re-select these strands later use 'Select Group' button and then picking hair strands using (Shift+) LMB</em></p>
+<blockquote>
+<p><strong>Note</strong>: If you want assign hair clump to existing group use <strong>Assign Id: [x]</strong> - where [x] is Active Group number</p>
+</blockquote>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/selection_group_from_island.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Selection Group From Island - it will create and assign hair strands selection groups based on island from which the strand originated</em></p>
+<h4 id="selection-by-island">Selection By Island<a class="headerlink" href="#selection-by-island" title="Permanent link">&para;</a></h4>
+<p>If your source surface (usually scalp), is split into multiple islands, you can select hair strands that are originating from given island. This is useful when you want to select hair strands that are on specific part of the head (like top of the head, or back of the head)</p>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/select_by_island.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Select Island - will select hair strands that are originating from picked mesh island</em></p>
+<blockquote>
+<p><strong>Note</strong>: instead of splitting the edges physically, you can use the <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html"><strong>Edges split</strong></a> modifier</p>
+</blockquote>
+<h4 id="helpers-unhide">Helpers (un)Hide<a class="headerlink" href="#helpers-unhide" title="Permanent link">&para;</a></h4>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/hsystem_un_hide.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p>You can also use Hotkeys:</p>
+<ul>
+<li>H key - will hide hair strands</li>
+<li>Alt+H - will reveal hidden strands</li>
+</ul>
+<hr />
 <h3 id="strands-generator-and-filter">Strands Generator and Filter<a class="headerlink" href="#strands-generator-and-filter" title="Permanent link">&para;</a></h3>
 <p>After adding Hair System you will notice first slot in deformers stack is added automatically. It acts in binary way:</p>
 <h4 id="strands-generator">Strands Generator<a class="headerlink" href="#strands-generator" title="Permanent link">&para;</a></h4>
@@ -421,6 +476,19 @@ Your browser does not support the video tag.
 <h3 id="hair-interpolation">Hair Interpolation<a class="headerlink" href="#hair-interpolation" title="Permanent link">&para;</a></h3>
 <p>To enable hair interpolation, current Hair System has to have parent - see <a href="./#child-parent-setup"><strong>above</strong></a>.</p>
 <p>After that Toggle Interpolation button will be accessible in first deformer - <a href="./#strands-generator"><strong>Strands Generator</strong></a> - properties</p>
+<p>Since Hair Tool 2.46 hair strands <strong>interpolation works in the area enveloped by loose mesh islands</strong> - meaning, if you want to make hairstyle with split: <br></p>
+<ul>
+<li>split scalp mesh in two, without separating to new object, (e.g. select edge loop, that divides the scalp in half - and press 'V' to rip it). Now child strands will not cross this edge.</li>
+</ul>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/parting_by_island.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>In video above I have cut mesh in 4 parts (visualised with 4 colors). Strands won't cross islands boundaries</em></p>
+<blockquote>
+<p><strong>Note</strong>: If you want to make hairstyle with split, you can use <a href="./#selection-by-island"><strong>Select By Island</strong></a> to select guide strands from specific island</p>
+<p><strong>Note</strong>: instead of splitting the edges physically, you can use the <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/edge_split.html"><strong>Edges split</strong></a> modifier</p>
+</blockquote>
 <h3 id="hair-system-copypaste">Hair System Copy/Paste<a class="headerlink" href="#hair-system-copypaste" title="Permanent link">&para;</a></h3>
 <p><img alt="Hair System UI" src="../../img/geo_nodes_hair/copy_paste_hsys_settings.jpg" />
 <em>You can copy settings from any hair system, and paste to target using entries above.</em></p>
@@ -565,6 +633,27 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 <p><em>Aligns tilt to target surface (hair normal will point outside of target surface)</em></p>
+<h5 id="track-to">Track To:<a class="headerlink" href="#track-to" title="Permanent link">&para;</a></h5>
+<h6 id="track-to-mesh">Track to Mesh<a class="headerlink" href="#track-to-mesh" title="Permanent link">&para;</a></h6>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/track_to_mesh.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Track to Mesh - Strands from closes mesh island will follow tracked mesh object. Use <code>Bind</code> button to prevets hair tips from 'sliding' on mesh surface</em></p>
+<blockquote>
+<p><strong>Note</strong>: Closest affected island is determined by Tracked object origin. Move it to change which island will be affected. After finding desired island, you can move tracked object in edit mode, so that affected strands won't change.</p>
+<p><strong>Note</strong>: If you want to 'Freeze' tracked points, use 'Bind Tracked Mesh' button. Now strands will follow point at which they were bound, rather than sliding around mesh surface.</p>
+</blockquote>
+<h6 id="track-to-curve">Track to Curve<a class="headerlink" href="#track-to-curve" title="Permanent link">&para;</a></h6>
+<video style="width:100%" controls>
+<source src="../../img/geo_nodes_hair/track_to_curve.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<p><em>Track to Curve - Strands from closes mesh island will follow tracked curve object. Use <code>Bind</code> button to prevets hair tips from 'sliding' on tracked surface surface</em></p>
+<blockquote>
+<p><strong>Note</strong>: Closest affected island is determined by Tracked object origin. Move it to change which island will be affected. After finding desired island, you can move tracked object in edit mode, so that affected strands won't change.</p>
+<p><strong>Note</strong>: If you want to 'Freeze' tracked points, use 'Bind Tracked Curve' button (this will convert 'old' curve to 'new' type). Now strands will follow point at which they were bound, rather than sliding around curve surface.</p>
+</blockquote>
 <h5 id="trim">Trim<a class="headerlink" href="#trim" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/trim.webm" type="video/mp4">
