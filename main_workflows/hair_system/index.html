@@ -286,13 +286,18 @@
 <p><strong>Note</strong>: Available since Blender 3.0, requires Blender 3.3 or above</p>
 </blockquote>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
-<p>Hair System will help you <strong>generate procedural hair-cards</strong> in non-destructive way, based on Blender Geometry Nodes.<br>
-In past, Hair System was used only in Hair Tool Baking scene, but now, after developing it further, it is going to replace Particle Hair <a href="../interactive_groom/">Interactive Grooming</a><br>
-It works as stack of hair generators (or filters), each of them build from its own sub-stack of modifiers (<a href="./#hair-deformers"><strong>Deformers</strong></a>), that you can put on top of each other and slowly build up complexity over time.<br>
-Hair Systems in stack can be linked together with usage of <a href="./#tags"><strong>Tags</strong></a> - this help to describe which Hair System is affecting which strands.</p>
+<p>Hair System will help you <strong>generate procedural hair-cards</strong> in non-destructive way, based on Blender Geometry Nodes.<br></p>
+<!-- In past, Hair System was used only in Hair Tool Baking scene, but now, after developing it further, it is going to replace Particle Hair [Interactive Grooming](../main_workflows/interactive_groom.md)<br> -->
+<p>Hair System is made from:</p>
+<ul>
+<li><a href="./#strands-generator-and-filter">Hair Generator (or Filter)</a>,</li>
+<li>followed by list (<a href="./#hair-deformers"><strong>Deformers</strong></a>), that you can put on top of each other and slowly build up complexity over time.<br>
+Hair Systems in stack can be linked together with usage of <a href="./#tags"><strong>Tags</strong></a> - this help to describe which Hair System is affecting which strands.</li>
+</ul>
+<p>Hair System is located in Right Sidebar → Hair Tool Tab → Hair System Panel. Click [+] to add Hair System to selected mesh or curve object.</p>
 <p><img alt="Hair System UI" src="../../img/geo_nodes_hair/hair_system_nodal.jpg" />
-<em>Hair System is located in Right Sidebar → Hair Tool Tab → Hair System Panel. Click [+] to add Hair System to selected mesh/curve</em></p>
-<p>Hair System can generate many kinds of <a href="./#hair-profiles"><strong>hair profiles</strong></a>, which makes it good for game hair creation.</p>
+ <em>On image above we have Two Hair Systems named: <code>Parent</code>, <code>Child</code>. You can see <code>Child</code> system is made from: Strand Generator, Noise, Clump, Set Radius etc. deformers. Whole system is guided by: HairCurve guide - second input at very top</em></p>
+<p>Strands generated with Hair Systems are then passed to <a href="./#hair-profiles"><strong>hair profile generation</strong></a> system, which convert these strands to hair-cards.</p>
 <hr />
 <h3 id="hair-setup">Hair Setup<a class="headerlink" href="#hair-setup" title="Permanent link">&para;</a></h3>
 <!-- ##### Creating Hair Systems -->
@@ -473,7 +478,7 @@ Your browser does not support the video tag.
 </blockquote>
 <hr />
 <h3 id="child-parent-setup">Child - Parent setup<a class="headerlink" href="#child-parent-setup" title="Permanent link">&para;</a></h3>
-<p>Tags can be used to setup child-parent relation between two Hair Systems. This unlocks: clumping, interpolation, curls, braids, twist and some other possibilities.</p>
+<p><a href="./#tags">Tags</a> can be used to setup child-parent relation between two Hair Systems. This unlocks: clumping, interpolation, curls, braids, twist and some other possibilities.</p>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/parent_setup.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -504,7 +509,7 @@ Your browser does not support the video tag.
 </blockquote>
 <hr />
 <h3 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h3>
-<p>You can think of Tags as labels assigned to Hair System strands. With Tags you can set <a href="./#child-parent-setup"><strong>child-parent relations</strong></a> or modify <a href="./#strands-filter"><strong>filtered strands</strong></a> with deformers. Why don't we just use system name - rather than introducing new feature? The difference is you can assign multiple tags to same strand e.g.:</p>
+<p>You can think of Tags as labels assigned to Hair System strands. With Tags you can set <a href="./#child-parent-setup"><strong>child-parent relations</strong></a> or modify <a href="./#strands-filter"><strong>filtered strands</strong></a> with <a href="./#hair-deformers">deformers</a>. Why don't we just use system name - rather than introducing new feature? The difference is you can assign multiple tags to same strand e.g.:</p>
 <ul>
 <li>System A: <code>LONG</code> and <code>CURLY</code>.</li>
 <li>System B: <code>LONG</code></li>
@@ -530,7 +535,7 @@ Your browser does not support the video tag.
 </blockquote>
 <hr />
 <h3 id="hair-deformers">Hair Deformers<a class="headerlink" href="#hair-deformers" title="Permanent link">&para;</a></h3>
-<p>They allow to procedurally change chair look in non-destructive and in linear way (meaning can be stacked one after another in similar way than Blender modifiers can). Each hair deformer can be reordered and some can be influenced by previous Hair Systems if <a href="./#child-parent-setup">Set as Child</a> (eg. Clump or Twist deformer)</p>
+<p>Deformers gives you ability change chair look - add noise to hair, make them curl, snap to surface etc. They are stacked one on top of each other in similar way than Blender modifiers. They can be reordered. Some deformers (e.g. clump, twist, braids) will only work, if Hair System, to which deformers belong to is <a href="./#child-parent-setup">Set as Child</a></p>
 <h5 id="braids-child">Braids (Child)<a class="headerlink" href="#braids-child" title="Permanent link">&para;</a></h5>
 <video style="width:100%" controls>
   <source src="../../img/geo_nodes_hair/braids_deformer.mp4" type="video/mp4">
@@ -796,13 +801,14 @@ Your browser does not support the video tag.
 </ul>
 <hr />
 <h3 id="hair-profiles">Hair Profiles<a class="headerlink" href="#hair-profiles" title="Permanent link">&para;</a></h3>
+<p>Hair Strands generated by Hair System, are then processed by Hair Profile system - it will add geometry to each strand, based on selected profile type. Most of these profiles types support UV mapping, so you can use textures to control hair look.</p>
 <video style="width:100%" controls>
 <source src="../../img/geo_nodes_hair/hair_profiles_list.webm" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 <p><em>Presentation of hair profiles available for Hair System</em></p>
 <ul>
-<li>No Profile - useful for new Curve Hair rendering (controlled in 'Curves' Panel in Cycles/Eevee Render Settings)</li>
+<li>No Profile - useful for build-in Blender curve Hair rendering (controlled in 'Curves' Panel in Cycles/Eevee Render Settings)</li>
 <li>Round Profile - used in Hair Tool baking setup</li>
 <li>Mesh Profile - replace hair strands with mesh (or collection of meshes) - e.g. you can instance feathers on hair</li>
 <li>Curve Profile - (with UV's) - any curve object can be used as custom hair profile</li>
